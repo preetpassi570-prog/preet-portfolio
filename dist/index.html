@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium 3D Data Analytics Portfolio</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" crossorigin href="/assets/index-JaXT7Ch3.css">
+</head>
+<body class="dark-theme">
+
+  <!-- Three.js Canvas for 3D Background -->
+  <canvas id="webgl-bg"></canvas>
+
+  <!-- Futuristic AI OS Loading Screen -->
+  <div id="loader-overlay" class="cyber-os-loader">
+    <!-- Animated background canvas for grid, particles, glow -->
+    <canvas id="loader-bg-canvas"></canvas>
+    <audio id="loading-sound" preload="auto"></audio>
+    <div class="loader-scanlines"></div>
+    
+    <!-- HUD Top Left -->
+    <div class="hud-top-left">
+      <span class="hud-label">AI STATUS</span>
+      <span class="hud-value neon-red-blink">ONLINE</span>
+    </div>
+    
+    <!-- HUD Top Right -->
+    <div class="hud-top-right">
+      <span class="hud-label">SYSTEM CORE</span>
+      <span class="hud-value">v3.0</span>
+    </div>
+
+    <!-- HUD Bottom Left -->
+    <div class="hud-bottom-left">
+      <span class="hud-label">SYSTEM LOG</span>
+      <span class="hud-value loader-status">INITIALIZING SECURE LINK...</span>
+    </div>
+
+    <!-- HUD Bottom Right -->
+    <div class="hud-bottom-right">
+      <span class="hud-label">HARDWARE STATS</span>
+      <span class="hud-value cyber-hardware-stats">CPU: 0% • GPU: STDBY • MEM: 32GB</span>
+    </div>
+
+    <!-- Centered Visual Core -->
+    <div class="loader-center-core">
+      <!-- Logo Container with Holographic Rings -->
+      <div class="loader-3d-container logo-float">
+        <canvas id="loader-canvas"></canvas>
+        <div class="holo-ring-outer"></div>
+        <div class="holo-ring-inner"></div>
+        <div class="holo-ring-mid"></div>
+      </div>
+      
+      <!-- Welcome Title -->
+      <div class="loader-title-container">
+        <h4 class="loader-welcome-sub">WELCOME TO</h4>
+        <h1 class="loader-welcome-main">PREET PASSI</h1>
+        <p class="loader-welcome-desc">DATA ANALYTICS • AI • AUTOMATION</p>
+      </div>
+
+      <!-- Wide Glowing Progress Bar -->
+      <div class="loader-progress-wrapper">
+        <div class="loader-progress-container">
+          <div class="loader-progress-bar">
+            <div class="loader-progress-fill" id="progress-fill">
+              <div class="progress-glow"></div>
+            </div>
+          </div>
+          <span class="loader-percentage" id="loader-perc">0%</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hud-footer-line">ESTABLISHING SECURE CONNECTION TO CORE DB...</div>
+  </div>
+
+  <!-- Main Website Container (Hidden during load) -->
+  <div id="app-container" style="opacity: 0; pointer-events: none;">
+    
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="nav-logo">
+        <span class="neon-text-red">DATA</span>ANALYST<span class="dot">.</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#home" class="active">HOME</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#certificates">CERTIFICATES</a>
+        <a href="#about">ABOUT ME</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+      <div class="nav-buttons">
+        <a href="images/Resume.pdf" download class="nav-cta-btn">
+          <i class="fa-solid fa-download"></i> Resume
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <div class="hero-welcome-tag">TURNING DATA INTO BUSINESS INSIGHTS</div>
+        
+        <h1 class="hero-main-title">
+          PREET<br>
+          <span class="gradient-text-passi">PASSI</span>
+        </h1>
+        
+        <h2 class="hero-subtitle">DATA ANALYTICS ENGINEER</h2>
+        
+        <p class="hero-desc">
+          I build intelligent data solutions using Python, SQL, Excel and Power BI, transforming raw business data into powerful insights, dashboards and automation systems.
+        </p>
+
+        <div class="hero-skills-container">
+          <span class="skill-badge"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="skill-badge"><i class="fa-solid fa-database"></i> SQL</span>
+          <span class="skill-badge"><i class="fa-solid fa-chart-simple"></i> Power BI</span>
+          <span class="skill-badge"><i class="fa-solid fa-file-excel"></i> Excel</span>
+          <span class="skill-badge"><i class="fa-solid fa-table"></i> Pandas & NumPy</span>
+          <span class="skill-badge"><i class="fa-solid fa-broom"></i> Data Cleaning</span>
+          <span class="skill-badge"><i class="fa-solid fa-chart-pie"></i> Data Visualization</span>
+        </div>
+        
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            <span>View Projects</span>
+            <div class="btn-shine"></div>
+          </a>
+          <a href="images/Resume.pdf" download class="btn btn-secondary btn-download">
+            <i class="fa-solid fa-download"></i> <span>Download Resume</span>
+          </a>
+        </div>
+
+        <!-- Premium Stat Cards inside Hero Content -->
+        <div class="hero-stats-grid">
+          <div class="hero-stat-card">
+            <div class="stat-card-value" style="font-size: 1.15rem;">🚀 Entry Level</div>
+            <div class="stat-card-label">Data Analyst</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-card-value">8+</div>
+            <div class="stat-card-label">Projects Completed</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-card-value">4+</div>
+            <div class="stat-card-label">Certificates Earned</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-card-value">Open</div>
+            <div class="stat-card-label">Available for Work</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Interactive 3D Hologram / Card in Hero -->
+      <div class="hero-visual">
+        <div class="hologram-container" id="hero-hologram">
+          <!-- 2D Canvas for local particle orbits and energy waves -->
+          <canvas id="hero-visual-canvas"></canvas>
+          <!-- Portrait image overlay -->
+          <div class="hero-portrait-wrapper">
+            <img src="/assets/preet-CviYjsO2.png" alt="Preet Passi" class="hero-portrait">
+          </div>
+        </div>
+      </div>
+
+      <!-- Minimal Scroll Indicator -->
+      <div class="scroll-explore">
+        <div class="scroll-arrow">↓</div>
+        <span class="scroll-text">Scroll to Explore</span>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+      <div class="section-header">
+        <h2 class="section-title"><span class="neon-text-red">//</span> PROJECTS SHOWCASE</h2>
+        <p class="section-subtitle">A curated collection of data analysis, database engineering, and machine learning models.</p>
+      </div>
+
+      <!-- Project Filter Tabs -->
+      <div class="tabs-container">
+        <button class="tab-btn active" data-tab="all">All Projects</button>
+        <button class="tab-btn" data-tab="excel"><i class="fa-regular fa-file-excel"></i> Excel</button>
+        <button class="tab-btn" data-tab="sql"><i class="fa-solid fa-server"></i> SQL</button>
+        <button class="tab-btn" data-tab="python"><i class="fa-brands fa-python"></i> Python</button>
+        <button class="tab-btn" data-tab="powerbi"><i class="fa-solid fa-chart-pie"></i> Power BI</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projects-grid">
+        <!-- Excel Projects -->
+        <div class="project-card tilt-card" data-category="excel" id="proj-excel">
+          <div class="card-glow"></div>
+          <div class="project-header">
+            <span class="project-icon"><i class="fa-regular fa-file-excel"></i></span>
+            <span class="project-tag">Excel</span>
+          </div>
+          <h3 class="project-title">Advanced Sales Forecasting & AI Dashboard</h3>
+          <p class="project-description">
+            A complex analytical workbook featuring predictive modeling, cohort analysis, and automated reports driven by Excel functions & AI-powered forecasting modules.
+          </p>
+          <div class="project-tech-stack">
+            <span>Power Query</span>
+            <span>Pivot Tables</span>
+            <span>VBA/Macros</span>
+            <span>AI Forecasting</span>
+          </div>
+          <div class="project-links" style="display: flex; width: 100%;">
+            <a href="https://github.com/preetpassi570-prog/Excel-Sales-Dashboard.git" target="_blank" class="project-link-btn github-link" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-brands fa-github"></i> Project Link</a>
+          </div>
+        </div>
+
+        <!-- SQL Projects -->
+        <div class="project-card tilt-card" data-category="sql" id="proj-sql-ecommerce">
+          <div class="card-glow"></div>
+          <div class="project-header">
+            <span class="project-icon"><i class="fa-solid fa-database"></i></span>
+            <span class="project-tag">SQL</span>
+          </div>
+          <h3 class="project-title">E-commerce Customer Retention Database</h3>
+          <p class="project-description">
+            Designed relational databases, wrote complex CTE queries, optimization procedures, and transactional schemas to track and improve retail customer retention metrics.
+          </p>
+          <div class="project-tech-stack">
+            <span>PostgreSQL</span>
+            <span>CTEs & Windows</span>
+            <span>DB Normalization</span>
+            <span>Indexes</span>
+          </div>
+          <div class="project-links" style="display: flex; width: 100%;">
+            <a href="https://github.com/preetpassi570-prog/SQL-Advanced-E-Commerce-Sales-Analysis.git" target="_blank" class="project-link-btn github-link" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-brands fa-github"></i> Project Link</a>
+          </div>
+        </div>
+
+        <div class="project-card tilt-card" data-category="sql" id="proj-sql-healthcare">
+          <div class="card-glow"></div>
+          <div class="project-header">
+            <span class="project-icon"><i class="fa-solid fa-server"></i></span>
+            <span class="project-tag">SQL</span>
+          </div>
+          <h3 class="project-title">Healthcare Operations Cohort Analysis</h3>
+          <p class="project-description">
+            Processed public medical records using analytical SQL. Conducted patient flow optimization and clinical cohort trends using window functions and query optimization.
+          </p>
+          <div class="project-tech-stack">
+            <span>MySQL</span>
+            <span>Stored Procedures</span>
+            <span>Window Functions</span>
+            <span>Joins & Views</span>
+          </div>
+          <div class="project-links" style="display: flex; width: 100%;">
+            <a href="https://github.com/preetpassi570-prog/SQL-Basics-E-Commerce-Sales-Analysis.git" target="_blank" class="project-link-btn github-link" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-brands fa-github"></i> Project Link</a>
+          </div>
+        </div>
+
+        <!-- Python Projects -->
+        <div class="project-card tilt-card" data-category="python" id="proj-python-streamlit">
+          <div class="card-glow"></div>
+          <div class="project-header">
+            <span class="project-icon"><i class="fa-brands fa-python"></i></span>
+            <span class="project-tag">Python</span>
+          </div>
+          <h3 class="project-title">Interactive Cloud-Deployed Financial Dashboard</h3>
+          <p class="project-description">
+            A comprehensive, cloud-deployed dash dashboard showing real-time market tracker, financial indicators, and interactive visuals built using Plotly.
+          </p>
+          <div class="project-tech-stack">
+            <span>Dash / Plotly</span>
+            <span>Pandas</span>
+            <span>APIs</span>
+            <span>Render / Heroku</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/preetpassi570-prog/Customer-Risk-Stratification-App.git" target="_blank" class="project-link-btn github-link"><i class="fa-brands fa-github"></i> Code</a>
+            <a href="https://customer-risk-dashboard.streamlit.app/" target="_blank" class="project-link-btn live-link"><i class="fa-solid fa-rocket"></i> Live App</a>
+          </div>
+        </div>
+
+        <div class="project-card tilt-card" data-category="python" id="proj-python-churn">
+          <div class="card-glow"></div>
+          <div class="project-header">
+            <span class="project-icon"><i class="fa-solid fa-brain"></i></span>
+            <span class="project-tag">Python</span>
+          </div>
+          <h3 class="project-title">Customer Churn Prediction Engine</h3>
+          <p class="project-description">
+            Engineered a Scikit-Learn machine learning pipeline to classify and predict customer churn patterns. Achieved 91% accuracy with hyperparameter tuning.
+          </p>
+          <div class="project-tech-stack">
+            <span>Scikit-Learn</span>
+            <span>Pandas / NumPy</span>
+            <span>Matplotlib</span>
+            <span>Feature Eng</span>
+          </div>
+          <div class="project-links" style="display: flex; width: 100%;">
+            <a href="https://github.com/preetpassi570-prog/E-Commerce-Sales-Analysis-Python.git" target="_blank" class="project-link-btn github-link" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-brands fa-github"></i> Project Link</a>
+          </div>
+        </div>
+
+        <!-- Power BI Projects -->
+        <div class="project-card tilt-card" data-category="powerbi" id="proj-pbi-sales">
+          <div class="card-glow"></div>
+          <div class="project-header">
+            <span class="project-icon"><i class="fa-solid fa-chart-line"></i></span>
+            <span class="project-tag">Power BI</span>
+          </div>
+          <h3 class="project-title">Executive Revenue & Sales Dashboard</h3>
+          <p class="project-description">
+            An executive dashboard featuring sales analytics, regional performance tracking, and profit margin analysis with full interactive drill-down reports.
+          </p>
+          <div class="project-tech-stack">
+            <span>DAX</span>
+            <span>Data Modeling</span>
+            <span>Power Query</span>
+            <span>KPI Cards</span>
+          </div>
+          <div class="project-links" style="display: flex; width: 100%;">
+            <a href="https://github.com/preetpassi570-prog/powerbi-financial-performance-dashboard.git" target="_blank" class="project-link-btn github-link" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-brands fa-github"></i> Project Link</a>
+          </div>
+        </div>
+
+        <div class="project-card tilt-card" data-category="powerbi" id="proj-pbi-supply">
+          <div class="card-glow"></div>
+          <div class="project-header">
+            <span class="project-icon"><i class="fa-solid fa-truck-ramp-box"></i></span>
+            <span class="project-tag">Power BI</span>
+          </div>
+          <h3 class="project-title">Supply Chain Logistics & Operations Tracker</h3>
+          <p class="project-description">
+            A metrics tracker reflecting delivery schedules, warehousing costs, transit times, and bottlenecks, resulting in a 12% operational efficiency gain.
+          </p>
+          <div class="project-tech-stack">
+            <span>DAX</span>
+            <span>Time Intelligence</span>
+            <span>Geographical Maps</span>
+            <span>Data Models</span>
+          </div>
+          <div class="project-links" style="display: flex; width: 100%;">
+            <a href="https://github.com/preetpassi570-prog/powerbi-customer-insights-dashboard.git" target="_blank" class="project-link-btn github-link" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-brands fa-github"></i> Project Link</a>
+          </div>
+        </div>
+
+        <div class="project-card tilt-card" data-category="powerbi" id="proj-pbi-hr">
+          <div class="card-glow"></div>
+          <div class="project-header">
+            <span class="project-icon"><i class="fa-solid fa-users-gear"></i></span>
+            <span class="project-tag">Power BI</span>
+          </div>
+          <h3 class="project-title">HR Talent Acquisition & Performance Analytics</h3>
+          <p class="project-description">
+            A comprehensive talent intelligence tracker analyzing employee retention rates, recruitment funnels, and performance appraisals across multiple departments.
+          </p>
+          <div class="project-tech-stack">
+            <span>DAX</span>
+            <span>Drill-Downs</span>
+            <span>Row-Level Security</span>
+            <span>HR Metrics</span>
+          </div>
+          <div class="project-links" style="display: flex; width: 100%;">
+            <a href="https://github.com/preetpassi570-prog/powerbi-sales-customer-analytics-dashboard.git" target="_blank" class="project-link-btn github-link" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-brands fa-github"></i> Project Link</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section certificates-section">
+      <div class="section-header">
+        <h2 class="section-title"><span class="neon-text-red">//</span> PROFESSIONAL CREDENTIALS</h2>
+        <p class="section-subtitle">Industry-recognized certifications validated by TuteDude.</p>
+      </div>
+
+      <div class="certificates-grid">
+        <!-- Cert 1 -->
+        <div class="cert-card tilt-card" data-course="DATA ANALYTICS">
+          <div class="card-glow"></div>
+          <div class="cert-badge"><i class="fa-solid fa-award"></i></div>
+          <h3 class="cert-title">Data Analytics</h3>
+          <p class="cert-issuer">TuteDude Certified</p>
+          <p class="cert-desc">Covers advanced statistical computation, Python libraries (Pandas, Numpy), database design with SQL, and data visualization strategies.</p>
+          <div class="cert-footer">
+            <span class="cert-date">Verified</span>
+            <a href="images/Data Analytics Certificate.pdf" target="_blank" class="cert-view-btn" style="text-decoration: none;"><i class="fa-solid fa-file-pdf"></i> View Certificate</a>
+          </div>
+        </div>
+
+        <!-- Cert 2 -->
+        <div class="cert-card tilt-card" data-course="ADVANCED EXCEL WITH AI">
+          <div class="card-glow"></div>
+          <div class="cert-badge"><i class="fa-solid fa-calculator"></i></div>
+          <h3 class="cert-title">Advanced Excel with AI</h3>
+          <p class="cert-issuer">TuteDude Certified</p>
+          <p class="cert-desc">Focuses on complex data modeling, automation with VBA, nested logic operations, dynamic charts, and integration of AI modeling in spreadsheets.</p>
+          <div class="cert-footer">
+            <span class="cert-date">Verified</span>
+            <a href="images/Advanced Excel Certificate.pdf" target="_blank" class="cert-view-btn" style="text-decoration: none;"><i class="fa-solid fa-file-pdf"></i> View Certificate</a>
+          </div>
+        </div>
+
+        <!-- Cert 3 -->
+        <div class="cert-card tilt-card" data-course="DIGITAL MARKETING">
+          <div class="card-glow"></div>
+          <div class="cert-badge"><i class="fa-solid fa-bullseye"></i></div>
+          <h3 class="cert-title">Digital Marketing</h3>
+          <p class="cert-issuer">TuteDude Certified</p>
+          <p class="cert-desc">Explores search engine optimization (SEO), data-driven campaign analytics, conversion rate optimization (CRO), and digital branding strategies.</p>
+          <div class="cert-footer">
+            <span class="cert-date">Verified</span>
+            <a href="images/Digital Marketing Certificate.pdf" target="_blank" class="cert-view-btn" style="text-decoration: none;"><i class="fa-solid fa-file-pdf"></i> View Certificate</a>
+          </div>
+        </div>
+
+        <!-- Cert 4 -->
+        <div class="cert-card tilt-card" data-course="FINANCIAL MODELING AND VALUATION (FMV)">
+          <div class="card-glow"></div>
+          <div class="cert-badge"><i class="fa-solid fa-chart-column"></i></div>
+          <h3 class="cert-title">Financial Modeling & Valuation (FMV)</h3>
+          <p class="cert-issuer">TuteDude Certified</p>
+          <p class="cert-desc">Covers corporate valuation models, discounted cash flow (DCF) analysis, financial projections, sensitivity tables, and investment evaluation.</p>
+          <div class="cert-footer">
+            <span class="cert-date">Verified</span>
+            <a href="images/Financial Modeling And Valuatoin Certificate.pdf" target="_blank" class="cert-view-btn" style="text-decoration: none;"><i class="fa-solid fa-file-pdf"></i> View Certificate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+      <div class="about-container-wrapper">
+        
+        <!-- Two Column Main Layout -->
+        <div class="about-main-grid">
+          
+          <!-- LEFT SIDE: Text and Details -->
+          <div class="about-left-col">
+            <div class="about-welcome-tag">ABOUT ME</div>
+            <h2 class="about-main-title">Turning Data<br>Into Decisions</h2>
+            
+            <div class="about-desc-container">
+              <p>
+                I am an Entry Level Data Analyst passionate about transforming raw data into meaningful insights. I have completed multiple hands-on projects using Python, SQL, Excel, and Power BI. I enjoy cleaning, analyzing, and visualizing data to solve real-world business problems.
+              </p>
+              <p>
+                My technical skills include Python with NumPy, Pandas, Matplotlib, and Seaborn for data analysis and visualization, SQL for database management, Excel for data processing, and Power BI for creating interactive dashboards. I am continuously improving my analytical and problem-solving skills by building practical projects.
+              </p>
+            </div>
+          </div>
+          
+          <!-- RIGHT SIDE: Premium Profile Card -->
+          <div class="about-right-col">
+            <div class="about-profile-card">
+              <div class="profile-card-glow"></div>
+              
+              <div class="profile-card-header">
+                <div class="profile-avatar-circle">
+                  <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+                <div class="profile-meta">
+                  <h3 class="profile-name">Preet Passi</h3>
+                  <p class="profile-role">Data Analytics Engineer</p>
+                  <p class="profile-loc" style="color: var(--text-secondary); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px;">🚀 Entry Level Data Analyst</p>
+                  <p class="profile-loc" style="margin-bottom: 5px;"><i class="fa-solid fa-location-dot"></i> India</p>
+                  <p class="profile-loc" style="color: var(--accent-red); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px;">🟢 Open to Work</p>
+                  <p class="profile-loc" style="color: var(--text-muted); font-size: 0.75rem;">📚 Continuous Learning</p>
+                </div>
+              </div>
+              
+              <div class="profile-stats-list">
+                <div class="profile-stat-item">
+                  <div class="stat-item-icon"><i class="fa-solid fa-briefcase"></i></div>
+                  <div class="stat-item-details">
+                    <span class="stat-item-value">🚀 Entry Level</span>
+                    <span class="stat-item-label">Career Level</span>
+                  </div>
+                </div>
+                
+                <div class="profile-stat-item">
+                  <div class="stat-item-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                  <div class="stat-item-details">
+                    <span class="stat-item-value">8+</span>
+                    <span class="stat-item-label">Projects Completed</span>
+                  </div>
+                </div>
+                
+                <div class="profile-stat-item">
+                  <div class="stat-item-icon"><i class="fa-solid fa-award"></i></div>
+                  <div class="stat-item-details">
+                    <span class="stat-item-value">4+</span>
+                    <span class="stat-item-label">Certificates Earned</span>
+                  </div>
+                </div>
+                
+                <div class="profile-stat-item">
+                  <div class="stat-item-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                  <div class="stat-item-details">
+                    <span class="stat-item-value">100%</span>
+                    <span class="stat-item-label">Dedication</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Core Expertise Skill Cards Grid -->
+        <div class="about-expertise-section">
+          <h3 class="about-sub-section-title">// CORE EXPERTISE</h3>
+          
+          <div class="about-skills-grid">
+            <div class="about-skill-card">
+              <div class="skill-card-glow"></div>
+              <i class="fa-brands fa-python about-skill-icon"></i>
+              <h4 class="about-skill-title">Python</h4>
+            </div>
+            
+            <div class="about-skill-card">
+              <div class="skill-card-glow"></div>
+              <i class="fa-solid fa-database about-skill-icon"></i>
+              <h4 class="about-skill-title">SQL</h4>
+            </div>
+            
+            <div class="about-skill-card">
+              <div class="skill-card-glow"></div>
+              <i class="fa-solid fa-file-excel about-skill-icon"></i>
+              <h4 class="about-skill-title">Microsoft Excel</h4>
+            </div>
+            
+            <div class="about-skill-card">
+              <div class="skill-card-glow"></div>
+              <i class="fa-solid fa-chart-simple about-skill-icon"></i>
+              <h4 class="about-skill-title">Power BI</h4>
+            </div>
+            
+            <div class="about-skill-card">
+              <div class="skill-card-glow"></div>
+              <i class="fa-solid fa-table about-skill-icon"></i>
+              <h4 class="about-skill-title">Pandas</h4>
+            </div>
+            
+            <div class="about-skill-card">
+              <div class="skill-card-glow"></div>
+              <i class="fa-solid fa-calculator about-skill-icon"></i>
+              <h4 class="about-skill-title">NumPy</h4>
+            </div>
+            
+            <div class="about-skill-card">
+              <div class="skill-card-glow"></div>
+              <i class="fa-solid fa-chart-line about-skill-icon"></i>
+              <h4 class="about-skill-title">Matplotlib</h4>
+            </div>
+            
+            <div class="about-skill-card">
+              <div class="skill-card-glow"></div>
+              <i class="fa-solid fa-chart-area about-skill-icon"></i>
+              <h4 class="about-skill-title">Seaborn</h4>
+            </div>
+
+            <div class="about-skill-card">
+              <div class="skill-card-glow"></div>
+              <i class="fa-solid fa-broom about-skill-icon"></i>
+              <h4 class="about-skill-title">Data Cleaning</h4>
+            </div>
+
+            <div class="about-skill-card">
+              <div class="skill-card-glow"></div>
+              <i class="fa-solid fa-magnifying-glass-chart about-skill-icon"></i>
+              <h4 class="about-skill-title">Data Analysis</h4>
+            </div>
+
+            <div class="about-skill-card">
+              <div class="skill-card-glow"></div>
+              <i class="fa-solid fa-eye about-skill-icon"></i>
+              <h4 class="about-skill-title">Data Visualization</h4>
+            </div>
+
+            <div class="about-skill-card">
+              <div class="skill-card-glow"></div>
+              <i class="fa-solid fa-lightbulb about-skill-icon"></i>
+              <h4 class="about-skill-title">Business Intelligence</h4>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Timeline Section -->
+        <div class="about-journey-section">
+          <h3 class="about-sub-section-title">// MY JOURNEY</h3>
+          
+          <div class="journey-timeline">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-item">
+              <div class="timeline-circle"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Phase 1</span>
+                <h4 class="timeline-title">Started Learning Data Analytics</h4>
+                <p class="timeline-desc">Acquired foundational understanding of statistical principles, data structuring, and visualization analytics systems.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-circle"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Phase 2</span>
+                <h4 class="timeline-title">Learned Python</h4>
+                <p class="timeline-desc">Mastered OOP, Pandas, Numpy, Matplotlib, and scripting protocols to build automated pipelines and models.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-circle"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Phase 3</span>
+                <h4 class="timeline-title">Mastered SQL</h4>
+                <p class="timeline-desc">Developed proficiency in writing optimized relational queries, triggers, aggregates, and database design structures.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-circle"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Phase 4</span>
+                <h4 class="timeline-title">Created Dashboards</h4>
+                <p class="timeline-desc">Designed interactive, high-fidelity Power BI and Excel dashboards with dynamic tracking visualizations and KPI cards.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-circle"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Phase 5</span>
+                <h4 class="timeline-title">Data Cleaning & Manipulation</h4>
+                <p class="timeline-desc">Applied Pandas and NumPy methodologies to clean, filter, and structure complex messy datasets for reporting.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-circle"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Phase 6</span>
+                <h4 class="timeline-title">Portfolio Projects</h4>
+                <p class="timeline-desc">Built and deployed professional, end-to-end data analytics and automation projects showcase.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+      <div class="contact-container-wrapper">
+        
+        <div class="contact-header">
+          <span class="contact-welcome-tag">GET IN TOUCH</span>
+          <h2 class="contact-main-title">Let's Build Something<br>Amazing Together</h2>
+          <p class="contact-subtitle">
+            I'm currently open to internships, freelance work, collaborations, and full-time Data Analytics opportunities. Feel free to send me a message.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- LEFT SIDE: Contact Cards and Social Links -->
+          <div class="contact-left-col">
+            <div class="contact-info-cards">
+              
+              <div class="contact-info-card">
+                <div class="info-card-glow"></div>
+                <div class="info-card-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="info-card-details">
+                  <span class="info-card-label">Email</span>
+                  <a href="mailto:preetpassi570@gmail.com" class="info-card-value">preetpassi570@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="info-card-glow"></div>
+                <div class="info-card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="info-card-details">
+                  <span class="info-card-label">Status</span>
+                  <span class="info-card-value status-value">
+                    <span class="online-indicator"></span> Open to Work
+                  </span>
+                </div>
+              </div>
+
+              <a href="https://www.google.com/maps?q=28.730778,77.174722" target="_blank" rel="noopener noreferrer" class="contact-info-card-link" aria-label="Open Delhi, India location on Google Maps">
+                <div class="contact-info-card">
+                  <div class="info-card-glow"></div>
+                  <div class="info-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+                  <div class="info-card-details">
+                    <span class="info-card-label">Location</span>
+                    <span class="info-card-value">Delhi, India</span>
+                  </div>
+                </div>
+              </a>
+
+            </div>
+
+            <p class="contact-pitch">
+              Whether you have a query, want to discuss a potential project, or just want to connect, feel free to drop a message! I'm always excited to explore new challenges and apply analytical insights to real-world problems.
+            </p>
+
+            <div class="contact-social-icons">
+              <a href="https://github.com/preetpassi570-prog" target="_blank" title="GitHub" aria-label="Connect on GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com/in/preet-passi-a72049321" target="_blank" title="LinkedIn" aria-label="Connect on LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/preet_passii/?hl=en" target="_blank" title="Instagram" aria-label="Connect on Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://wa.me/919315971839" target="_blank" title="WhatsApp" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <!-- RIGHT SIDE: Contact Form -->
+          <div class="contact-right-col">
+            <form id="contact-form" class="contact-glass-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+              <input type="hidden" name="access_key" value="92bbefd2-9f1e-48f2-a477-6cb4fd851470">
+              
+              <div class="form-group">
+                <label for="form-name" class="form-label">Full Name</label>
+                <div class="input-wrapper">
+                  <input type="text" id="form-name" name="name" class="form-input" placeholder="Your name" required>
+                  <span class="input-glow"></span>
+                </div>
+                <span class="error-message" id="error-name">Name is required</span>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email" class="form-label">Email Address</label>
+                <div class="input-wrapper">
+                  <input type="email" id="form-email" name="email" class="form-input" placeholder="name@example.com" required>
+                  <span class="input-glow"></span>
+                </div>
+                <span class="error-message" id="error-email">Please enter a valid email address</span>
+              </div>
+
+              <div class="form-group">
+                <label for="form-phone" class="form-label">Phone Number</label>
+                <div class="input-wrapper">
+                  <input type="tel" id="form-phone" name="phone" class="form-input" placeholder="+91 Enter your phone number" required>
+                  <span class="input-glow"></span>
+                </div>
+                <span class="error-message" id="error-phone">Please enter a valid phone number</span>
+              </div>
+
+              <div class="form-group">
+                <label for="form-message" class="form-label">Message</label>
+                <div class="input-wrapper">
+                  <textarea id="form-message" name="message" class="form-input textarea-input" placeholder="Write your message here..." rows="5" required></textarea>
+                  <span class="input-glow"></span>
+                </div>
+                <span class="error-message" id="error-message">Message is required</span>
+              </div>
+
+              <button type="submit" id="form-submit-btn" class="btn btn-primary form-submit-btn">
+                <span class="btn-text">Send Message</span>
+                <span class="spinner-hidden" id="form-spinner"></span>
+                <div class="btn-shine"></div>
+              </button>
+
+              <p class="reply-disclaimer">I usually reply within 24 hours.</p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Success/Error Toast Notification -->
+    <div id="contact-toast" class="toast-hidden">
+      <div class="toast-content">
+        <span class="toast-icon" id="toast-icon"></span>
+        <div class="toast-details">
+          <h4 class="toast-title" id="toast-title">Message Sent Successfully!</h4>
+          <p class="toast-desc" id="toast-desc">Thank you for contacting me. I'll reply as soon as possible.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p class="footer-line footer-line-main">&copy; 2026 <span class="footer-name">Preet Passi</span>. All Rights Reserved.</p>
+        <p class="footer-line footer-line-sub">Designed &amp; Developed by <span class="footer-name">Preet Passi</span></p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- FLOATING AI ASSISTANT WIDGET -->
+  <div id="ai-widget-container">
+    <div id="ai-floating-trigger" class="pulse-animation" aria-label="Open AI assistant">
+      <div class="ai-badge" aria-label="AI">AI</div>
+    </div>
+
+    <!-- AI Chat Window -->
+    <div id="ai-chat-window" class="chat-closed">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar-status">
+            <i class="fa-solid fa-circle-nodes pulse-glow-red"></i>
+          </div>
+          <div>
+            <h4 class="chat-bot-name">Assistense</h4>
+            <span class="chat-bot-sub">Conversational AI • English & Hinglish</span>
+          </div>
+        </div>
+        <button id="close-chat-btn" class="chat-close-btn">&times;</button>
+      </div>
+
+      <!-- Waveform representation of speaking -->
+      <div id="voice-waveform" class="waveform-hidden">
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <span class="wave-text">AI is speaking...</span>
+      </div>
+
+      <div class="chat-messages" id="chat-messages-area">
+        <!-- Messages dynamically inserted here -->
+      </div>
+
+
+
+      <div class="chat-input-area">
+        <input type="text" id="chat-user-input" placeholder="Ask about SQL, Excel, Python, Certificates..." autocomplete="off">
+        <button id="chat-voice-toggle" title="Toggle AI Audio Output" class="voice-btn-inactive">
+          <i class="fa-solid fa-volume-xmark"></i>
+        </button>
+        <button id="chat-send-btn" class="send-btn">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certificate Lightbox Overlay -->
+  <div id="cert-lightbox" class="lightbox-hidden">
+    <div class="lightbox-content">
+      <span class="lightbox-close" id="lightbox-close-btn">&times;</span>
+      <div class="lightbox-cert-frame">
+        <div class="certificate-mock-glow"></div>
+        <div class="certificate-mock">
+          <div class="cert-mock-border">
+            <div class="cert-mock-content">
+              <div class="cert-mock-header">
+                <h2>TUTEDUDE</h2>
+                <p>CERTIFICATE OF ACHIEVEMENT</p>
+              </div>
+              <div class="cert-mock-body">
+                <p class="cert-mock-award">This is proudly presented to</p>
+                <h1 class="cert-mock-recipient">PREET</h1>
+                <p class="cert-mock-text">for successfully completing the industry-aligned specialization in</p>
+                <h3 class="cert-mock-course" id="lightbox-course-name">DATA ANALYTICS</h3>
+                <p class="cert-mock-meta">Authorized study program containing practical projects, case studies, and advanced assessments.</p>
+              </div>
+              <div class="cert-mock-footer">
+                <div class="cert-mock-sig">
+                  <span class="sig-line"></span>
+                  <p>Program Director</p>
+                </div>
+                <div class="cert-mock-seal">
+                  <div class="seal-inner">TuteDude Certified</div>
+                </div>
+                <div class="cert-mock-sig">
+                  <span class="sig-line"></span>
+                  <p>Lead Instructor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Lightbox Overlay -->
+  <div id="project-lightbox" class="lightbox-hidden">
+    <div class="lightbox-content project-modal-content">
+      <span class="lightbox-close" id="project-lightbox-close-btn">&times;</span>
+      <div class="project-modal-frame">
+        <div class="project-modal-header">
+          <span class="project-modal-icon" id="project-modal-icon"><i class="fa-solid fa-code"></i></span>
+          <span class="project-modal-tag" id="project-modal-tag">Python</span>
+        </div>
+        <h2 class="project-modal-title" id="project-modal-title">Project Title Here</h2>
+        
+        <div class="project-modal-tech" id="project-modal-tech">
+          <!-- Tech badges injected here -->
+        </div>
+
+        <div class="project-modal-body">
+          <h3 style="color: #ff003c; margin-bottom: 10px; font-family: 'Orbitron', sans-serif;">Project Overview</h3>
+          <p id="project-modal-description" style="color: #a0a0ba; line-height: 1.7; margin-bottom: 20px;">Detailed description of the project goes here...</p>
+          
+          <h3 style="color: #ff003c; margin-bottom: 10px; font-family: 'Orbitron', sans-serif;">Key Implementations</h3>
+          <ul id="project-modal-features" style="list-style: none; margin-bottom: 30px;">
+            <!-- bullet points injected here -->
+          </ul>
+        </div>
+
+        <div class="project-modal-footer" style="display: flex; gap: 20px;">
+          <a href="#" id="project-modal-github" target="_blank" class="project-link-btn github-link" style="flex: 1; text-align: center; text-decoration: none;"><i class="fa-brands fa-github"></i> Code Repository</a>
+          <a href="#" id="project-modal-live" target="_blank" class="project-link-btn live-link" style="flex: 1; text-align: center; text-decoration: none;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live App</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CDN scripts -->
+  <!-- GSAP for UI Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- Three.js for 3D renderings -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Main Script -->
+  <script src="script.js?v=2.2"></script>
+</body>
+</html>
