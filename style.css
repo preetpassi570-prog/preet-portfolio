@@ -1958,6 +1958,7 @@ body.loading-active {
   color: #fff;
   text-decoration: none;
   transition: var(--transition-smooth);
+  word-break: break-all;
 }
 
 a.info-card-value:hover {
@@ -2213,6 +2214,11 @@ a.info-card-value:hover {
     display: flex;
     flex-direction: column-reverse;
     gap: 40px;
+    width: 100%;
+  }
+  .contact-left-col, .contact-right-col {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
