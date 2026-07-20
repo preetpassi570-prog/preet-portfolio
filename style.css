@@ -2407,36 +2407,36 @@ a.info-card-value:hover {
 
 .ai-tooltip {
   position: absolute;
-  right: 100px;
+  right: 110px;
   top: 50%;
-  transform: translateY(-50%) translateX(20px) scale(0.9);
-  background: linear-gradient(135deg, rgba(255, 23, 68, 0.15), rgba(10, 10, 15, 0.85));
-  border: 1px solid rgba(255, 23, 68, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  transform: translateY(-50%) translateX(20px) scale(0.8);
+  background: rgba(20, 10, 15, 0.8);
+  border: 1px solid var(--accent-red);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   color: #fff;
-  padding: 10px 22px;
-  border-radius: 12px;
+  padding: 12px 24px;
+  border-radius: 30px;
   font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 0 20px rgba(255, 23, 68, 0.4), inset 0 0 10px rgba(255,255,255,0.05);
+  box-shadow: 0 0 25px rgba(255, 23, 68, 0.4);
 }
 
 .ai-tooltip::after {
   content: '';
   position: absolute;
   top: 50%;
-  right: -5px;
+  right: -7px;
   transform: translateY(-50%);
-  border-width: 5px 0 5px 5px;
+  border-width: 7px 0 7px 7px;
   border-style: solid;
-  border-color: transparent transparent transparent rgba(255, 23, 68, 0.5);
+  border-color: transparent transparent transparent var(--accent-red);
 }
 
 #ai-floating-trigger:hover .ai-tooltip {
@@ -2459,14 +2459,14 @@ a.info-card-value:hover {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
   transform-origin: bottom right;
   transform: scale(1) translateY(0);
   opacity: 1;
 }
 
 #ai-chat-window.chat-closed {
-  transform: scale(0.8) translateY(20px);
+  transform: scale(0.9) translateY(40px);
   opacity: 0;
   pointer-events: none;
 }
