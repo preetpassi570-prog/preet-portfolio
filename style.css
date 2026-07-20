@@ -250,8 +250,8 @@ body.loading-active {
   align-items: center;
 }
 .loader-3d-container canvas {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   z-index: 3;
   filter: drop-shadow(0 0 25px rgba(255, 0, 60, 0.5));
 }
