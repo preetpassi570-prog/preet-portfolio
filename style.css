@@ -457,7 +457,25 @@ body.loading-active {
     display: none; /* Hide holographic rings on mobile for high GPU frame-rates */
   }
   .loader-welcome-main {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
+    letter-spacing: 4px;
+    text-align: center;
+  }
+  .loader-center-core {
+    align-items: center;
+  }
+  .loader-title-container {
+    text-align: center;
+    align-items: center;
+  }
+  .loader-welcome-sub {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+  }
+  .loader-welcome-desc {
+    text-align: center;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
   }
 }
 
@@ -2033,6 +2051,8 @@ a.info-card-value:hover {
   z-index: 2;
   backdrop-filter: blur(15px);
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01), var(--glass-shadow);
+  box-sizing: border-box !important;
+  max-width: 100%;
 }
 
 .form-group {
