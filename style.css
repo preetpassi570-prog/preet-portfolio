@@ -956,14 +956,27 @@ body.loading-active {
 @media (max-width: 768px) {
   .hero-main-title {
     font-size: 55px;
+    margin-right: 2.5px;
   }
   .hero-welcome-tag {
     font-size: 0.65rem;
     letter-spacing: 3px;
+    margin-left: 3px;
   }
   .hero-subtitle {
     font-size: 1.2rem;
     letter-spacing: 3px;
+    margin-left: 3px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
   }
   .hero-stats-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -986,10 +999,12 @@ body.loading-active {
   .hero-welcome-tag {
     font-size: 0.55rem;
     letter-spacing: 2px;
+    margin-left: 2px;
   }
   .hero-subtitle {
     font-size: 1rem;
     letter-spacing: 2px;
+    margin-left: 2px;
   }
   .hologram-container {
     height: 330px;
