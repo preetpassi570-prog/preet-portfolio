@@ -957,6 +957,14 @@ body.loading-active {
   .hero-main-title {
     font-size: 55px;
   }
+  .hero-welcome-tag {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+  }
   .hero-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -966,11 +974,22 @@ body.loading-active {
   .hero-portrait {
     height: 400px;
   }
+  .cursor-glow, #webgl-bg, #hero-visual-canvas {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {
   .hero-main-title {
     font-size: 42px;
+  }
+  .hero-welcome-tag {
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    letter-spacing: 2px;
   }
   .hologram-container {
     height: 330px;

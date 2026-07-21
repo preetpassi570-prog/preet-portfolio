@@ -729,6 +729,7 @@ function initHeroVisualCanvas() {
   let animId;
   function animateVisual() {
     animId = requestAnimationFrame(animateVisual);
+    if (window.innerWidth <= 768) return; // Disable on mobile to save battery and reduce lag
     ctx.clearRect(0, 0, width, height);
 
     const centerX = width / 2;
@@ -855,6 +856,7 @@ function initBackground3D() {
   // Render loop
   function animate() {
     requestAnimationFrame(animate);
+    if (window.innerWidth <= 768) return; // Disable WebGL on mobile to save battery
 
     // Smooth mouse coordinates lag (lerp)
     mouse.x += (targetMouse.x - mouse.x) * 0.05;
