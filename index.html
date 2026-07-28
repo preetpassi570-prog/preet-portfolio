@@ -29,6 +29,9 @@
   <meta property="twitter:description" content="Explore the data analytics portfolio of Preet Passi. Featuring projects in SQL, Python, Excel, and Power BI that turn raw data into business insights." />
   <meta property="twitter:image" content="https://preet-portfolio-ten.vercel.app/images/preet.png" />
 
+  <!-- Preload Critical Assets (LCP Image) -->
+  <link rel="preload" as="image" href="images/preet.png" />
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -218,7 +221,7 @@
           <canvas id="hero-visual-canvas"></canvas>
           <!-- Portrait image overlay -->
           <div class="hero-portrait-wrapper">
-            <img src="images/preet.png" alt="Preet Passi" class="hero-portrait">
+            <img src="images/preet.png" alt="Preet Passi" class="hero-portrait" width="1130" height="1392" fetchpriority="high" decoding="sync">
           </div>
         </div>
       </div>
