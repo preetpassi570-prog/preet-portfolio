@@ -3371,3 +3371,63 @@ a.info-card-value:hover {
 .msg-speak-btn i {
   pointer-events: none;
 }
+/* ==========================================================================
+   SEO Professional Summary Section
+   ========================================================================== */
+.seo-summary-section {
+  padding: 80px 5%;
+  position: relative;
+  z-index: 10;
+}
+
+.seo-container-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.seo-article-content {
+  padding: 40px;
+  border-radius: 20px;
+  text-align: left;
+  margin-top: 40px;
+}
+
+.seo-heading {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--text-main);
+  font-size: 1.4rem;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  border-left: 3px solid var(--accent-red);
+  padding-left: 15px;
+  letter-spacing: 1px;
+}
+
+.seo-heading:first-of-type {
+  margin-top: 10px;
+}
+
+.seo-text {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  font-family: 'Inter', sans-serif;
+}
+
+.seo-text strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .seo-article-content {
+    padding: 25px;
+  }
+  .seo-heading {
+    font-size: 1.2rem;
+  }
+  .seo-text {
+    font-size: 0.95rem;
+  }
+}
