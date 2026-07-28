@@ -3,6 +3,10 @@
  * Handles 3D scenes, loading screen, 3D card effects, bilingiual chatbot, and modal dialogs.
  */
 
+import { inject } from '@vercel/analytics';
+
+inject();
+
 // Global State
 const state = {
   loaderComplete: false,
