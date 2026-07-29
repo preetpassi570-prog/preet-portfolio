@@ -3765,16 +3765,25 @@ a.info-card-value:hover {
   }
   
   .hero-buttons {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
     gap: 1rem;
     margin-bottom: 3rem;
   }
   
   .hero-buttons .btn {
-    width: 100%;
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 140px;
     justify-content: center;
-    padding: 1.2rem;
+    padding: 1rem;
+  }
+  
+  .skill-badge {
+    flex: 0 0 auto;
+    width: auto;
   }
   
   .hero-stats-grid {
@@ -3809,14 +3818,27 @@ a.info-card-value:hover {
 }
 @media (max-width: 768px) {
   .projects-section {
-    padding: 80px 5%;
+    padding: 60px 5%;
   }
   .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
   .project-card {
     width: 100%;
+    padding: 1.2rem;
+  }
+  .project-title {
+    font-size: 1.1rem;
+  }
+  .project-tags span {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+}
+@media (max-width: 374px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -3828,11 +3850,22 @@ a.info-card-value:hover {
 }
 @media (max-width: 768px) {
   .certificates-section {
-    padding: 80px 5%;
+    padding: 60px 5%;
   }
   .certificates-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .certificate-card {
+    padding: 1.2rem;
+  }
+  .certificate-title {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 374px) {
+  .certificates-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
   }
 }
 
@@ -3874,7 +3907,25 @@ a.info-card-value:hover {
     gap: 1.5rem;
   }
   .submit-btn {
-    width: 100%;
+    width: auto;
+    min-width: 200px;
+    align-self: center;
     justify-content: center;
+  }
+}
+
+/* Ensure filter buttons wrap correctly */
+@media (max-width: 768px) {
+  .project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .filter-btn {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
   }
 }
