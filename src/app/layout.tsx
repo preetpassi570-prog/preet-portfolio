@@ -96,7 +96,7 @@ export default function RootLayout({
           <div className="premium-loader-content">
             <div className="premium-loader-pfp-container">
               <div className="premium-loader-pfp-glow"></div>
-              <img src="/images/PFP.png" alt="Preet Passi" className="premium-loader-pfp" />
+              <img src="/icon.png" alt="Preet Passi" className="premium-loader-pfp" />
             </div>
             
             <div className="premium-loader-text">
@@ -106,13 +106,13 @@ export default function RootLayout({
             </div>
 
             <div className="premium-loader-progress-section">
-              <div className="premium-loader-status-container">
-                <span className="loader-status" id="loader-status">Loading Portfolio...</span>
-              </div>
               <div className="premium-loader-bar-container">
                 <div className="premium-loader-bar-fill" id="progress-fill"></div>
               </div>
-              <div className="premium-loader-percentage" id="loader-perc">0%</div>
+              <div className="premium-loader-status-container">
+                <span className="loader-status" id="loader-status">Preparing Dashboard...</span>
+              </div>
+              <div className="premium-loader-percentage" id="loader-perc" style={{display: 'none'}}>0%</div>
             </div>
           </div>
         </div>
