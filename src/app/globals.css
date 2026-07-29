@@ -4122,30 +4122,32 @@ a.info-card-value:hover {
   .hero-section {
     display: flex !important;
     flex-direction: column !important;
-    padding: 100px 5% 40px 5% !important; /* Apply side padding */
+    align-items: flex-start !important; /* Force all flex children to the left */
+    padding: 100px 5% 40px 5% !important; 
     height: auto !important;
-    min-height: auto !important; /* Remove 100vh constraint to eliminate empty space */
+    min-height: auto !important; 
   }
 
   .hero-content, .hero-visual {
-    display: contents !important; /* Flatten DOM so children can be ordered */
+    display: contents !important; 
   }
 
-  .hero-welcome-tag { order: 1; margin-bottom: 1rem; text-align: left !important; }
+  .hero-welcome-tag { order: 1; margin-bottom: 1rem; width: 100%; text-align: left !important; }
   
-  .hero-main-title { order: 2; margin-bottom: 0.5rem; text-align: left !important; }
+  .hero-main-title { order: 2; margin-bottom: 0.5rem; width: 100%; text-align: left !important; }
   
-  .hero-subtitle { order: 3; margin-bottom: 1rem; text-align: left !important; }
+  .hero-subtitle { order: 3; margin-bottom: 1rem; width: 100%; text-align: left !important; }
   
   .hero-desc { 
     order: 4; 
     margin-bottom: 2rem !important; 
-    max-width: 95% !important; 
+    width: 100%;
+    max-width: 100% !important; 
     text-align: left !important; 
   }
   
   .hero-skills-container { 
-    display: none !important; /* Hidden as requested */
+    display: none !important; 
   }
   
   .hero-buttons { 
@@ -4161,7 +4163,7 @@ a.info-card-value:hover {
     height: auto !important; 
     margin: 0 0 2rem 0 !important;
     display: flex;
-    justify-content: flex-start !important; /* Align image to left */
+    justify-content: center !important; /* Center the image */
     align-items: center;
   }
   
