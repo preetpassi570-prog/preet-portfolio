@@ -100,3 +100,18 @@ export function getPrevProject(currentSlug: string): Project | undefined {
   if (currentIndex <= 0) return undefined;
   return projects[currentIndex - 1];
 }
+
+export function getRelatedProjects(currentSlug: string, limit: number = 2): Project[] {
+  const currentProject = getProjectBySlug(currentSlug);
+  if (!currentProject) return [];
+  
+  return projects
+    .filter(p => p.slug !== currentSlug)
+    // Optionally sort by same category first
+    .sort((a, b) => {
+      if (a.category === currentProject.category && b.category !== currentProject.category) return -1;
+      if (a.category !== currentProject.category && b.category === currentProject.category) return 1;
+      return 0;
+    })
+    .slice(0, limit);
+}

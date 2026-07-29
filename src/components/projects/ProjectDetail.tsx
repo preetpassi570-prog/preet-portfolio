@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Project, getNextProject, getPrevProject } from '@/lib/projects';
+import { Project, getNextProject, getPrevProject, getRelatedProjects } from '@/lib/projects';
 
 interface ProjectDetailProps {
   project: Project;
@@ -12,6 +12,17 @@ interface ProjectDetailProps {
 export default function ProjectDetail({ project }: ProjectDetailProps) {
   const nextProject = getNextProject(project.slug);
   const prevProject = getPrevProject(project.slug);
+  const relatedProjects = getRelatedProjects(project.slug, 2);
+
+  const tocSections = [
+    { id: 'overview', title: 'Overview', show: !!project.fullDescription },
+    { id: 'problem-solution', title: 'Problem & Solution', show: !!project.problem && !!project.solution },
+    { id: 'key-insights', title: 'Key Insights', show: project.keyInsights && project.keyInsights.length > 0 },
+    { id: 'business-impact', title: 'Business Impact', show: !!project.businessImpact },
+    { id: 'gallery', title: 'Dashboard & Gallery', show: project.gallery && project.gallery.length > 0 }
+  ].filter(s => s.show);
+
+  const shouldShowToc = tocSections.length >= 4;
 
   return (
     <article className="pd-container">
@@ -80,59 +91,69 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             </ul>
           </div>
 
-          {/* Table of Contents (Auto-generated for >4 sections) */}
-          <nav className="glass-panel pd-toc">
-            <h3 className="pd-sidebar-title">Table of Contents</h3>
-            <ul>
-              <li><a href="#overview">Overview</a></li>
-              <li><a href="#problem-solution">Problem & Solution</a></li>
-              <li><a href="#key-insights">Key Insights</a></li>
-              <li><a href="#business-impact">Business Impact</a></li>
-              <li><a href="#gallery">Gallery</a></li>
-            </ul>
-          </nav>
+          {/* Table of Contents (Auto-generated for >=4 sections) */}
+          {shouldShowToc && (
+            <nav className="glass-panel pd-toc">
+              <h3 className="pd-sidebar-title">Table of Contents</h3>
+              <ul>
+                {tocSections.map(section => (
+                  <li key={section.id}>
+                    <a href={`#${section.id}`}>{section.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
         </aside>
 
         {/* Main Content Area */}
         <div className="pd-main-content">
-          <section id="overview" className="pd-section">
-            <h2 className="pd-section-title">Overview</h2>
-            <p className="pd-text">{project.fullDescription}</p>
-          </section>
+          {project.fullDescription && (
+            <section id="overview" className="pd-section">
+              <h2 className="pd-section-title">Overview</h2>
+              <p className="pd-text">{project.fullDescription}</p>
+            </section>
+          )}
 
-          <section id="problem-solution" className="pd-section">
-            <h2 className="pd-section-title">Problem & Solution</h2>
-            <div className="pd-split-cards">
-              <div className="glass-panel pd-card">
-                <h3 className="pd-card-title"><i className="fa-solid fa-triangle-exclamation neon-text-red"></i> The Problem</h3>
-                <p className="pd-text">{project.problem}</p>
+          {project.problem && project.solution && (
+            <section id="problem-solution" className="pd-section">
+              <h2 className="pd-section-title">Problem & Solution</h2>
+              <div className="pd-split-cards">
+                <div className="glass-panel pd-card">
+                  <h3 className="pd-card-title"><i className="fa-solid fa-triangle-exclamation neon-text-red"></i> The Problem</h3>
+                  <p className="pd-text">{project.problem}</p>
+                </div>
+                <div className="glass-panel pd-card">
+                  <h3 className="pd-card-title"><i className="fa-solid fa-lightbulb" style={{ color: '#ffd700' }}></i> The Solution</h3>
+                  <p className="pd-text">{project.solution}</p>
+                </div>
               </div>
-              <div className="glass-panel pd-card">
-                <h3 className="pd-card-title"><i className="fa-solid fa-lightbulb" style={{ color: '#ffd700' }}></i> The Solution</h3>
-                <p className="pd-text">{project.solution}</p>
+            </section>
+          )}
+
+          {project.keyInsights && project.keyInsights.length > 0 && (
+            <section id="key-insights" className="pd-section">
+              <h2 className="pd-section-title">Key Insights</h2>
+              <ul className="pd-list">
+                {project.keyInsights.map((insight, index) => (
+                  <li key={index}>
+                    <i className="fa-solid fa-check-circle neon-text-red"></i>
+                    <span>{insight}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {project.businessImpact && (
+            <section id="business-impact" className="pd-section">
+              <h2 className="pd-section-title">Business Impact</h2>
+              <div className="glass-panel pd-impact-box">
+                <i className="fa-solid fa-chart-line pd-impact-icon"></i>
+                <p className="pd-impact-text">{project.businessImpact}</p>
               </div>
-            </div>
-          </section>
-
-          <section id="key-insights" className="pd-section">
-            <h2 className="pd-section-title">Key Insights</h2>
-            <ul className="pd-list">
-              {project.keyInsights.map((insight, index) => (
-                <li key={index}>
-                  <i className="fa-solid fa-check-circle neon-text-red"></i>
-                  <span>{insight}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section id="business-impact" className="pd-section">
-            <h2 className="pd-section-title">Business Impact</h2>
-            <div className="glass-panel pd-impact-box">
-              <i className="fa-solid fa-chart-line pd-impact-icon"></i>
-              <p className="pd-impact-text">{project.businessImpact}</p>
-            </div>
-          </section>
+            </section>
+          )}
 
           {project.gallery && project.gallery.length > 0 && (
             <section id="gallery" className="pd-section">
@@ -145,9 +166,28 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                       alt={`${project.title} screenshot ${index + 1}`} 
                       width={800} 
                       height={450} 
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                       className="pd-gallery-img"
                     />
                   </div>
+                ))}
+              </div>
+            </section>
+          )}
+          
+          {/* Related Projects */}
+          {relatedProjects.length > 0 && (
+            <section className="pd-section" style={{ marginTop: '3rem' }}>
+              <h2 className="pd-section-title">Related Projects</h2>
+              <div className="pd-split-cards">
+                {relatedProjects.map(rp => (
+                  <Link key={rp.slug} href={`/projects/${rp.slug}`} style={{ textDecoration: 'none' }}>
+                    <div className="glass-panel pd-card" style={{ cursor: 'pointer', transition: 'var(--transition-smooth)' }}>
+                      <div className="category-badge" style={{ marginBottom: '1rem', display: 'inline-block' }}>{rp.category}</div>
+                      <h3 className="pd-card-title" style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>{rp.title}</h3>
+                      <p className="pd-text" style={{ fontSize: '0.9rem', marginBottom: 0 }}>{rp.shortDescription}</p>
+                    </div>
+                  </Link>
                 ))}
               </div>
             </section>

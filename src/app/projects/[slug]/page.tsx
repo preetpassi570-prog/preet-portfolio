@@ -50,6 +50,13 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       description: project.seoDescription,
       images: [project.featuredImage],
     },
+    alternates: {
+      canonical: `https://preet-portfolio-ten.vercel.app/projects/${project.slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 
