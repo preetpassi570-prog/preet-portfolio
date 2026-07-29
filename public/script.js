@@ -592,7 +592,6 @@ function initLoader() {
       .to(loaderOverlay, {
         opacity: 0,
         scale: 0.98,
-        filter: "blur(10px)",
         duration: 0.8,
         ease: "power3.inOut",
         onComplete: () => {
@@ -619,14 +618,14 @@ function initLoader() {
 
     // Navbar enters first (slides down)
     tl.fromTo(".navbar", 
-      { y: -25, opacity: 0, filter: "blur(5px)" }, 
-      { y: 0, opacity: 1, filter: "blur(0px)", duration: 1.2, ease: "power3.out" }
+      { y: -25, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 1.2, ease: "power3.out" }
     );
 
     // Hero Visual enters (scales up and activates)
     tl.fromTo(".hero-visual", 
-      { scale: 0.82, opacity: 0, filter: "blur(12px)" }, 
-      { scale: 1, opacity: 1, filter: "blur(0px)", duration: 1.5, ease: "power4.out" },
+      { scale: 0.82, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 1.5, ease: "power4.out" },
       "-=0.9"
     );
 
@@ -640,8 +639,8 @@ function initLoader() {
       ".hero-buttons",
       ".hero-stats-grid"
     ], 
-      { y: 35, opacity: 0, filter: "blur(10px)" }, 
-      { y: 0, opacity: 1, filter: "blur(0px)", duration: 1.2, stagger: 0.12, ease: "power3.out" },
+      { y: 35, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 1.2, stagger: 0.12, ease: "power3.out" },
       "-=1.2"
     );
 
