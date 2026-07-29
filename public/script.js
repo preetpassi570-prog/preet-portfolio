@@ -555,8 +555,13 @@ function initLoader() {
 
     // Status text switches randomly / sequentially
     const statusIndex = Math.min(Math.floor((roundedProgress / 100) * loadingStatuses.length), loadingStatuses.length - 1);
-    if (statusLabel && statusLabel.textContent !== loadingStatuses[statusIndex]) {
-      statusLabel.textContent = loadingStatuses[statusIndex];
+    if (statusLabel && statusLabel.dataset.currentIndex != statusIndex) {
+      statusLabel.dataset.currentIndex = statusIndex;
+      statusLabel.style.opacity = 0;
+      setTimeout(() => {
+        statusLabel.textContent = loadingStatuses[statusIndex];
+        statusLabel.style.opacity = 1;
+      }, 300);
     }
 
 
@@ -599,7 +604,11 @@ function initLoader() {
       });
 
     // 2. Main App Container Activation (Smooth fade-in)
-    gsap.set(appContainer, { opacity: 1, pointerEvents: "auto" });
+    gsap.set(appContainer, { pointerEvents: "auto" });
+    gsap.fromTo(appContainer, 
+      { opacity: 0, scale: 0.98 }, 
+      { opacity: 1, scale: 1, duration: 1.2, ease: "power3.out" }
+    );
 
     // 3. Cinematic Entrance Stagger Sequence
     const tl = gsap.timeline({ delay: 0.1 });

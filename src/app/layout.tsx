@@ -93,26 +93,30 @@ export default function RootLayout({
         <canvas id="webgl-bg"></canvas>
         
         <div id="loader-overlay" className="premium-loader">
-          <div className="premium-loader-content">
-            <div className="premium-loader-pfp-container">
-              <div className="premium-loader-pfp-glow"></div>
-              <img src="/icon.png" alt="Preet Passi" className="premium-loader-pfp" />
-            </div>
-            
-            <div className="premium-loader-text">
-              <div className="premium-loader-welcome">WELCOME</div>
-              <h1 className="premium-loader-name">PREET PASSI</h1>
-              <div className="premium-loader-subtitle">Data Analyst • AI Automation • Business Intelligence</div>
-            </div>
+          <div className="premium-loader-card">
+            <div className="premium-loader-content">
+              <div className="premium-loader-pfp-container">
+                <div className="premium-loader-pfp-glow"></div>
+                <img src="/icon.png" alt="Preet Passi" className="premium-loader-pfp" />
+              </div>
+              
+              <div className="premium-loader-text">
+                <div className="premium-loader-welcome">WELCOME</div>
+                <h1 className="premium-loader-name">PREET PASSI</h1>
+                <div className="premium-loader-subtitle">Data Analyst • AI Automation • Business Intelligence</div>
+              </div>
 
-            <div className="premium-loader-progress-section">
-              <div className="premium-loader-bar-container">
-                <div className="premium-loader-bar-fill" id="progress-fill"></div>
+              <div className="premium-loader-progress-section">
+                <div className="premium-loader-bar-wrapper">
+                  <div className="premium-loader-bar-container">
+                    <div className="premium-loader-bar-fill" id="progress-fill"></div>
+                  </div>
+                  <div className="premium-loader-percentage" id="loader-perc">0%</div>
+                </div>
+                <div className="premium-loader-status-container">
+                  <span className="loader-status" id="loader-status">Preparing Dashboard...</span>
+                </div>
               </div>
-              <div className="premium-loader-status-container">
-                <span className="loader-status" id="loader-status">Preparing Dashboard...</span>
-              </div>
-              <div className="premium-loader-percentage" id="loader-perc" style={{display: 'none'}}>0%</div>
             </div>
           </div>
         </div>

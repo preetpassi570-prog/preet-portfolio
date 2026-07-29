@@ -3449,71 +3449,119 @@ a.info-card-value:hover {
   overflow: hidden;
 }
 
+}
+/* ================= PREMIUM LOADER ================= */
+.premium-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #05070B;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.premium-loader::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.03) 0%, transparent 60%);
+  animation: bgRotate 30s linear infinite;
+  z-index: 1;
+}
+
+@keyframes bgRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.premium-loader-card {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 3.5rem 4rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  animation: smoothFadeInScale 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 .premium-loader-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  z-index: 10;
-  max-width: 600px;
-  padding: 2rem;
-  animation: smoothFadeIn 1.2s ease-out;
 }
 
 .premium-loader-pfp-container {
   position: relative;
-  width: 100px;
-  height: 100px;
-  margin-bottom: 2rem;
-  animation: slowFloat 4s ease-in-out infinite;
+  width: 130px;
+  height: 130px;
+  margin-bottom: 2.5rem;
+  animation: slowFloat 5s ease-in-out infinite;
 }
 
 .premium-loader-pfp-glow {
   position: absolute;
-  top: -15%;
-  left: -15%;
-  width: 130%;
-  height: 130%;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0) 70%);
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.35) 0%, rgba(6, 182, 212, 0) 65%);
   border-radius: 50%;
   z-index: 1;
-  filter: blur(8px);
+  filter: blur(12px);
+  animation: pulseGlow 4s ease-in-out infinite alternate;
 }
 
 .premium-loader-pfp {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
   z-index: 2;
-  border: 2px solid rgba(6, 182, 212, 0.6);
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+  border: 2px solid rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
 }
 
 .premium-loader-welcome {
-  font-size: 0.75rem;
-  letter-spacing: 0.4em;
-  color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 1rem;
-  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.5em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .premium-loader-name {
-  font-size: 2rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   color: #fff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
   font-family: var(--font-primary), sans-serif;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 .premium-loader-subtitle {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 3.5rem;
-  letter-spacing: 0.05em;
-  font-weight: 300;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 4rem;
+  letter-spacing: 0.08em;
+  font-weight: 400;
 }
 
 .premium-loader-progress-section {
@@ -3521,14 +3569,20 @@ a.info-card-value:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
+}
+
+.premium-loader-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .premium-loader-bar-container {
-  width: 200px;
-  height: 2px;
+  width: 300px;
+  height: 4px;
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
+  border-radius: 4px;
   overflow: hidden;
   position: relative;
 }
@@ -3536,26 +3590,63 @@ a.info-card-value:hover {
 .premium-loader-bar-fill {
   height: 100%;
   width: 0%;
-  background: #06B6D4;
-  border-radius: 2px;
-  transition: width 0.1s ease-out;
+  background: linear-gradient(90deg, #06B6D4, #3B82F6);
+  border-radius: 4px;
+  transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
+}
+
+.premium-loader-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  animation: barShine 1.5s infinite;
+}
+
+.premium-loader-percentage {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  min-width: 35px;
+  text-align: right;
 }
 
 .premium-loader-status-container {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
   letter-spacing: 0.05em;
-  font-weight: 300;
+  font-weight: 400;
+  height: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.loader-status {
+  transition: opacity 0.3s ease;
 }
 
 @keyframes slowFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-6px); }
 }
 
-@keyframes smoothFadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes pulseGlow {
+  0% { opacity: 0.7; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes smoothFadeInScale {
+  0% { opacity: 0; transform: translateY(20px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes barShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
