@@ -119,7 +119,7 @@ export default function RootLayout({
 
           <div className="loader-center-core">
             <div className="loader-3d-container logo-float">
-              <canvas id="loader-canvas"></canvas>
+              <canvas id="loader-canvas" suppressHydrationWarning></canvas>
               <div className="holo-ring-outer"></div>
               <div className="holo-ring-inner"></div>
               <div className="holo-ring-mid"></div>
