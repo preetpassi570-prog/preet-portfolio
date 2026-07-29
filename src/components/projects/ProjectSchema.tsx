@@ -8,7 +8,7 @@ interface ProjectSchemaProps {
 export default function ProjectSchema({ project }: ProjectSchemaProps) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": project.schemaType || "CreativeWork",
     "headline": project.seoTitle || project.title,
     "description": project.seoDescription || project.shortDescription,
     "image": [

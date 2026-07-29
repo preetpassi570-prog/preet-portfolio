@@ -13,6 +13,7 @@ export interface Project {
   seoTitle: string;
   seoDescription: string;
   keywords: string[];
+  schemaType?: "CreativeWork" | "SoftwareSourceCode" | "Dataset" | "Article";
 }
 
 export const projects: Project[] = [
@@ -30,7 +31,8 @@ export const projects: Project[] = [
     liveUrl: "#",
     seoTitle: "Global Sales Performance Dashboard | Preet Passi",
     seoDescription: "Explore the Global Sales Performance Dashboard built by Preet Passi using Power BI and SQL for deep business intelligence insights.",
-    keywords: ["Power BI Dashboard", "Sales Analytics", "Data Visualization", "DAX", "Business Intelligence", "SQL"]
+    keywords: ["Power BI Dashboard", "Sales Analytics", "Data Visualization", "DAX", "Business Intelligence", "SQL"],
+    schemaType: "CreativeWork"
   },
   {
     slug: "customer-churn-prediction",
@@ -45,7 +47,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/preetpassi570-prog",
     seoTitle: "Customer Churn Prediction in Python | Preet Passi",
     seoDescription: "A machine learning project predicting telecom customer churn using Python, Pandas, and Scikit-Learn by Data Analyst Preet Passi.",
-    keywords: ["Customer Churn", "Machine Learning", "Python", "Pandas", "Predictive Analytics", "Data Science"]
+    keywords: ["Customer Churn", "Machine Learning", "Python", "Pandas", "Predictive Analytics", "Data Science"],
+    schemaType: "SoftwareSourceCode"
   }
 ];
 
