@@ -1180,7 +1180,6 @@ body.loading-active {
 .project-card:hover {
   border-color: var(--accent-red);
   box-shadow: var(--neon-glow);
-  transform: translateY(-5px);
 }
 
 /* Glowing overlay effect */
@@ -1332,7 +1331,6 @@ body.loading-active {
 .cert-card:hover {
   border-color: var(--accent-red);
   box-shadow: var(--neon-glow);
-  transform: translateY(-5px);
 }
 
 .cert-card .card-glow {
@@ -1513,7 +1511,6 @@ body.loading-active {
 .about-profile-card:hover {
   border-color: rgba(255, 0, 60, 0.45);
   box-shadow: 0 10px 30px rgba(255, 0, 60, 0.18), inset 0 0 20px rgba(255, 0, 60, 0.02);
-  transform: translateY(-5px);
 }
 
 .profile-card-header {
@@ -1665,7 +1662,6 @@ body.loading-active {
   background: rgba(255, 0, 60, 0.04);
   border-color: rgba(255, 0, 60, 0.35);
   box-shadow: 0 8px 25px rgba(255, 0, 60, 0.15), inset 0 0 10px rgba(255, 0, 60, 0.02);
-  transform: translateY(-6px);
 }
 
 .about-skill-icon {

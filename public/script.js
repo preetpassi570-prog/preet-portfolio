@@ -902,32 +902,7 @@ function initBackground3D() {
    3. 3D PERSPECTIVE TILT CARDS & GLOW EFFECTS
    ========================================================================= */
 function initTiltCards() {
-  const cards = document.querySelectorAll(".tilt-card");
-
-  cards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left; // x coordinate inside card
-      const y = e.clientY - rect.top;  // y coordinate inside card
-
-      // Update CSS variables for radial glow overlay
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
-
-      // Compute 3D rotation based on mouse coordinates relative to center
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateY = ((x - centerX) / centerX) * 8;  // limit tilt to 8 deg
-      const rotateX = -((y - centerY) / centerY) * 8;
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-      // Return back to original position
-      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
-    });
-  });
+  // Tilt effects removed as per user request to keep text and cards simple on hover
 }
 
 
