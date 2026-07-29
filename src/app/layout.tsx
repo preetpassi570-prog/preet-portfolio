@@ -94,7 +94,7 @@ export default function RootLayout({
         
         <div id="loader-overlay" className="cyber-os-loader">
           <canvas id="loader-bg-canvas" suppressHydrationWarning></canvas>
-          <audio id="loading-sound" preload="auto"></audio>
+          <audio id="loading-sound" preload="auto" suppressHydrationWarning></audio>
           <div className="loader-scanlines"></div>
           
           <div className="hud-top-left">
