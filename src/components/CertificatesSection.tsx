@@ -90,7 +90,6 @@ export default function CertificatesSection() {
             <p className="cert-desc mobile-hide">{cert.description}</p>
             
             <div className="cert-footer" style={{ marginTop: 'auto', paddingTop: '1rem' }}>
-              <span className="cert-date mobile-hide">Verified</span>
               <button className="btn btn-secondary" style={{ width: "100%", justifyContent: "center", padding: "0.6rem", fontSize: "0.85rem" }}>
                 <i className="fa-solid fa-file-pdf"></i> View Details
               </button>
