@@ -1,6 +1,67 @@
-import React from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
+
+const certificatesData = [
+  {
+    id: 'cert-da',
+    course: 'DATA ANALYTICS',
+    title: 'Data Analytics',
+    issuer: 'TuteDude Certified',
+    description: 'Covers advanced statistical computation, Python libraries (Pandas, Numpy), database design with SQL, and data visualization strategies.',
+    pdf: 'images/Data Analytics Certificate.pdf',
+    icon: 'fa-solid fa-award'
+  },
+  {
+    id: 'cert-excel',
+    course: 'ADVANCED EXCEL WITH AI',
+    title: 'Advanced Excel with AI',
+    issuer: 'TuteDude Certified',
+    description: 'Focuses on complex data modeling, automation with VBA, nested logic operations, dynamic charts, and integration of AI modeling in spreadsheets.',
+    pdf: 'images/Advanced Excel Certificate.pdf',
+    icon: 'fa-solid fa-calculator'
+  },
+  {
+    id: 'cert-dm',
+    course: 'DIGITAL MARKETING',
+    title: 'Digital Marketing',
+    issuer: 'TuteDude Certified',
+    description: 'Explores search engine optimization (SEO), data-driven campaign analytics, conversion rate optimization (CRO), and digital branding strategies.',
+    pdf: 'images/Digital Marketing Certificate.pdf',
+    icon: 'fa-solid fa-bullseye'
+  },
+  {
+    id: 'cert-fmv',
+    course: 'FINANCIAL MODELING AND VALUATION (FMV)',
+    title: 'Financial Modeling & Valuation (FMV)',
+    issuer: 'TuteDude Certified',
+    description: 'Covers corporate valuation models, discounted cash flow (DCF) analysis, financial projections, sensitivity tables, and investment evaluation.',
+    pdf: 'images/Financial Modeling And Valuatoin Certificate.pdf',
+    icon: 'fa-solid fa-chart-column'
+  }
+];
 
 export default function CertificatesSection() {
+  const [selectedCert, setSelectedCert] = useState<any>(null);
+
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedCert(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (selectedCert) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => { document.body.style.overflow = 'auto'; };
+  }, [selectedCert]);
+
   return (
     <section id="certificates" className="section certificates-section">
       <div className="section-header">
@@ -9,53 +70,59 @@ export default function CertificatesSection() {
       </div>
 
       <div className="certificates-grid">
-        <div className="cert-card tilt-card" data-course="DATA ANALYTICS">
-          <div className="card-glow"></div>
-          <div className="cert-badge"><i className="fa-solid fa-award"></i></div>
-          <h3 className="cert-title">Data Analytics</h3>
-          <p className="cert-issuer">TuteDude Certified</p>
-          <p className="cert-desc">Covers advanced statistical computation, Python libraries (Pandas, Numpy), database design with SQL, and data visualization strategies.</p>
-          <div className="cert-footer">
-            <span className="cert-date">Verified</span>
-            <a href="images/Data Analytics Certificate.pdf" target="_blank" className="cert-view-btn" style={{ textDecoration: "none" }}><i className="fa-solid fa-file-pdf"></i> View Certificate</a>
+        {certificatesData.map((cert) => (
+          <div 
+            key={cert.id}
+            className="cert-card tilt-card" 
+            data-course={cert.course}
+            onClick={() => setSelectedCert(cert)}
+          >
+            <div className="card-glow"></div>
+            <div className="cert-badge"><i className={cert.icon}></i></div>
+            <h3 className="cert-title">{cert.title}</h3>
+            
+            {/* Hide these on mobile */}
+            <p className="cert-issuer mobile-hide">{cert.issuer}</p>
+            <p className="cert-desc mobile-hide">{cert.description}</p>
+            
+            <div className="cert-footer">
+              <span className="cert-date">Verified</span>
+              <button className="cert-view-btn view-details-btn" style={{ border: "none", background: "transparent", cursor: "pointer", color: "inherit", font: "inherit", padding: 0 }}>
+                <i className="fa-solid fa-file-pdf"></i> View Details
+              </button>
+            </div>
           </div>
-        </div>
+        ))}
+      </div>
 
-        <div className="cert-card tilt-card" data-course="ADVANCED EXCEL WITH AI">
-          <div className="card-glow"></div>
-          <div className="cert-badge"><i className="fa-solid fa-calculator"></i></div>
-          <h3 className="cert-title">Advanced Excel with AI</h3>
-          <p className="cert-issuer">TuteDude Certified</p>
-          <p className="cert-desc">Focuses on complex data modeling, automation with VBA, nested logic operations, dynamic charts, and integration of AI modeling in spreadsheets.</p>
-          <div className="cert-footer">
-            <span className="cert-date">Verified</span>
-            <a href="images/Advanced Excel Certificate.pdf" target="_blank" className="cert-view-btn" style={{ textDecoration: "none" }}><i className="fa-solid fa-file-pdf"></i> View Certificate</a>
+      {/* Modal Overlay */}
+      <div 
+        className={`modal-overlay ${selectedCert ? 'open' : ''}`}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) setSelectedCert(null);
+        }}
+      >
+        {selectedCert && (
+          <div className="modal-content">
+            <button className="modal-close-btn" onClick={() => setSelectedCert(null)}>
+              <i className="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div className="modal-header">
+              <i className={`${selectedCert.icon} modal-icon`}></i>
+              <h3 className="modal-title">{selectedCert.title}</h3>
+              <span className="modal-badge">{selectedCert.issuer}</span>
+            </div>
+            
+            <p className="modal-desc">{selectedCert.description}</p>
+            
+            <div className="modal-actions">
+              <a href={selectedCert.pdf} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ width: "100%" }}>
+                <i className="fa-solid fa-file-pdf"></i> View Official Certificate
+              </a>
+            </div>
           </div>
-        </div>
-
-        <div className="cert-card tilt-card" data-course="DIGITAL MARKETING">
-          <div className="card-glow"></div>
-          <div className="cert-badge"><i className="fa-solid fa-bullseye"></i></div>
-          <h3 className="cert-title">Digital Marketing</h3>
-          <p className="cert-issuer">TuteDude Certified</p>
-          <p className="cert-desc">Explores search engine optimization (SEO), data-driven campaign analytics, conversion rate optimization (CRO), and digital branding strategies.</p>
-          <div className="cert-footer">
-            <span className="cert-date">Verified</span>
-            <a href="images/Digital Marketing Certificate.pdf" target="_blank" className="cert-view-btn" style={{ textDecoration: "none" }}><i className="fa-solid fa-file-pdf"></i> View Certificate</a>
-          </div>
-        </div>
-
-        <div className="cert-card tilt-card" data-course="FINANCIAL MODELING AND VALUATION (FMV)">
-          <div className="card-glow"></div>
-          <div className="cert-badge"><i className="fa-solid fa-chart-column"></i></div>
-          <h3 className="cert-title">Financial Modeling & Valuation (FMV)</h3>
-          <p className="cert-issuer">TuteDude Certified</p>
-          <p className="cert-desc">Covers corporate valuation models, discounted cash flow (DCF) analysis, financial projections, sensitivity tables, and investment evaluation.</p>
-          <div className="cert-footer">
-            <span className="cert-date">Verified</span>
-            <a href="images/Financial Modeling And Valuatoin Certificate.pdf" target="_blank" className="cert-view-btn" style={{ textDecoration: "none" }}><i className="fa-solid fa-file-pdf"></i> View Certificate</a>
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );
