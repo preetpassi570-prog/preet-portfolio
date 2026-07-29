@@ -455,7 +455,6 @@ function initLoader() {
   const progressFill = document.getElementById("progress-fill");
   const loaderPerc = document.getElementById("loader-perc");
   const appContainer = document.getElementById("app-container");
-  const canvas = document.getElementById("loader-canvas");
 
   // FAILSAFE: Ensure the user is never stuck on the loading screen.
   const failsafeTimeout = setTimeout(() => {
@@ -485,8 +484,6 @@ function initLoader() {
       console.error("Failsafe error:", e);
     }
   }, 6000);
-
-  if (!canvas) return;
 
   // Initialize Web Audio Context on first interaction
   const unlockAudio = () => {
