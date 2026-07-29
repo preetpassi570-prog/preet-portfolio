@@ -521,6 +521,13 @@ function initLoader() {
 
   const statusLabel = document.getElementById("loader-status");
 
+  // Track DOM loading state
+  window.addEventListener("load", () => {
+    actualLoaded = true;
+  });
+  setTimeout(() => {
+    actualLoaded = true;
+  }, 1500);
   // Beeps playing control
   let lastBeepP = 0;
 
