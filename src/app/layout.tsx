@@ -20,13 +20,13 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://preet-portfolio-ten.vercel.app"),
   title: {
-    default: "Preet's Portfolio",
-    template: "%s | Preet's Portfolio",
+    default: "Preet Passi | Data Analyst Portfolio",
+    template: "%s | Preet Passi | Data Analyst Portfolio",
   },
-  description: "Preet's personal portfolio, projects, and blog.",
-  keywords: ["Preet", "Portfolio", "Web Developer", "Next.js", "React"],
-  authors: [{ name: "Preet" }],
-  creator: "Preet",
+  description: "Professional Data Analytics Portfolio of Preet Passi showcasing SQL, Python, Power BI, Excel, Tableau, Data Visualization, Dashboard Projects, and Business Intelligence work.",
+  keywords: ["Data Analyst", "Data Analytics Portfolio", "SQL", "Python", "Power BI", "Excel", "Tableau", "Business Intelligence", "Dashboard", "Data Visualization", "Portfolio", "Preet Passi"],
+  authors: [{ name: "Preet Passi" }],
+  creator: "Preet Passi",
   alternates: {
     canonical: "/",
   },
@@ -34,15 +34,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://preet-portfolio-ten.vercel.app",
-    title: "Preet's Portfolio",
-    description: "Preet's personal portfolio, projects, and blog.",
-    siteName: "Preet's Portfolio",
+    title: "Preet Passi | Data Analyst Portfolio",
+    description: "Professional Data Analytics Portfolio of Preet Passi showcasing SQL, Python, Power BI, Excel, Tableau, Data Visualization, Dashboard Projects, and Business Intelligence work.",
+    siteName: "Preet Passi | Data Analyst Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Preet's Portfolio",
-    description: "Preet's personal portfolio, projects, and blog.",
-    creator: "@preet",
+    title: "Preet Passi | Data Analyst Portfolio",
+    description: "Professional Data Analytics Portfolio of Preet Passi showcasing SQL, Python, Power BI, Excel, Tableau, Data Visualization, Dashboard Projects, and Business Intelligence work.",
+    creator: "@preetpassi",
   },
 };
 

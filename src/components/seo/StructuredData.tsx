@@ -11,6 +11,18 @@ const StructuredData = () => {
         "url": "https://preet-portfolio-ten.vercel.app",
         "image": "https://preet-portfolio-ten.vercel.app/icon.png",
         "jobTitle": "Data Analyst",
+        "description": "Professional Data Analyst specializing in SQL, Python, Power BI, Excel, and Tableau. Expert in turning complex datasets into clear, actionable business strategies.",
+        "knowsAbout": [
+          "Data Analysis", "SQL", "Python", "Power BI", "Tableau", "Microsoft Excel", "Business Intelligence", "Data Visualization", "Data Engineering"
+        ],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Data Analyst"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Your University Name" // Placeholder
+        },
         "sameAs": [
           "https://github.com/preetpassi", // Placeholder
           "https://linkedin.com/in/preetpassi", // Placeholder
@@ -21,8 +33,8 @@ const StructuredData = () => {
         "@type": "WebSite",
         "@id": "https://preet-portfolio-ten.vercel.app/#website",
         "url": "https://preet-portfolio-ten.vercel.app",
-        "name": "Preet's Portfolio",
-        "description": "Preet's personal portfolio, projects, and blog.",
+        "name": "Preet Passi | Data Analyst Portfolio",
+        "description": "Professional Data Analytics Portfolio of Preet Passi showcasing SQL, Python, Power BI, Excel, Tableau, Data Visualization, Dashboard Projects, and Business Intelligence work.",
         "publisher": {
           "@id": "https://preet-portfolio-ten.vercel.app/#person"
         }
@@ -30,7 +42,7 @@ const StructuredData = () => {
       {
         "@type": "Organization",
         "@id": "https://preet-portfolio-ten.vercel.app/#organization",
-        "name": "Preet Passi Analytics",
+        "name": "Preet Passi",
         "url": "https://preet-portfolio-ten.vercel.app",
         "logo": {
           "@type": "ImageObject",
@@ -41,7 +53,8 @@ const StructuredData = () => {
         "@type": "WebPage",
         "@id": "https://preet-portfolio-ten.vercel.app/#webpage",
         "url": "https://preet-portfolio-ten.vercel.app",
-        "name": "Preet's Portfolio - Data Analytics",
+        "name": "Preet Passi | Data Analyst Portfolio",
+        "description": "Professional Data Analytics Portfolio of Preet Passi showcasing SQL, Python, Power BI, Excel, Tableau, Data Visualization, Dashboard Projects, and Business Intelligence work.",
         "isPartOf": {
           "@id": "https://preet-portfolio-ten.vercel.app/#website"
         },
