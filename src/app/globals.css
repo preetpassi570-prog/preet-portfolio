@@ -4109,11 +4109,38 @@ a.info-card-value:hover {
   .hero-buttons {
     flex-wrap: nowrap !important; /* Prevent vertical stack on ultra-small screens */
     gap: 0.5rem;
+    justify-content: flex-start !important; /* Left align buttons */
   }
   
   .hero-buttons .btn {
     min-width: 0 !important;
     padding: 0.8rem 0.5rem !important;
     font-size: 0.85rem;
+  }
+
+  /* Left Align Hero Section */
+  .hero-content {
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+  
+  .hero-main-title,
+  .hero-subtitle {
+    text-align: left !important;
+  }
+  
+  .hero-description {
+    text-align: left !important;
+    max-width: 95% !important; /* Improve readability without full width stretch */
+  }
+  
+  .hero-skills-container {
+    justify-content: flex-start !important;
+  }
+  
+  .hero-stats-grid {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    justify-content: flex-start !important;
   }
 }
