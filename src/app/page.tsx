@@ -38,7 +38,7 @@ export default function Home() {
               <span>View Projects</span>
               <div className="btn-shine"></div>
             </a>
-            <a href="images/Resume.pdf" download className="btn btn-secondary btn-download">
+            <a href="/images/Resume.pdf" download className="btn btn-secondary btn-download">
               <i className="fa-solid fa-download"></i> <span>Download Resume</span>
             </a>
           </div>
@@ -67,7 +67,7 @@ export default function Home() {
         
         <div className="hero-visual">
           <div className="hologram-container" id="hero-hologram">
-            <canvas id="hero-visual-canvas"></canvas>
+            <canvas id="hero-visual-canvas" suppressHydrationWarning></canvas>
             <div className="hero-portrait-wrapper">
               <Image src="/images/preet.webp" alt="Preet Passi" className="hero-portrait" width={1130} height={1392} priority />
             </div>

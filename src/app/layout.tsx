@@ -93,7 +93,7 @@ export default function RootLayout({
         <canvas id="webgl-bg"></canvas>
         
         <div id="loader-overlay" className="cyber-os-loader">
-          <canvas id="loader-bg-canvas"></canvas>
+          <canvas id="loader-bg-canvas" suppressHydrationWarning></canvas>
           <audio id="loading-sound" preload="auto"></audio>
           <div className="loader-scanlines"></div>
           
@@ -155,6 +155,15 @@ export default function RootLayout({
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <div id="contact-toast" className="toast-hidden">
+          <div className="toast-content">
+            <span className="toast-icon" id="toast-icon"></span>
+            <div className="toast-details">
+              <h4 className="toast-title" id="toast-title">Message Sent Successfully!</h4>
+              <p className="toast-desc" id="toast-desc">Thank you for contacting me. I'll reply as soon as possible.</p>
+            </div>
+          </div>
+        </div>
         <script src="/script.js"></script>
         <Analytics />
       </body>
