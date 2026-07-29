@@ -5,6 +5,15 @@ import Image from 'next/image';
 export default function NotFound() {
   return (
     <div className="error-page-wrapper">
+      <style dangerouslySetInnerHTML={{__html: `
+        .navbar { display: none !important; }
+        footer { display: none !important; }
+        #loader-overlay { display: none !important; }
+        #app-container { opacity: 1 !important; pointer-events: auto !important; }
+        body { overflow: auto !important; }
+        .loading-active { overflow: auto !important; }
+      `}} />
+      
       {/* Subtle red background glow */}
       <div className="error-glow"></div>
       
