@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getProjectBySlug, getAllProjectSlugs, Project } from '@/lib/projects';
 import ProjectSchema from '@/components/projects/ProjectSchema';
+import ProjectDetail from '@/components/projects/ProjectDetail';
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -63,10 +64,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   return (
     <>
       <ProjectSchema project={project} />
-      {/* UI layer not generated yet per user request. This is purely architecture and data setup. */}
-      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', paddingTop: '100px' }}>
-        <h1>{project.title} (Architecture Ready)</h1>
-      </div>
+      <ProjectDetail project={project} />
     </>
   );
 }

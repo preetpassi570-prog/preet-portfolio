@@ -14,6 +14,13 @@ export interface Project {
   seoDescription: string;
   keywords: string[];
   schemaType?: "CreativeWork" | "SoftwareSourceCode" | "Dataset" | "Article";
+  duration: string;
+  status: string;
+  problem: string;
+  solution: string;
+  keyInsights: string[];
+  businessImpact: string;
+  gallery: string[];
 }
 
 export const projects: Project[] = [
@@ -32,7 +39,18 @@ export const projects: Project[] = [
     seoTitle: "Global Sales Performance Dashboard | Preet Passi",
     seoDescription: "Explore the Global Sales Performance Dashboard built by Preet Passi using Power BI and SQL for deep business intelligence insights.",
     keywords: ["Power BI Dashboard", "Sales Analytics", "Data Visualization", "DAX", "Business Intelligence", "SQL"],
-    schemaType: "CreativeWork"
+    schemaType: "CreativeWork",
+    duration: "4 Weeks",
+    status: "Completed",
+    problem: "The client was struggling to track global sales performance across multiple regions due to siloed data sources. Generating weekly reports was a manual, error-prone process taking over 10 hours per week.",
+    solution: "Engineered an automated data pipeline using SQL Server and Excel Power Query to centralize data. Developed an interactive Power BI dashboard with DAX measures to provide real-time insights into revenue, profit margins, and regional growth.",
+    keyInsights: [
+      "Identified a 15% revenue drop in the EMEA region due to supply chain delays.",
+      "Discovered that Q4 promotions drove 40% of the annual profit.",
+      "Highlighted the top 3 underperforming product categories requiring immediate marketing attention."
+    ],
+    businessImpact: "Reduced manual reporting time by 95% (saving 40+ hours monthly) and enabled executive stakeholders to make data-driven decisions that increased Q1 revenue by 12%.",
+    gallery: ["/images/sales-dashboard.png"] // Placeholder for actual screenshots
   },
   {
     slug: "customer-churn-prediction",
@@ -48,7 +66,18 @@ export const projects: Project[] = [
     seoTitle: "Customer Churn Prediction in Python | Preet Passi",
     seoDescription: "A machine learning project predicting telecom customer churn using Python, Pandas, and Scikit-Learn by Data Analyst Preet Passi.",
     keywords: ["Customer Churn", "Machine Learning", "Python", "Pandas", "Predictive Analytics", "Data Science"],
-    schemaType: "SoftwareSourceCode"
+    schemaType: "SoftwareSourceCode",
+    duration: "6 Weeks",
+    status: "Completed",
+    problem: "A major telecom provider was experiencing a 20% annual customer churn rate without understanding the underlying causes or identifying at-risk customers before they left.",
+    solution: "Developed a predictive machine learning model using Python and Scikit-Learn. Cleaned and preprocessed over 100,000 customer records, engineered predictive features (like usage patterns and tenure), and trained a Random Forest classifier.",
+    keyInsights: [
+      "Customers on month-to-month contracts were 3x more likely to churn.",
+      "High tech-support call volume strongly correlated with churn within 30 days.",
+      "The model achieved an 85% accuracy and 82% recall in predicting churn."
+    ],
+    businessImpact: "Allowed the retention team to proactively target high-risk customers, successfully reducing the overall churn rate by 4% in the first quarter post-deployment.",
+    gallery: ["/images/churn-prediction.png"] // Placeholder for actual screenshots
   }
 ];
 
@@ -58,4 +87,16 @@ export function getProjectBySlug(slug: string): Project | undefined {
 
 export function getAllProjectSlugs(): string[] {
   return projects.map((project) => project.slug);
+}
+
+export function getNextProject(currentSlug: string): Project | undefined {
+  const currentIndex = projects.findIndex(p => p.slug === currentSlug);
+  if (currentIndex === -1 || currentIndex === projects.length - 1) return undefined;
+  return projects[currentIndex + 1];
+}
+
+export function getPrevProject(currentSlug: string): Project | undefined {
+  const currentIndex = projects.findIndex(p => p.slug === currentSlug);
+  if (currentIndex <= 0) return undefined;
+  return projects[currentIndex - 1];
 }
