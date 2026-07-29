@@ -46,27 +46,7 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://preet-portfolio-ten.vercel.app/#person",
-      name: "Preet",
-      url: "https://preet-portfolio-ten.vercel.app",
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://preet-portfolio-ten.vercel.app/#website",
-      url: "https://preet-portfolio-ten.vercel.app",
-      name: "Preet's Portfolio",
-      publisher: {
-        "@id": "https://preet-portfolio-ten.vercel.app/#person",
-      },
-    },
-  ],
-};
-
+import StructuredData from "../components/seo/StructuredData";
 import Navbar from "../components/Navbar";
 import { Analytics } from '@vercel/analytics/react';
 
@@ -82,12 +62,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;800;900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-        <Script
-          id="global-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          strategy="beforeInteractive"
-        />
+        <StructuredData />
       </head>
       <body className="dark-theme" suppressHydrationWarning>
         <canvas id="webgl-bg"></canvas>
