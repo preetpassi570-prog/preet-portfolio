@@ -1,47 +1,36 @@
-# Premium 3D Data Analytics Portfolio 🚀
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Yeh ek professional, immersive **3D portfolio website** hai jo especially **Data Analysts** ke liye design ki gayi hai. Isme aupka interactive bilingual AI Assistant, custom 3D wireframe loading screen, aur mouse-movement dynamic particle constellation background features included hain.
+## Getting Started
 
----
+First, run the development server:
 
-## 📂 Project File Structure (Fewer Files, Higher Performance)
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-Aap soch rahe honge ki website me itni kam files kyun hain? 
-**Answer:** Static frontend websites ko fast aur reliable rakhne ke liye single-page configuration sabse best hoti hai. Isse page loading speeds improve hoti hain aur server costs zero ho jati hain.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Is project me total 5 main files/folders hain:
-1. **`index.html`**: Main structural file jisme home screen, projects section, certificates, aur AI widget ka code hai.
-2. **`404.html`**: Custom designed error page (agar link break ho jaye to show hone ke liye).
-3. **`css/style.css`**: Styling sheets jisme dark and red theme, glowing neon accents aur transitions defined hain.
-4. **`js/script.js`**: Logic code jisme 3D loading sequence, Three.js WebGL background animation, aur bilingual AI engine logic hai.
-5. **`images/`**: Aapka personal asset folder jisme Certificates PDFs aur Resume pdf saved hain.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
----
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## 💻 VS Code Me Localhost Par Kaise Chalayein? (How to Run in Localhost)
+## Learn More
 
-Browser security (CORS aur Permissions) ki wajah se WebGL canvas aur **Web Speech API (AI ki voice feature)** ko direct double-click karke chalane par web browsers block kar dete hain. Isliye isko **localhost server** ke through chalana mandatory hai.
+To learn more about Next.js, take a look at the following resources:
 
-VS Code me isko run karne ke liye in simple steps ko follow karein:
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### Step 1: Open Project in VS Code
-- VS Code open karein, fir `File > Open Folder...` par click karke apne `Protfolio` folder ko select karke open karein.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-### Step 2: Install "Live Server" Extension
-- VS Code ke left side me **Extensions** icon par click karein (Shortcut: `Ctrl + Shift + X`).
-- Search bar me type karein: **`Live Server`** (Yeh Ritwick Dey ka extension hai).
-- **Install** button par click karein.
+## Deploy on Vercel
 
-### Step 3: Start the Localhost Server
-- Installation complete hone ke baad, `index.html` file par click karke use open karein.
-- VS Code window ke bottom-right corner (status bar) me ek **`Go Live`** ka button show hoga. Us par click karein.
-- Ya fir, editor me right-click karke **`Open with Live Server`** select karein.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### Step 4: Test in Browser
-- Pura system automatic aapke default browser me **`http://127.0.0.1:5500/index.html`** par open ho jayega.
-- Ab saare 3D graphics, animations, aur AI voice effects perfectly work karenge!
-
----
-
-## 📜 License
-MIT License. Created by Preet.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
