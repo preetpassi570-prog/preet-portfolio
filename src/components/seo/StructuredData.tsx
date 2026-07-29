@@ -41,6 +41,9 @@ const StructuredData = () => {
         "logo": {
           "@type": "ImageObject",
           "url": "https://preet-portfolio-ten.vercel.app/icon.png"
+        },
+        "founder": {
+          "@id": "https://preet-portfolio-ten.vercel.app/#person"
         }
       },
       {
@@ -55,6 +58,10 @@ const StructuredData = () => {
         },
         "about": {
           "@id": "https://preet-portfolio-ten.vercel.app/#person"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://preet-portfolio-ten.vercel.app/icon.png"
         }
       }
     ]
