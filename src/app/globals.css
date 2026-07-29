@@ -3445,10 +3445,6 @@ a.info-card-value:hover {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-}
-
 }
 /* ================= PREMIUM LOADER ================= */
 .premium-loader {
