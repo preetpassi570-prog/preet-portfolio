@@ -1,35 +1,10 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
-
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { projects } from '@/lib/projects';
 
 export default function ProjectsSection() {
   const [activeTab, setActiveTab] = useState('all');
-  const [selectedProject, setSelectedProject] = useState<any>(null);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => { setIsMounted(true); }, []);
-
-  // Close modal on Escape key
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setSelectedProject(null);
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  // Prevent body scroll when modal is open
-  useEffect(() => {
-    if (selectedProject) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-    return () => { document.body.style.overflow = 'auto'; };
-  }, [selectedProject]);
 
   const filteredProjects = activeTab === 'all' 
     ? projects 
@@ -55,7 +30,6 @@ export default function ProjectsSection() {
           <div 
             key={project.slug} 
             className="project-card tilt-card" 
-            onClick={() => setSelectedProject(project)}
           >
             <div className="card-glow"></div>
             <div className="project-header">
@@ -70,69 +44,18 @@ export default function ProjectsSection() {
               {project.technologies.map((t, idx) => <span key={idx}>{t}</span>)}
             </div>
             
-            <div className="project-links" style={{ marginTop: 'auto', paddingTop: '1rem', display: 'flex', gap: '0.5rem' }}>
-              <button className="btn btn-secondary" style={{ flex: 1, justifyContent: "center", padding: "0.6rem", fontSize: "0.85rem" }}>
-                Quick View
-              </button>
+            <div className="project-links" style={{ marginTop: 'auto', paddingTop: '1rem', display: 'flex' }}>
               <Link 
                 href={`/projects/${project.slug}`} 
-                className="btn btn-primary" 
-                onClick={(e) => e.stopPropagation()} 
-                style={{ flex: 1, justifyContent: "center", padding: "0.6rem", fontSize: "0.85rem" }}
+                className="btn btn-secondary" 
+                style={{ flex: 1, justifyContent: "center", padding: "0.6rem", fontSize: "0.85rem", textDecoration: 'none' }}
               >
-                Case Study
+                View Project
               </Link>
             </div>
           </div>
         ))}
       </div>
-
-      {/* Modal Overlay via Portal */}
-      {isMounted && typeof document !== 'undefined' && createPortal(
-        <div 
-          className={`modal-overlay ${selectedProject ? 'open' : ''}`}
-          onClick={(e) => {
-            if (e.target === e.currentTarget) setSelectedProject(null);
-          }}
-        >
-          {selectedProject && (
-            <div className="modal-content">
-              <button className="modal-close-btn" onClick={() => setSelectedProject(null)}>
-                <i className="fa-solid fa-xmark"></i>
-              </button>
-              
-              <div className="modal-header">
-                <i className={`${selectedProject.icon} modal-icon`}></i>
-                <h3 className="modal-title">{selectedProject.title}</h3>
-                <span className="modal-badge">{selectedProject.tag}</span>
-              </div>
-              
-              <p className="modal-desc">{selectedProject.shortDescription}</p>
-              
-              <div className="modal-tech">
-                {selectedProject.technologies.map((t: string, idx: number) => <span key={idx}>{t}</span>)}
-              </div>
-              
-              <div className="modal-actions" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <Link href={`/projects/${selectedProject.slug}`} className="btn btn-primary" style={{ flex: 1, justifyContent: 'center' }}>
-                  <i className="fa-solid fa-book-open"></i> Read Case Study
-                </Link>
-                {selectedProject.githubUrl && (
-                  <a href={selectedProject.githubUrl} target="_blank" rel="noreferrer" className="btn btn-secondary">
-                    <i className="fa-brands fa-github"></i> View Code
-                  </a>
-                )}
-                {selectedProject.liveUrl && (
-                  <a href={selectedProject.liveUrl} target="_blank" rel="noreferrer" className="btn btn-primary">
-                    <i className="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-                  </a>
-                )}
-              </div>
-            </div>
-          )}
-        </div>,
-        document.body
-      )}
     </section>
   );
 }
