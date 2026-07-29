@@ -679,7 +679,7 @@ function initLoader() {
       });
 
     // 2. Main App Container Activation (Smooth fade-in)
-    gsap.set(appContainer, { opacity: 1, pointerEvents: "all" });
+    gsap.set(appContainer, { opacity: 1, pointerEvents: "auto" });
 
     // 3. Cinematic Entrance Stagger Sequence
     const tl = gsap.timeline({ delay: 0.1 });

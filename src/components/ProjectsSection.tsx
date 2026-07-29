@@ -1,45 +1,13 @@
-import { Metadata } from "next";
-import Script from "next/script";
+import React from 'react';
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "Projects",
-    description: "View my latest web development projects.",
-    alternates: {
-      canonical: "/projects",
-    },
-  };
-}
-
-export default function ProjectsPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://preet-portfolio-ten.vercel.app",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Projects",
-        item: "https://preet-portfolio-ten.vercel.app/projects",
-      },
-    ],
-  };
-
+export default function ProjectsSection() {
   return (
-    <div className="pt-24 min-h-screen">
-      <section id="projects" className="section projects-section">
+    <section id="projects" className="section projects-section">
       <div className="section-header">
         <h2 className="section-title"><span className="neon-text-red">//</span> PROJECTS SHOWCASE</h2>
         <p className="section-subtitle">A curated collection of data analysis, database engineering, and machine learning models.</p>
       </div>
 
-      
       <div className="tabs-container">
         <button className="tab-btn active" data-tab="all">All Projects</button>
         <button className="tab-btn" data-tab="excel"><i className="fa-regular fa-file-excel"></i> Excel</button>
@@ -48,9 +16,7 @@ export default function ProjectsPage() {
         <button className="tab-btn" data-tab="powerbi"><i className="fa-solid fa-chart-pie"></i> Power BI</button>
       </div>
 
-      
       <div className="projects-grid" id="projects-grid">
-        
         <div className="project-card tilt-card" data-category="excel" id="proj-excel">
           <div className="card-glow"></div>
           <div className="project-header">
@@ -67,12 +33,11 @@ export default function ProjectsPage() {
             <span>VBA/Macros</span>
             <span>AI Forecasting</span>
           </div>
-          <div className="project-links" style={{"display":"flex","width":"100%"}}>
-            <a href="https://github.com/preetpassi570-prog/Excel-Sales-Dashboard.git" target="_blank" className="project-link-btn github-link" style={{"flex":"1","textAlign":"center","justifyContent":"center"}}><i className="fa-brands fa-github"></i> Project Link</a>
+          <div className="project-links" style={{ display: "flex", width: "100%" }}>
+            <a href="https://github.com/preetpassi570-prog/Excel-Sales-Dashboard.git" target="_blank" className="project-link-btn github-link" style={{ flex: "1", textAlign: "center", justifyContent: "center" }}><i className="fa-brands fa-github"></i> Project Link</a>
           </div>
         </div>
 
-        
         <div className="project-card tilt-card" data-category="sql" id="proj-sql-ecommerce">
           <div className="card-glow"></div>
           <div className="project-header">
@@ -89,8 +54,8 @@ export default function ProjectsPage() {
             <span>DB Normalization</span>
             <span>Indexes</span>
           </div>
-          <div className="project-links" style={{"display":"flex","width":"100%"}}>
-            <a href="https://github.com/preetpassi570-prog/SQL-Advanced-E-Commerce-Sales-Analysis.git" target="_blank" className="project-link-btn github-link" style={{"flex":"1","textAlign":"center","justifyContent":"center"}}><i className="fa-brands fa-github"></i> Project Link</a>
+          <div className="project-links" style={{ display: "flex", width: "100%" }}>
+            <a href="https://github.com/preetpassi570-prog/SQL-Advanced-E-Commerce-Sales-Analysis.git" target="_blank" className="project-link-btn github-link" style={{ flex: "1", textAlign: "center", justifyContent: "center" }}><i className="fa-brands fa-github"></i> Project Link</a>
           </div>
         </div>
 
@@ -110,12 +75,11 @@ export default function ProjectsPage() {
             <span>Window Functions</span>
             <span>Joins & Views</span>
           </div>
-          <div className="project-links" style={{"display":"flex","width":"100%"}}>
-            <a href="https://github.com/preetpassi570-prog/SQL-Basics-E-Commerce-Sales-Analysis.git" target="_blank" className="project-link-btn github-link" style={{"flex":"1","textAlign":"center","justifyContent":"center"}}><i className="fa-brands fa-github"></i> Project Link</a>
+          <div className="project-links" style={{ display: "flex", width: "100%" }}>
+            <a href="https://github.com/preetpassi570-prog/SQL-Basics-E-Commerce-Sales-Analysis.git" target="_blank" className="project-link-btn github-link" style={{ flex: "1", textAlign: "center", justifyContent: "center" }}><i className="fa-brands fa-github"></i> Project Link</a>
           </div>
         </div>
 
-        
         <div className="project-card tilt-card" data-category="python" id="proj-python-streamlit">
           <div className="card-glow"></div>
           <div className="project-header">
@@ -154,12 +118,11 @@ export default function ProjectsPage() {
             <span>Matplotlib</span>
             <span>Feature Eng</span>
           </div>
-          <div className="project-links" style={{"display":"flex","width":"100%"}}>
-            <a href="https://github.com/preetpassi570-prog/E-Commerce-Sales-Analysis-Python.git" target="_blank" className="project-link-btn github-link" style={{"flex":"1","textAlign":"center","justifyContent":"center"}}><i className="fa-brands fa-github"></i> Project Link</a>
+          <div className="project-links" style={{ display: "flex", width: "100%" }}>
+            <a href="https://github.com/preetpassi570-prog/E-Commerce-Sales-Analysis-Python.git" target="_blank" className="project-link-btn github-link" style={{ flex: "1", textAlign: "center", justifyContent: "center" }}><i className="fa-brands fa-github"></i> Project Link</a>
           </div>
         </div>
 
-        
         <div className="project-card tilt-card" data-category="powerbi" id="proj-pbi-sales">
           <div className="card-glow"></div>
           <div className="project-header">
@@ -176,8 +139,8 @@ export default function ProjectsPage() {
             <span>Power Query</span>
             <span>KPI Cards</span>
           </div>
-          <div className="project-links" style={{"display":"flex","width":"100%"}}>
-            <a href="https://github.com/preetpassi570-prog/powerbi-financial-performance-dashboard.git" target="_blank" className="project-link-btn github-link" style={{"flex":"1","textAlign":"center","justifyContent":"center"}}><i className="fa-brands fa-github"></i> Project Link</a>
+          <div className="project-links" style={{ display: "flex", width: "100%" }}>
+            <a href="https://github.com/preetpassi570-prog/powerbi-financial-performance-dashboard.git" target="_blank" className="project-link-btn github-link" style={{ flex: "1", textAlign: "center", justifyContent: "center" }}><i className="fa-brands fa-github"></i> Project Link</a>
           </div>
         </div>
 
@@ -197,8 +160,8 @@ export default function ProjectsPage() {
             <span>Geographical Maps</span>
             <span>Data Models</span>
           </div>
-          <div className="project-links" style={{"display":"flex","width":"100%"}}>
-            <a href="https://github.com/preetpassi570-prog/powerbi-customer-insights-dashboard.git" target="_blank" className="project-link-btn github-link" style={{"flex":"1","textAlign":"center","justifyContent":"center"}}><i className="fa-brands fa-github"></i> Project Link</a>
+          <div className="project-links" style={{ display: "flex", width: "100%" }}>
+            <a href="https://github.com/preetpassi570-prog/powerbi-customer-insights-dashboard.git" target="_blank" className="project-link-btn github-link" style={{ flex: "1", textAlign: "center", justifyContent: "center" }}><i className="fa-brands fa-github"></i> Project Link</a>
           </div>
         </div>
 
@@ -218,13 +181,11 @@ export default function ProjectsPage() {
             <span>Row-Level Security</span>
             <span>HR Metrics</span>
           </div>
-          <div className="project-links" style={{"display":"flex","width":"100%"}}>
-            <a href="https://github.com/preetpassi570-prog/powerbi-sales-customer-analytics-dashboard.git" target="_blank" className="project-link-btn github-link" style={{"flex":"1","textAlign":"center","justifyContent":"center"}}><i className="fa-brands fa-github"></i> Project Link</a>
+          <div className="project-links" style={{ display: "flex", width: "100%" }}>
+            <a href="https://github.com/preetpassi570-prog/powerbi-sales-customer-analytics-dashboard.git" target="_blank" className="project-link-btn github-link" style={{ flex: "1", textAlign: "center", justifyContent: "center" }}><i className="fa-brands fa-github"></i> Project Link</a>
           </div>
         </div>
-
       </div>
     </section>
-    </div>
   );
 }

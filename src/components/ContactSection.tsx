@@ -1,31 +1,9 @@
-import { Metadata } from "next";
-import Script from "next/script";
+import React from 'react';
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "Contact",
-    description: "Get in touch with Preet.",
-    alternates: {
-      canonical: "/contact",
-    },
-  };
-}
-
-export default function ContactPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    mainEntity: {
-      "@type": "Person",
-      name: "Preet",
-    },
-  };
-
+export default function ContactSection() {
   return (
-    <div className="pt-24 min-h-screen">
-      <section id="contact" className="section contact-section">
+    <section id="contact" className="section contact-section">
       <div className="contact-container-wrapper">
-        
         <div className="contact-header">
           <span className="contact-welcome-tag">GET IN TOUCH</span>
           <h2 className="contact-main-title">Let's Build Something<br />Amazing Together</h2>
@@ -35,10 +13,8 @@ export default function ContactPage() {
         </div>
 
         <div className="contact-grid">
-          
           <div className="contact-left-col">
             <div className="contact-info-cards">
-              
               <div className="contact-info-card">
                 <div className="info-card-glow"></div>
                 <div className="info-card-icon"><i className="fa-solid fa-envelope"></i></div>
@@ -69,7 +45,6 @@ export default function ContactPage() {
                   </div>
                 </div>
               </a>
-
             </div>
 
             <p className="contact-pitch">
@@ -85,7 +60,6 @@ export default function ContactPage() {
             </div>
           </div>
 
-          
           <div className="contact-right-col">
             <form id="contact-form" className="contact-glass-form" action="https://api.web3forms.com/submit" method="POST" noValidate>
               <input type="hidden" name="access_key" value="92bbefd2-9f1e-48f2-a477-6cb4fd851470" />
@@ -136,9 +110,7 @@ export default function ContactPage() {
             </form>
           </div>
         </div>
-
       </div>
     </section>
-    </div>
   );
 }

@@ -1,37 +1,11 @@
-import { Metadata } from "next";
-import Script from "next/script";
+import React from 'react';
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "About Me",
-    description: "Learn more about Preet and my journey as a developer.",
-    alternates: {
-      canonical: "/about",
-    },
-  };
-}
-
-export default function AboutPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    mainEntity: {
-      "@type": "Person",
-      name: "Preet",
-      url: "https://preet-portfolio-ten.vercel.app/about",
-      jobTitle: "Web Developer",
-    },
-  };
-
+export default function AboutSection() {
   return (
-    <div className="pt-24 min-h-screen">
-      <section id="about" className="section about-section">
+    <>
+    <section id="about" className="section about-section">
       <div className="about-container-wrapper">
-        
-        
         <div className="about-main-grid">
-          
-          
           <div className="about-left-col">
             <div className="about-welcome-tag">ABOUT ME</div>
             <h2 className="about-main-title">Turning Data<br />Into Decisions</h2>
@@ -46,7 +20,6 @@ export default function AboutPage() {
             </div>
           </div>
           
-          
           <div className="about-right-col">
             <div className="about-profile-card">
               <div className="profile-card-glow"></div>
@@ -58,10 +31,10 @@ export default function AboutPage() {
                 <div className="profile-meta">
                   <h3 className="profile-name">Preet Passi</h3>
                   <p className="profile-role">Data Analytics Engineer</p>
-                  <p className="profile-loc" style={{"color":"var(--text-secondary)","fontSize":"0.78rem","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.5px","marginBottom":"5px"}}>🚀 Entry Level Data Analyst</p>
-                  <p className="profile-loc" style={{"marginBottom":"5px"}}><i className="fa-solid fa-location-dot"></i> India</p>
-                  <p className="profile-loc" style={{"color":"var(--accent-red)","fontSize":"0.78rem","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.5px","marginBottom":"3px"}}>🟢 Open to Work</p>
-                  <p className="profile-loc" style={{"color":"var(--text-muted)","fontSize":"0.75rem"}}>📚 Continuous Learning</p>
+                  <p className="profile-loc" style={{ color: "var(--text-secondary)", fontSize: "0.78rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "5px" }}>🚀 Entry Level Data Analyst</p>
+                  <p className="profile-loc" style={{ marginBottom: "5px" }}><i className="fa-solid fa-location-dot"></i> India</p>
+                  <p className="profile-loc" style={{ color: "var(--accent-red)", fontSize: "0.78rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "3px" }}>🟢 Open to Work</p>
+                  <p className="profile-loc" style={{ color: "var(--text-muted)", fontSize: "0.75rem" }}>📚 Continuous Learning</p>
                 </div>
               </div>
               
@@ -101,7 +74,6 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-        
         
         <div className="about-expertise-section">
           <h3 className="about-sub-section-title">// CORE EXPERTISE</h3>
@@ -181,7 +153,6 @@ export default function AboutPage() {
           </div>
         </div>
         
-        
         <div className="about-journey-section">
           <h3 className="about-sub-section-title">// MY JOURNEY</h3>
           
@@ -243,10 +214,10 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-        
       </div>
     </section>
-<section id="seo-summary" className="section seo-summary-section">
+
+    <section id="seo-summary" className="section seo-summary-section">
       <div className="seo-container-wrapper">
         <div className="section-header">
           <h2 className="section-title"><span className="neon-text-red">//</span> PROFESSIONAL SUMMARY</h2>
@@ -287,6 +258,6 @@ export default function AboutPage() {
         </div>
       </div>
     </section>
-    </div>
+    </>
   );
 }
