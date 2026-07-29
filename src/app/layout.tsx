@@ -89,7 +89,7 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
       </head>
-      <body className="dark-theme">
+      <body className="dark-theme" suppressHydrationWarning>
         <canvas id="webgl-bg"></canvas>
         
         <div id="loader-overlay" className="cyber-os-loader">

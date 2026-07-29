@@ -497,9 +497,9 @@ function initLoader() {
   window.addEventListener("click", unlockAudio);
   window.addEventListener("touchstart", unlockAudio);
 
-  // Start the loading sound play sequence, then kick off the loading bar animation
+  // Start the loading sound play sequence
   playIntroSound(() => {
-    startProgressAnimation();
+    // startProgressAnimation() was undefined, progress is handled by loaderTimer
   });
 
   // Background Animations
