@@ -21,63 +21,184 @@ export interface Project {
   keyInsights: string[];
   businessImpact: string;
   gallery: string[];
+  icon: string;
+  tag: string;
 }
+
+const placeholderContent = {
+  duration: "[Duration Placeholder - e.g., 4 Weeks]",
+  status: "Completed",
+  problem: "[Problem Statement Placeholder - Describe the business challenge, data issues, or objectives here.]",
+  solution: "[Solution Process Placeholder - Describe the dataset, ETL process, analysis, and models built.]",
+  keyInsights: [
+    "[Insight 1 Placeholder]",
+    "[Insight 2 Placeholder]",
+    "[Insight 3 Placeholder]"
+  ],
+  businessImpact: "[Business Impact Placeholder - Describe ROI, time saved, or efficiency gained.]",
+  gallery: [] // Will be populated with real screenshots later
+};
 
 export const projects: Project[] = [
   {
-    slug: "sales-performance-dashboard",
-    title: "Global Sales Performance Dashboard",
-    shortDescription: "Interactive Power BI dashboard analyzing global sales trends, revenue growth, and regional performance.",
-    fullDescription: "A comprehensive data analysis project that transforms raw global sales data into actionable business intelligence. Built using Power BI, SQL, and Excel. It features dynamic filtering, year-over-year growth metrics, and predictive forecasting for upcoming quarters.",
-    featuredImage: "/images/sales-dashboard.png",
-    technologies: ["Power BI", "SQL Server", "DAX", "Excel Power Query"],
-    category: "Data Visualization",
-    publishedDate: "2023-11-15T08:00:00Z",
-    updatedDate: "2024-01-20T10:30:00Z",
-    githubUrl: "https://github.com/preetpassi570-prog",
-    liveUrl: "#",
-    seoTitle: "Global Sales Performance Dashboard | Preet Passi",
-    seoDescription: "Explore the Global Sales Performance Dashboard built by Preet Passi using Power BI and SQL for deep business intelligence insights.",
-    keywords: ["Power BI Dashboard", "Sales Analytics", "Data Visualization", "DAX", "Business Intelligence", "SQL"],
-    schemaType: "CreativeWork",
-    duration: "4 Weeks",
-    status: "Completed",
-    problem: "The client was struggling to track global sales performance across multiple regions due to siloed data sources. Generating weekly reports was a manual, error-prone process taking over 10 hours per week.",
-    solution: "Engineered an automated data pipeline using SQL Server and Excel Power Query to centralize data. Developed an interactive Power BI dashboard with DAX measures to provide real-time insights into revenue, profit margins, and regional growth.",
-    keyInsights: [
-      "Identified a 15% revenue drop in the EMEA region due to supply chain delays.",
-      "Discovered that Q4 promotions drove 40% of the annual profit.",
-      "Highlighted the top 3 underperforming product categories requiring immediate marketing attention."
-    ],
-    businessImpact: "Reduced manual reporting time by 95% (saving 40+ hours monthly) and enabled executive stakeholders to make data-driven decisions that increased Q1 revenue by 12%.",
-    gallery: ["/images/sales-dashboard.png"] // Placeholder for actual screenshots
+    slug: "excel-sales-dashboard",
+    title: "Advanced Sales Forecasting & AI Dashboard",
+    shortDescription: "A complex analytical workbook featuring predictive modeling, cohort analysis, and automated reports driven by Excel functions & AI-powered forecasting modules.",
+    fullDescription: "A complex analytical workbook featuring predictive modeling, cohort analysis, and automated reports driven by Excel functions & AI-powered forecasting modules.",
+    featuredImage: "/icon.png",
+    technologies: ["Power Query", "Pivot Tables", "VBA/Macros", "AI Forecasting"],
+    category: "excel",
+    publishedDate: "2024-01-01T00:00:00Z",
+    updatedDate: "2024-01-01T00:00:00Z",
+    githubUrl: "https://github.com/preetpassi570-prog/Excel-Sales-Dashboard.git",
+    
+    seoTitle: "Advanced Sales Forecasting & AI Dashboard | Preet Passi",
+    seoDescription: "An advanced Excel dashboard for sales forecasting and cohort analysis.",
+    keywords: ["Excel", "Sales Dashboard", "Forecasting", "Power Query", "VBA"],
+    schemaType: "SoftwareSourceCode",
+    icon: "fa-regular fa-file-excel",
+    tag: "Excel",
+    ...placeholderContent
   },
   {
-    slug: "customer-churn-prediction",
-    title: "Customer Churn Prediction Model",
-    shortDescription: "Machine learning model predicting telecom customer churn using Python, Pandas, and Scikit-Learn.",
-    fullDescription: "This project uses historical customer data to predict churn probabilities. By performing exploratory data analysis (EDA), data cleaning, and feature engineering, a Random Forest classifier was trained to identify at-risk customers, allowing targeted retention strategies.",
-    featuredImage: "/images/churn-prediction.png",
-    technologies: ["Python", "Pandas", "Scikit-Learn", "Matplotlib", "Seaborn"],
-    category: "Machine Learning",
-    publishedDate: "2024-02-10T09:15:00Z",
-    updatedDate: "2024-02-12T14:00:00Z",
-    githubUrl: "https://github.com/preetpassi570-prog",
-    seoTitle: "Customer Churn Prediction in Python | Preet Passi",
-    seoDescription: "A machine learning project predicting telecom customer churn using Python, Pandas, and Scikit-Learn by Data Analyst Preet Passi.",
-    keywords: ["Customer Churn", "Machine Learning", "Python", "Pandas", "Predictive Analytics", "Data Science"],
+    slug: "sql-ecommerce-retention",
+    title: "E-commerce Customer Retention Database",
+    shortDescription: "Designed relational databases, wrote complex CTE queries, optimization procedures, and transactional schemas to track and improve retail customer retention metrics.",
+    fullDescription: "Designed relational databases, wrote complex CTE queries, optimization procedures, and transactional schemas to track and improve retail customer retention metrics.",
+    featuredImage: "/icon.png",
+    technologies: ["PostgreSQL", "CTEs & Windows", "DB Normalization", "Indexes"],
+    category: "sql",
+    publishedDate: "2024-01-01T00:00:00Z",
+    updatedDate: "2024-01-01T00:00:00Z",
+    githubUrl: "https://github.com/preetpassi570-prog/SQL-Advanced-E-Commerce-Sales-Analysis.git",
+    
+    seoTitle: "E-commerce Customer Retention Database | Preet Passi",
+    seoDescription: "A SQL project analyzing e-commerce customer retention using advanced queries and CTEs.",
+    keywords: ["SQL", "E-commerce", "Database", "CTEs", "PostgreSQL"],
     schemaType: "SoftwareSourceCode",
-    duration: "6 Weeks",
-    status: "Completed",
-    problem: "A major telecom provider was experiencing a 20% annual customer churn rate without understanding the underlying causes or identifying at-risk customers before they left.",
-    solution: "Developed a predictive machine learning model using Python and Scikit-Learn. Cleaned and preprocessed over 100,000 customer records, engineered predictive features (like usage patterns and tenure), and trained a Random Forest classifier.",
-    keyInsights: [
-      "Customers on month-to-month contracts were 3x more likely to churn.",
-      "High tech-support call volume strongly correlated with churn within 30 days.",
-      "The model achieved an 85% accuracy and 82% recall in predicting churn."
-    ],
-    businessImpact: "Allowed the retention team to proactively target high-risk customers, successfully reducing the overall churn rate by 4% in the first quarter post-deployment.",
-    gallery: ["/images/churn-prediction.png"] // Placeholder for actual screenshots
+    icon: "fa-solid fa-database",
+    tag: "SQL",
+    ...placeholderContent
+  },
+  {
+    slug: "sql-healthcare-cohort",
+    title: "Healthcare Operations Cohort Analysis",
+    shortDescription: "Processed public medical records using analytical SQL. Conducted patient flow optimization and clinical cohort trends using window functions and query optimization.",
+    fullDescription: "Processed public medical records using analytical SQL. Conducted patient flow optimization and clinical cohort trends using window functions and query optimization.",
+    featuredImage: "/icon.png",
+    technologies: ["MySQL", "Stored Procedures", "Window Functions", "Joins & Views"],
+    category: "sql",
+    publishedDate: "2024-01-01T00:00:00Z",
+    updatedDate: "2024-01-01T00:00:00Z",
+    githubUrl: "https://github.com/preetpassi570-prog/SQL-Basics-E-Commerce-Sales-Analysis.git",
+    
+    seoTitle: "Healthcare Operations Cohort Analysis | Preet Passi",
+    seoDescription: "Healthcare data analysis and cohort trends using SQL window functions.",
+    keywords: ["SQL", "Healthcare", "Data Analysis", "MySQL"],
+    schemaType: "SoftwareSourceCode",
+    icon: "fa-solid fa-server",
+    tag: "SQL",
+    ...placeholderContent
+  },
+  {
+    slug: "python-financial-dashboard",
+    title: "Interactive Cloud-Deployed Financial Dashboard",
+    shortDescription: "A comprehensive, cloud-deployed dash dashboard showing real-time market tracker, financial indicators, and interactive visuals built using Plotly.",
+    fullDescription: "A comprehensive, cloud-deployed dash dashboard showing real-time market tracker, financial indicators, and interactive visuals built using Plotly.",
+    featuredImage: "/icon.png",
+    technologies: ["Dash / Plotly", "Pandas", "APIs", "Render / Heroku"],
+    category: "python",
+    publishedDate: "2024-01-01T00:00:00Z",
+    updatedDate: "2024-01-01T00:00:00Z",
+    githubUrl: "https://github.com/preetpassi570-prog/Customer-Risk-Stratification-App.git",
+    liveUrl: "https://customer-risk-dashboard.streamlit.app/",
+    seoTitle: "Interactive Cloud-Deployed Financial Dashboard | Preet Passi",
+    seoDescription: "A Python financial dashboard built with Dash and Plotly.",
+    keywords: ["Python", "Dash", "Plotly", "Finance Dashboard", "Data Visualization"],
+    schemaType: "SoftwareSourceCode",
+    icon: "fa-brands fa-python",
+    tag: "Python",
+    ...placeholderContent
+  },
+  {
+    slug: "python-churn-prediction",
+    title: "Customer Churn Prediction Engine",
+    shortDescription: "Engineered a Scikit-Learn machine learning pipeline to classify and predict customer churn patterns. Achieved 91% accuracy with hyperparameter tuning.",
+    fullDescription: "Engineered a Scikit-Learn machine learning pipeline to classify and predict customer churn patterns. Achieved 91% accuracy with hyperparameter tuning.",
+    featuredImage: "/icon.png",
+    technologies: ["Scikit-Learn", "Pandas / NumPy", "Matplotlib", "Feature Eng"],
+    category: "python",
+    publishedDate: "2024-01-01T00:00:00Z",
+    updatedDate: "2024-01-01T00:00:00Z",
+    githubUrl: "https://github.com/preetpassi570-prog/E-Commerce-Sales-Analysis-Python.git",
+    
+    seoTitle: "Customer Churn Prediction Engine | Preet Passi",
+    seoDescription: "Machine learning churn prediction engine using Python and Scikit-Learn.",
+    keywords: ["Python", "Machine Learning", "Scikit-Learn", "Churn Prediction"],
+    schemaType: "SoftwareSourceCode",
+    icon: "fa-solid fa-brain",
+    tag: "Python",
+    ...placeholderContent
+  },
+  {
+    slug: "powerbi-executive-revenue",
+    title: "Executive Revenue & Sales Dashboard",
+    shortDescription: "An executive dashboard featuring sales analytics, regional performance tracking, and profit margin analysis with full interactive drill-down reports.",
+    fullDescription: "An executive dashboard featuring sales analytics, regional performance tracking, and profit margin analysis with full interactive drill-down reports.",
+    featuredImage: "/icon.png",
+    technologies: ["DAX", "Data Modeling", "Power Query", "KPI Cards"],
+    category: "powerbi",
+    publishedDate: "2024-01-01T00:00:00Z",
+    updatedDate: "2024-01-01T00:00:00Z",
+    githubUrl: "https://github.com/preetpassi570-prog/powerbi-financial-performance-dashboard.git",
+    
+    seoTitle: "Executive Revenue & Sales Dashboard | Preet Passi",
+    seoDescription: "A Power BI executive revenue and sales analytics dashboard.",
+    keywords: ["Power BI", "Sales Dashboard", "DAX", "Data Modeling"],
+    schemaType: "CreativeWork",
+    icon: "fa-solid fa-chart-line",
+    tag: "Power BI",
+    ...placeholderContent
+  },
+  {
+    slug: "powerbi-supply-chain",
+    title: "Supply Chain Logistics & Operations Tracker",
+    shortDescription: "A metrics tracker reflecting delivery schedules, warehousing costs, transit times, and bottlenecks, resulting in a 12% operational efficiency gain.",
+    fullDescription: "A metrics tracker reflecting delivery schedules, warehousing costs, transit times, and bottlenecks, resulting in a 12% operational efficiency gain.",
+    featuredImage: "/icon.png",
+    technologies: ["DAX", "Time Intelligence", "Geographical Maps", "Data Models"],
+    category: "powerbi",
+    publishedDate: "2024-01-01T00:00:00Z",
+    updatedDate: "2024-01-01T00:00:00Z",
+    githubUrl: "https://github.com/preetpassi570-prog/powerbi-customer-insights-dashboard.git",
+    
+    seoTitle: "Supply Chain Logistics & Operations Tracker | Preet Passi",
+    seoDescription: "Power BI logistics dashboard for tracking supply chain metrics and efficiency.",
+    keywords: ["Power BI", "Supply Chain", "Logistics", "Dashboard", "DAX"],
+    schemaType: "CreativeWork",
+    icon: "fa-solid fa-truck-ramp-box",
+    tag: "Power BI",
+    ...placeholderContent
+  },
+  {
+    slug: "powerbi-hr-analytics",
+    title: "HR Talent Acquisition & Performance Analytics",
+    shortDescription: "A comprehensive talent intelligence tracker analyzing employee retention rates, recruitment funnels, and performance appraisals across multiple departments.",
+    fullDescription: "A comprehensive talent intelligence tracker analyzing employee retention rates, recruitment funnels, and performance appraisals across multiple departments.",
+    featuredImage: "/icon.png",
+    technologies: ["DAX", "Drill-Downs", "Row-Level Security", "HR Metrics"],
+    category: "powerbi",
+    publishedDate: "2024-01-01T00:00:00Z",
+    updatedDate: "2024-01-01T00:00:00Z",
+    githubUrl: "https://github.com/preetpassi570-prog/powerbi-sales-customer-analytics-dashboard.git",
+    
+    seoTitle: "HR Talent Acquisition & Performance Analytics | Preet Passi",
+    seoDescription: "An HR talent acquisition and performance analytics dashboard built in Power BI.",
+    keywords: ["Power BI", "HR Analytics", "Talent Intelligence", "Dashboard"],
+    schemaType: "CreativeWork",
+    icon: "fa-solid fa-users-gear",
+    tag: "Power BI",
+    ...placeholderContent
   }
 ];
 
