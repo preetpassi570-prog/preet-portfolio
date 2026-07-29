@@ -19,14 +19,8 @@ const StructuredData = () => {
           "@type": "Occupation",
           "name": "Data Analyst"
         },
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "Your University Name" // Placeholder
-        },
         "sameAs": [
-          "https://github.com/preetpassi", // Placeholder
-          "https://linkedin.com/in/preetpassi", // Placeholder
-          "https://pinterest.com/preetpassi" // Placeholder
+          "https://github.com/preetpassi570-prog"
         ]
       },
       {
@@ -55,6 +49,7 @@ const StructuredData = () => {
         "url": "https://preet-portfolio-ten.vercel.app",
         "name": "Preet Passi | Data Analyst Portfolio",
         "description": "Professional Data Analytics Portfolio of Preet Passi showcasing SQL, Python, Power BI, Excel, Tableau, Data Visualization, Dashboard Projects, and Business Intelligence work.",
+        "inLanguage": "en",
         "isPartOf": {
           "@id": "https://preet-portfolio-ten.vercel.app/#website"
         },
