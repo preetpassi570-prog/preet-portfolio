@@ -505,54 +505,7 @@ function initLoader() {
   // Background Animations
   const bgAnim = startBgAnimation();
 
-  // Three.js setup for loading scene (logo core)
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-  camera.position.z = 8;
 
-  const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-  renderer.setSize(400, 400); // Sharp resolution matching the 440px container size
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-  // Add futuristic geometric mesh (TorusKnot)
-  const geometry = new THREE.TorusKnotGeometry(1.6, 0.45, 120, 16);
-  const material = new THREE.MeshBasicMaterial({
-    color: 0xff003c,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.8
-  });
-  const torusKnot = new THREE.Mesh(geometry, material);
-  scene.add(torusKnot);
-
-  // Subtle interior glow sphere
-  const glowGeo = new THREE.SphereGeometry(1.2, 32, 32);
-  const glowMat = new THREE.MeshBasicMaterial({
-    color: 0xff003c,
-    transparent: true,
-    opacity: 0.15
-  });
-  const glowSphere = new THREE.Mesh(glowGeo, glowMat);
-  scene.add(glowSphere);
-
-  // Animation Loop for Logo
-  let animationFrameId;
-  const clock = new THREE.Clock();
-
-  function animateLoader() {
-    animationFrameId = requestAnimationFrame(animateLoader);
-    
-    const elapsedTime = clock.getElapsedTime();
-    torusKnot.rotation.x = elapsedTime * 0.5;
-    torusKnot.rotation.y = elapsedTime * 0.8;
-    
-    // Pulse mesh size slightly based on elapsedTime
-    const pulseFactor = 1 + Math.sin(elapsedTime * 3) * 0.05;
-    torusKnot.scale.set(pulseFactor, pulseFactor, pulseFactor);
-    
-    renderer.render(scene, camera);
-  }
-  animateLoader();
 
   // Progress Bar & States
   let currentProgress = 0;
@@ -561,45 +514,15 @@ function initLoader() {
   
   // Dynamic loading statuses
   const loadingStatuses = [
-    "Initializing AI Core...",
-    "Loading Neural Network...",
-    "Connecting Data Engine...",
-    "Loading Portfolio Assets...",
-    "Loading Projects...",
-    "Loading Certificates...",
+    "Loading Portfolio...",
     "Preparing Dashboard...",
+    "Connecting Analytics Engine...",
+    "Initializing AI Models...",
     "Optimizing Experience...",
-    "Launching Portfolio..."
+    "Almost Ready..."
   ];
 
-  const statusLabel = document.querySelector(".loader-status");
-  const hardwareStatsEl = document.querySelector(".cyber-hardware-stats");
-
-  // Track DOM, Styles, and Fonts loading state
-  window.addEventListener("load", () => {
-    actualLoaded = true;
-  });
-  
-  // Fallback timer if load event takes too long
-  setTimeout(() => {
-    actualLoaded = true;
-  }, 4500);
-
-  function updateStats(p) {
-    if (!hardwareStatsEl) return;
-    const cpuVal = Math.min(Math.round(p * 0.9 + Math.random() * 5), 100);
-    let gpuVal = "STDBY";
-    if (p > 25) gpuVal = "BOOTING";
-    if (p > 60) gpuVal = "RTX LOAD";
-    if (p > 85) gpuVal = "ACTIVE";
-    if (p >= 100) gpuVal = "ONLINE";
-    
-    let memVal = "8GB";
-    if (p > 35) memVal = "16GB";
-    if (p > 70) memVal = "32GB LOADED";
-    
-    hardwareStatsEl.textContent = `CPU: ${cpuVal}% • GPU: ${gpuVal} • MEM: ${memVal}`;
-  }
+  const statusLabel = document.getElementById("loader-status");
 
   // Beeps playing control
   let lastBeepP = 0;
@@ -628,8 +551,7 @@ function initLoader() {
       lastBeepP = roundedProgress;
     }
 
-    // Dynamic stats updates
-    updateStats(roundedProgress);
+
 
     // Status text switches randomly / sequentially
     const statusIndex = Math.min(Math.floor((roundedProgress / 100) * loadingStatuses.length), loadingStatuses.length - 1);
@@ -637,13 +559,11 @@ function initLoader() {
       statusLabel.textContent = loadingStatuses[statusIndex];
     }
 
-    // Material wireframe details adjustments based on completion
-    material.opacity = 0.8 - (roundedProgress / 100) * 0.5;
+
 
     // Loading complete trigger
     if (roundedProgress >= 99.5) {
       clearInterval(loaderTimer);
-      cancelAnimationFrame(animationFrameId);
       
       // Final beeps + startup chord
       playBeep(880, 0.15);
@@ -662,9 +582,9 @@ function initLoader() {
     gsap.timeline()
       .to(loaderOverlay, {
         opacity: 0,
-        scale: 1.08,
-        filter: "blur(20px)",
-        duration: 1.5,
+        scale: 0.98,
+        filter: "blur(10px)",
+        duration: 0.8,
         ease: "power3.inOut",
         onComplete: () => {
           loaderOverlay.style.display = "none";

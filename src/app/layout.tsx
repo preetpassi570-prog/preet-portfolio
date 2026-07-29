@@ -92,58 +92,29 @@ export default function RootLayout({
       <body className="dark-theme" suppressHydrationWarning>
         <canvas id="webgl-bg"></canvas>
         
-        <div id="loader-overlay" className="cyber-os-loader">
-          <canvas id="loader-bg-canvas" suppressHydrationWarning></canvas>
-          <audio id="loading-sound" preload="auto" suppressHydrationWarning></audio>
-          <div className="loader-scanlines"></div>
-          
-          <div className="hud-top-left">
-            <span className="hud-label">AI STATUS</span>
-            <span className="hud-value neon-red-blink">ONLINE</span>
-          </div>
-          
-          <div className="hud-top-right">
-            <span className="hud-label">SYSTEM CORE</span>
-            <span className="hud-value">v3.0</span>
-          </div>
-
-          <div className="hud-bottom-left">
-            <span className="hud-label">SYSTEM LOG</span>
-            <span className="hud-value loader-status">INITIALIZING SECURE LINK...</span>
-          </div>
-
-          <div className="hud-bottom-right">
-            <span className="hud-label">HARDWARE STATS</span>
-            <span className="hud-value cyber-hardware-stats">CPU: 0% • GPU: STDBY • MEM: 32GB</span>
-          </div>
-
-          <div className="loader-center-core">
-            <div className="loader-3d-container logo-float">
-              <canvas id="loader-canvas" suppressHydrationWarning></canvas>
-              <div className="holo-ring-outer"></div>
-              <div className="holo-ring-inner"></div>
-              <div className="holo-ring-mid"></div>
+        <div id="loader-overlay" className="premium-loader">
+          <div className="premium-loader-content">
+            <div className="premium-loader-pfp-container">
+              <div className="premium-loader-pfp-glow"></div>
+              <img src="/images/PFP.png" alt="Preet Passi" className="premium-loader-pfp" />
             </div>
             
-            <div className="loader-title-container">
-              <h4 className="loader-welcome-sub">WELCOME TO</h4>
-              <div className="loader-welcome-main">PREET PASSI</div>
-              <p className="loader-welcome-desc">DATA ANALYTICS • AI • AUTOMATION</p>
+            <div className="premium-loader-text">
+              <div className="premium-loader-welcome">WELCOME</div>
+              <h1 className="premium-loader-name">PREET PASSI</h1>
+              <div className="premium-loader-subtitle">Data Analyst • AI Automation • Business Intelligence</div>
             </div>
 
-            <div className="loader-progress-wrapper">
-              <div className="loader-progress-container">
-                <div className="loader-progress-bar">
-                  <div className="loader-progress-fill" id="progress-fill">
-                    <div className="progress-glow"></div>
-                  </div>
-                </div>
-                <span className="loader-percentage" id="loader-perc">0%</span>
+            <div className="premium-loader-progress-section">
+              <div className="premium-loader-status-container">
+                <span className="loader-status" id="loader-status">Loading Portfolio...</span>
               </div>
+              <div className="premium-loader-bar-container">
+                <div className="premium-loader-bar-fill" id="progress-fill"></div>
+              </div>
+              <div className="premium-loader-percentage" id="loader-perc">0%</div>
             </div>
           </div>
-          
-          <div className="hud-footer-line">ESTABLISHING SECURE CONNECTION TO CORE DB...</div>
         </div>
 
         <div id="app-container" style={{ opacity: 0, pointerEvents: 'none' }}>
