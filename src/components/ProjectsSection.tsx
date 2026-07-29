@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 const projectsData = [
   {
@@ -95,6 +96,9 @@ const projectsData = [
 export default function ProjectsSection() {
   const [activeTab, setActiveTab] = useState('all');
   const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => { setIsMounted(true); }, []);
 
   // Close modal on Escape key
   useEffect(() => {
@@ -154,8 +158,8 @@ export default function ProjectsSection() {
               {project.tech.map((t, idx) => <span key={idx}>{t}</span>)}
             </div>
             
-            <div className="project-links">
-              <button className="project-link-btn view-details-btn" style={{ width: "100%", justifyContent: "center" }}>
+            <div className="project-links" style={{ marginTop: 'auto', paddingTop: '1rem' }}>
+              <button className="btn btn-secondary" style={{ width: "100%", justifyContent: "center", padding: "0.6rem", fontSize: "0.85rem" }}>
                 View Details
               </button>
             </div>
@@ -163,46 +167,49 @@ export default function ProjectsSection() {
         ))}
       </div>
 
-      {/* Modal Overlay */}
-      <div 
-        className={`modal-overlay ${selectedProject ? 'open' : ''}`}
-        onClick={(e) => {
-          if (e.target === e.currentTarget) setSelectedProject(null);
-        }}
-      >
-        {selectedProject && (
-          <div className="modal-content">
-            <button className="modal-close-btn" onClick={() => setSelectedProject(null)}>
-              <i className="fa-solid fa-xmark"></i>
-            </button>
-            
-            <div className="modal-header">
-              <i className={`${selectedProject.icon} modal-icon`}></i>
-              <h3 className="modal-title">{selectedProject.title}</h3>
-              <span className="modal-badge">{selectedProject.tag}</span>
+      {/* Modal Overlay via Portal */}
+      {isMounted && typeof document !== 'undefined' && createPortal(
+        <div 
+          className={`modal-overlay ${selectedProject ? 'open' : ''}`}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setSelectedProject(null);
+          }}
+        >
+          {selectedProject && (
+            <div className="modal-content">
+              <button className="modal-close-btn" onClick={() => setSelectedProject(null)}>
+                <i className="fa-solid fa-xmark"></i>
+              </button>
+              
+              <div className="modal-header">
+                <i className={`${selectedProject.icon} modal-icon`}></i>
+                <h3 className="modal-title">{selectedProject.title}</h3>
+                <span className="modal-badge">{selectedProject.tag}</span>
+              </div>
+              
+              <p className="modal-desc">{selectedProject.description}</p>
+              
+              <div className="modal-tech">
+                {selectedProject.tech.map((t: string, idx: number) => <span key={idx}>{t}</span>)}
+              </div>
+              
+              <div className="modal-actions">
+                {selectedProject.github && (
+                  <a href={selectedProject.github} target="_blank" rel="noreferrer" className="btn btn-secondary">
+                    <i className="fa-brands fa-github"></i> View Code
+                  </a>
+                )}
+                {selectedProject.live && (
+                  <a href={selectedProject.live} target="_blank" rel="noreferrer" className="btn btn-primary">
+                    <i className="fa-solid fa-rocket"></i> Live Demo
+                  </a>
+                )}
+              </div>
             </div>
-            
-            <p className="modal-desc">{selectedProject.description}</p>
-            
-            <div className="modal-tech">
-              {selectedProject.tech.map((t: string, idx: number) => <span key={idx}>{t}</span>)}
-            </div>
-            
-            <div className="modal-actions">
-              {selectedProject.github && (
-                <a href={selectedProject.github} target="_blank" rel="noreferrer" className="btn btn-secondary">
-                  <i className="fa-brands fa-github"></i> View Code
-                </a>
-              )}
-              {selectedProject.live && (
-                <a href={selectedProject.live} target="_blank" rel="noreferrer" className="btn btn-primary">
-                  <i className="fa-solid fa-rocket"></i> Live Demo
-                </a>
-              )}
-            </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>,
+        document.body
+      )}
     </section>
   );
 }

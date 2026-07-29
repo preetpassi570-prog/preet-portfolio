@@ -4089,13 +4089,15 @@ a.info-card-value:hover {
   }
   
   .project-card, .certificate-card {
-    padding: 1rem;
+    padding: 1.25rem 1rem; /* Slightly more vertical padding for balance */
+    min-height: auto; /* Remove any hardcoded desktop height */
+    justify-content: space-between;
   }
   
   /* Compact cards styling */
   .project-title, .certificate-title {
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
   }
   
   .project-tag {

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 const certificatesData = [
   {
@@ -42,6 +43,9 @@ const certificatesData = [
 
 export default function CertificatesSection() {
   const [selectedCert, setSelectedCert] = useState<any>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => { setIsMounted(true); }, []);
 
   // Close modal on Escape key
   useEffect(() => {
@@ -85,9 +89,9 @@ export default function CertificatesSection() {
             <p className="cert-issuer mobile-hide">{cert.issuer}</p>
             <p className="cert-desc mobile-hide">{cert.description}</p>
             
-            <div className="cert-footer">
-              <span className="cert-date">Verified</span>
-              <button className="cert-view-btn view-details-btn" style={{ border: "none", background: "transparent", cursor: "pointer", color: "inherit", font: "inherit", padding: 0 }}>
+            <div className="cert-footer" style={{ marginTop: 'auto', paddingTop: '1rem' }}>
+              <span className="cert-date mobile-hide">Verified</span>
+              <button className="btn btn-secondary" style={{ width: "100%", justifyContent: "center", padding: "0.6rem", fontSize: "0.85rem" }}>
                 <i className="fa-solid fa-file-pdf"></i> View Details
               </button>
             </div>
@@ -95,35 +99,38 @@ export default function CertificatesSection() {
         ))}
       </div>
 
-      {/* Modal Overlay */}
-      <div 
-        className={`modal-overlay ${selectedCert ? 'open' : ''}`}
-        onClick={(e) => {
-          if (e.target === e.currentTarget) setSelectedCert(null);
-        }}
-      >
-        {selectedCert && (
-          <div className="modal-content">
-            <button className="modal-close-btn" onClick={() => setSelectedCert(null)}>
-              <i className="fa-solid fa-xmark"></i>
-            </button>
-            
-            <div className="modal-header">
-              <i className={`${selectedCert.icon} modal-icon`}></i>
-              <h3 className="modal-title">{selectedCert.title}</h3>
-              <span className="modal-badge">{selectedCert.issuer}</span>
+      {/* Modal Overlay via Portal */}
+      {isMounted && typeof document !== 'undefined' && createPortal(
+        <div 
+          className={`modal-overlay ${selectedCert ? 'open' : ''}`}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setSelectedCert(null);
+          }}
+        >
+          {selectedCert && (
+            <div className="modal-content">
+              <button className="modal-close-btn" onClick={() => setSelectedCert(null)}>
+                <i className="fa-solid fa-xmark"></i>
+              </button>
+              
+              <div className="modal-header">
+                <i className={`${selectedCert.icon} modal-icon`}></i>
+                <h3 className="modal-title">{selectedCert.title}</h3>
+                <span className="modal-badge">{selectedCert.issuer}</span>
+              </div>
+              
+              <p className="modal-desc">{selectedCert.description}</p>
+              
+              <div className="modal-actions">
+                <a href={selectedCert.pdf} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ width: "100%", justifyContent: "center" }}>
+                  <i className="fa-solid fa-file-pdf"></i> View Official Certificate
+                </a>
+              </div>
             </div>
-            
-            <p className="modal-desc">{selectedCert.description}</p>
-            
-            <div className="modal-actions">
-              <a href={selectedCert.pdf} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ width: "100%" }}>
-                <i className="fa-solid fa-file-pdf"></i> View Official Certificate
-              </a>
-            </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>,
+        document.body
+      )}
     </section>
   );
 }
