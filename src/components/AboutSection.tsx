@@ -12,10 +12,10 @@ export default function AboutSection() {
             
             <div className="about-desc-container">
               <p>
-                I am a passionate Data Analyst specializing in transforming complex raw data into meaningful, actionable business insights. I have completed multiple hands-on projects using Python, SQL, Excel, and Power BI. I excel at cleaning, analyzing, and visualizing data to solve real-world business problems.
+                I am a passionate <strong>Analytics Engineer</strong> and Data Analyst specializing in transforming complex raw data into meaningful, actionable <strong>Business Analytics</strong>. I have completed multiple hands-on projects for my <strong>Data Science Portfolio</strong> using Python, SQL, Excel, and Power BI. I excel at <strong>Data Cleaning</strong>, analyzing, and visualizing data to solve real-world business problems.
               </p>
               <p>
-                My technical skills include Python with NumPy, Pandas, Matplotlib, and Seaborn for data analysis and visualization, SQL for database management, Excel for data processing, and Power BI for creating interactive dashboards. I am continuously improving my analytical and problem-solving skills by building practical projects.
+                My technical skills include Python with NumPy, Pandas, Matplotlib, and Seaborn for comprehensive <strong>Data Reporting</strong> and data analysis. I leverage SQL for database management, Excel for advanced data processing, and Power BI for creating interactive dashboards. I am continuously improving my analytical and problem-solving skills to build a robust <strong>Data Visualization Portfolio</strong>.
               </p>
             </div>
           </div>

@@ -10,29 +10,55 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://preet-portfolio-ten.vercel.app"),
   title: {
-    default: "Preet Passi | Data Analyst Portfolio",
-    template: "%s | Preet Passi | Data Analyst Portfolio",
+    default: "Preet Passi | Data Analyst Portfolio & Business Intelligence",
+    template: "%s | Preet Passi | Data Analytics Portfolio",
   },
-  description: "Professional Data Analytics Portfolio of Preet Passi showcasing SQL, Python, Power BI, Excel, Tableau, Data Visualization, Dashboard Projects, and Business Intelligence work.",
-  keywords: ["Data Analyst", "Data Analytics Portfolio", "SQL", "Python", "Power BI", "Excel", "Tableau", "Business Intelligence", "Dashboard", "Data Visualization", "Portfolio", "Preet Passi"],
-  authors: [{ name: "Preet Passi" }],
+  description: "Explore the Data Analytics Portfolio of Preet Passi, a Data Analytics Engineer in India specializing in Python, SQL, Power BI, and Excel. View interactive Business Dashboards and Data Storytelling projects.",
+  keywords: [
+    "Data Analyst Portfolio", "Data Analytics Portfolio", "Data Analytics Engineer", 
+    "Python Data Analyst", "SQL Data Analyst", "Power BI Portfolio", "Excel Data Analyst", 
+    "Business Intelligence Portfolio", "Data Visualization Portfolio", "Dashboard Developer", 
+    "Data Analytics India", "Freelance Data Analyst", "Analytics Engineer", "Data Engineer Portfolio"
+  ],
+  authors: [{ name: "Preet Passi", url: "https://preet-portfolio-ten.vercel.app" }],
   creator: "Preet Passi",
+  publisher: "Preet Passi",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
-    canonical: "/",
+    canonical: "https://preet-portfolio-ten.vercel.app",
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_IN",
     url: "https://preet-portfolio-ten.vercel.app",
-    title: "Preet Passi | Data Analyst Portfolio",
-    description: "Professional Data Analytics Portfolio of Preet Passi showcasing SQL, Python, Power BI, Excel, Tableau, Data Visualization, Dashboard Projects, and Business Intelligence work.",
+    title: "Preet Passi | Data Analyst Portfolio & Business Dashboards",
+    description: "Explore the Data Analytics Portfolio of Preet Passi, a Data Analytics Engineer specializing in Python, SQL, Power BI, and Data Visualization.",
     siteName: "Preet Passi | Data Analyst Portfolio",
+    images: [
+      {
+        url: "/icon.png",
+        width: 800,
+        height: 600,
+        alt: "Preet Passi Data Analyst Portfolio Cover Image",
+      }
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Preet Passi | Data Analyst Portfolio",
-    description: "Professional Data Analytics Portfolio of Preet Passi showcasing SQL, Python, Power BI, Excel, Tableau, Data Visualization, Dashboard Projects, and Business Intelligence work.",
+    description: "Explore the Data Analytics Portfolio of Preet Passi, an Analytics Engineer specializing in Python, SQL, and Power BI Dashboards.",
     creator: "@preetpassi",
+    images: ["/icon.png"],
   },
 };
 

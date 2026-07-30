@@ -7,7 +7,34 @@ import ContactSection from '../components/ContactSection';
 
 export default function Home() {
   return (
-    <>
+    <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What services do you offer as a Freelance Data Analyst in India?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "I offer comprehensive data solutions including Data Cleaning, Data Storytelling, Business Analytics, and building interactive Business Dashboards using Power BI, Excel, SQL, and Python."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you build a Power BI Portfolio or KPI Dashboard for my business?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, I am a Dashboard Developer specializing in KPI Dashboards, Power BI Projects, and Data Visualization tailored for business intelligence and actionable insights."
+                }
+              }
+            ]
+          })
+        }}
+      />
       <section id="home" className="hero-section">
         <div className="hero-content">
           <div className="hero-welcome-tag">TURNING DATA INTO BUSINESS INSIGHTS</div>
@@ -17,10 +44,10 @@ export default function Home() {
             <span className="gradient-text-passi" style={{ fontSize: "0.65em", letterSpacing: "2px", display: "block", marginTop: "10px" }}>Data Analyst Portfolio</span>
           </h1>
           
-          <h2 className="hero-subtitle">DATA ANALYTICS ENGINEER</h2>
+          <h2 className="hero-subtitle">FREELANCE DATA ANALYST & ANALYTICS ENGINEER</h2>
           
           <p className="hero-desc">
-            I build intelligent data solutions using Python, SQL, Excel and Power BI, transforming raw business data into powerful insights, dashboards and automation systems.
+            As a <strong>Python Data Analyst</strong> and <strong>SQL Data Analyst</strong> based in India, I build intelligent data solutions. Welcome to my <strong>Data Analyst Portfolio</strong>, where I transform raw business data into powerful insights through expert <strong>Data Storytelling</strong>, custom dashboards, and automated reporting systems.
           </p>
 
           <div className="hero-skills-container">
@@ -84,6 +111,6 @@ export default function Home() {
       <CertificatesSection />
       <AboutSection />
       <ContactSection />
-    </>
+    </main>
   );
 }

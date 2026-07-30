@@ -14,7 +14,7 @@ export default function ProjectsSection() {
     <section id="projects" className="section projects-section">
       <div className="section-header">
         <h2 className="section-title"><span className="neon-text-red">//</span> PROJECTS SHOWCASE</h2>
-        <p className="section-subtitle">A curated collection of data analysis, database engineering, and machine learning models.</p>
+        <p className="section-subtitle">A curated collection of <strong>Data Analytics Projects</strong>, <strong>SQL Projects</strong>, and <strong>Python Projects</strong> including interactive <strong>Business Dashboards</strong> and <strong>Power BI Projects</strong>.</p>
       </div>
 
       <div className="tabs-container project-filters">
