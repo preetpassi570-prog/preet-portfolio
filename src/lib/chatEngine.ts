@@ -125,7 +125,7 @@ export function processChatInput(input: string): string {
     case "resume":
       return portfolioData.resume;
     case "contact":
-      return `${portfolioData.contact}\nLinkedIn: ${portfolioData.socials.linkedin}\nGitHub: ${portfolioData.socials.github}`;
+      return `${portfolioData.contact}\n\n**Phone:** ${portfolioData.socials.phone}\n**Email:** ${portfolioData.socials.email}\n**LinkedIn:** ${portfolioData.socials.linkedin}\n**GitHub:** ${portfolioData.socials.github}\n**Instagram:** ${portfolioData.socials.instagram}\n**Pinterest:** ${portfolioData.socials.pinterest}`;
     case "certification":
       // Count logic
       const isCounting = countingPhrases.some(phrase => lowerInput.includes(phrase));

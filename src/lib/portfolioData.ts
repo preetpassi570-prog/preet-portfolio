@@ -11,11 +11,14 @@ export const portfolioData = {
     dob: "7/8/2008" // format: DD/MM/YYYY or D/M/YYYY
   },
   resume: "You can download my resume by clicking the 'Download Resume' button in the Hero section of the homepage, or by navigating to the About Me section.",
-  contact: "You can contact me directly via the contact form at the bottom of the page, or reach out through LinkedIn and GitHub.",
+  contact: "You can contact me directly via phone, email, or through my social media channels.",
   socials: {
     linkedin: "https://www.linkedin.com/in/preet-passi/",
     github: "https://github.com/preetpassi570-prog",
-    email: "Available via Contact Form"
+    email: "preetpassi570@gmail.com",
+    phone: "+91 93159 71839",
+    instagram: "https://www.instagram.com/preet_passii/?hl=en",
+    pinterest: "https://in.pinterest.com/preet_passii/"
   },
   certifications: [
     {
