@@ -1,12 +1,33 @@
 "use client";
 
-import { useChat } from "@ai-sdk/react";
 import { useState, useRef, useEffect } from "react";
+import { processChatInput } from "../lib/chatEngine";
+
+type Message = {
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+};
+
+// Simple Markdown parser to render bold and links
+function renderMarkdown(text: string) {
+  // Convert bullet points
+  let formatted = text.replace(/• /g, '<br/>• ');
+  // Convert newlines to breaks
+  formatted = formatted.replace(/\n/g, '<br/>');
+  // Convert bold
+  formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  // Convert links
+  formatted = formatted.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" class="text-accent underline hover:text-white">$1</a>');
+  
+  return { __html: formatted };
+}
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const chat = useChat() as any;
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = chat;
+  const [input, setInput] = useState("");
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Auto scroll to bottom
@@ -14,7 +35,34 @@ export default function Chatbot() {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [messages, isOpen]);
+  }, [messages, isOpen, isLoading]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim() || isLoading) return;
+
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      role: "user",
+      content: input,
+    };
+
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
+    setIsLoading(true);
+
+    // Simulate AI thinking delay for a more natural feel
+    setTimeout(() => {
+      const responseContent = processChatInput(userMessage.content);
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        role: "assistant",
+        content: responseContent,
+      };
+      setMessages((prev) => [...prev, botMessage]);
+      setIsLoading(false);
+    }, 600);
+  };
 
   return (
     <>
@@ -46,19 +94,20 @@ export default function Chatbot() {
           <div className="chatbot-messages">
             {messages.length === 0 ? (
               <div className="chatbot-welcome">
-                Hi! I am Preet's AI Assistant. Ask me anything about his projects, skills, or experience in English or Hinglish! 🚀
+                Hi! I'm Preet Passi's Portfolio Assistant. I can answer questions about his skills, projects, resume, certifications, education, and contact information.
               </div>
             ) : (
-              messages?.map((m: any) => (
+              messages.map((m) => (
                 <div
                   key={m.id}
                   className={`chat-bubble-container ${
                     m.role === "user" ? "user-message" : "ai-message"
                   }`}
                 >
-                  <div className="chat-bubble">
-                    {m.content}
-                  </div>
+                  <div 
+                    className="chat-bubble"
+                    dangerouslySetInnerHTML={renderMarkdown(m.content)}
+                  />
                 </div>
               ))
             )}
@@ -75,8 +124,8 @@ export default function Chatbot() {
           <form onSubmit={handleSubmit} className="chatbot-input-area">
             <input
               className="chatbot-input"
-              value={input || ""}
-              onChange={handleInputChange}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
               placeholder="Ask me anything..."
               disabled={isLoading}
             />

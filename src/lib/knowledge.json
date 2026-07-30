@@ -1,0 +1,84 @@
+{
+  "about": "Hi! I am Preet Passi's Portfolio Assistant. Preet is a Data Analytics Engineer and Freelance Data Analyst based in India. He specializes in transforming raw data into automated dashboards and actionable business insights.",
+  "skills": [
+    "Python",
+    "SQL",
+    "Power BI",
+    "Excel",
+    "Data Cleaning",
+    "Data Visualization",
+    "Business Analytics",
+    "Machine Learning",
+    "Pandas",
+    "NumPy",
+    "DAX",
+    "Power Query"
+  ],
+  "experience": "Preet has hands-on experience building enterprise-grade data solutions, optimizing SQL databases, developing interactive Power BI dashboards, and performing deep exploratory data analysis (EDA) using Python.",
+  "education": "Preet has a strong educational background in Data Science and Analytics, continuously upskilling in modern data engineering tools and business intelligence frameworks.",
+  "resume": "You can download Preet's resume by clicking the 'Download Resume' button in the Hero section of the homepage, or by navigating to the About Me section.",
+  "contact": "You can contact Preet directly via the contact form at the bottom of the page, or reach out through LinkedIn and GitHub.",
+  "socials": {
+    "linkedin": "https://www.linkedin.com/in/preet-passi/",
+    "github": "https://github.com/preetpassi570-prog",
+    "email": "Available via Contact Form"
+  },
+  "projects": [
+    {
+      "title": "Interactive Excel Sales Dashboard",
+      "category": "Excel",
+      "technologies": ["Power Query", "Pivot Tables", "VBA/Macros", "Data Modeling"],
+      "description": "An enterprise-grade Excel application designed to transform raw sales data into actionable strategic insights with 600K+ records.",
+      "link": "/projects/excel-sales-dashboard"
+    },
+    {
+      "title": "Large-Scale E-Commerce Data Analysis",
+      "category": "SQL",
+      "technologies": ["PostgreSQL", "CTEs", "Database Normalization", "Query Optimization"],
+      "description": "Designed a fully normalized PostgreSQL database with optimized relationships and window functions to track and improve retail customer retention metrics.",
+      "link": "/projects/sql-ecommerce-retention"
+    },
+    {
+      "title": "SQL Fundamentals for E-Commerce Sales Analysis",
+      "category": "SQL",
+      "technologies": ["SQL Server", "SSMS", "Stored Procedures", "Window Functions"],
+      "description": "Processed public medical records using analytical SQL. Conducted patient flow optimization and clinical cohort trends.",
+      "link": "/projects/sql-healthcare-cohort"
+    },
+    {
+      "title": "AI-Powered Customer Risk Prediction Dashboard",
+      "category": "Python",
+      "technologies": ["Python", "Plotly Dash", "Pandas", "REST APIs", "Render Cloud"],
+      "description": "A comprehensive, cloud-deployed dash dashboard showing real-time market tracker, financial indicators, and interactive visuals built using Plotly.",
+      "link": "/projects/python-financial-dashboard"
+    },
+    {
+      "title": "Large-Scale E-Commerce Sales Analytics",
+      "category": "Python",
+      "technologies": ["Python", "Jupyter Notebook", "Pandas", "Matplotlib", "Seaborn"],
+      "description": "Performed an end-to-end customer churn analysis using Python in Jupyter Notebook. Cleaned and explored the dataset using Pandas.",
+      "link": "/projects/python-churn-analysis"
+    },
+    {
+      "title": "Enterprise Financial Performance Dashboard",
+      "category": "Power BI",
+      "technologies": ["Power BI", "DAX", "Power Query", "Data Modeling"],
+      "description": "An executive dashboard featuring sales analytics, regional performance tracking, and profit margin analysis with full interactive drill-down reports.",
+      "link": "/projects/powerbi-executive-revenue"
+    },
+    {
+      "title": "Customer Intelligence Dashboard",
+      "category": "Power BI",
+      "technologies": ["Power BI", "DAX", "Power Query", "Geographic Maps"],
+      "description": "Designed an interactive Power BI dashboard to monitor end-to-end supply chain performance, including warehouse operations and delivery timelines.",
+      "link": "/projects/powerbi-supply-chain"
+    },
+    {
+      "title": "Enterprise Sales Analytics Dashboard",
+      "category": "Power BI",
+      "technologies": ["Power BI", "DAX", "Row-Level Security (RLS)"],
+      "description": "Designed and developed an interactive HR Analytics dashboard in Power BI to monitor employee performance, recruitment pipelines, and workforce distribution.",
+      "link": "/projects/powerbi-hr-analytics"
+    }
+  ]
+}
