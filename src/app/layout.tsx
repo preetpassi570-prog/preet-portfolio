@@ -40,6 +40,7 @@ import StructuredData from "../components/seo/StructuredData";
 import Navbar from "../components/Navbar";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 export default function RootLayout({
   children,
@@ -134,6 +135,7 @@ export default function RootLayout({
         <Script src="/script.js" strategy="lazyOnload" />
         <Analytics />
         <SpeedInsights />
+        <GoogleAnalytics gaId="G-2Y45CPERNL" />
       </body>
     </html>
   );
