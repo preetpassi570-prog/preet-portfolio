@@ -125,6 +125,30 @@ export function processChatInput(input: string): string {
     case "resume":
       return portfolioData.resume;
     case "contact":
+      const requestedDetails = [];
+      if (lowerInput.includes("phone") || lowerInput.includes("number") || lowerInput.includes("whatsapp") || lowerInput.includes("call")) {
+        requestedDetails.push(`**Phone:** ${portfolioData.socials.phone}`);
+      }
+      if (lowerInput.includes("email")) {
+        requestedDetails.push(`**Email:** ${portfolioData.socials.email}`);
+      }
+      if (lowerInput.includes("instagram") || lowerInput.includes("insta") || lowerInput.includes("id")) {
+        requestedDetails.push(`**Instagram:** ${portfolioData.socials.instagram}`);
+      }
+      if (lowerInput.includes("pinterest")) {
+        requestedDetails.push(`**Pinterest:** ${portfolioData.socials.pinterest}`);
+      }
+      if (lowerInput.includes("linkedin")) {
+        requestedDetails.push(`**LinkedIn:** ${portfolioData.socials.linkedin}`);
+      }
+      if (lowerInput.includes("github")) {
+        requestedDetails.push(`**GitHub:** ${portfolioData.socials.github}`);
+      }
+
+      // If specific details were requested (and not a generic contact query), return only those
+      if (requestedDetails.length > 0 && !lowerInput.includes("all") && !lowerInput.includes("contact") && !lowerInput.includes("details") && !lowerInput.includes("reach") && !lowerInput.includes("connect")) {
+        return requestedDetails.join("\n");
+      }
       return `${portfolioData.contact}\n\n**Phone:** ${portfolioData.socials.phone}\n**Email:** ${portfolioData.socials.email}\n**LinkedIn:** ${portfolioData.socials.linkedin}\n**GitHub:** ${portfolioData.socials.github}\n**Instagram:** ${portfolioData.socials.instagram}\n**Pinterest:** ${portfolioData.socials.pinterest}`;
     case "certification":
       // Count logic
