@@ -2,13 +2,12 @@
   "intents": {
     "contact": ["contact", "email", "reach", "linkedin", "github", "connect", "message"],
     "resume": ["resume", "cv", "download", "document", "hire"],
-    "certification": ["certificate", "certificates", "certification", "certifications", "certified", "credential", "credentials", "badges", "licenses"],
-    "projects": ["projects", "work", "show", "built", "dashboard", "dashboards"],
+    "certification": ["certificate", "certificates", "certification", "certifications", "certified", "credential", "credentials", "badge", "badges", "license", "licenses"],
+    "projects": ["project", "projects", "work", "case study", "dashboard", "dashboards", "analysis", "application", "app", "built", "created", "developed"],
     "skills": ["skills", "technologies", "tools", "stack", "know", "technical", "tech"],
     "experience": ["experience", "work", "job", "career", "history"],
     "education": ["education", "degree", "college", "university", "study", "studied"],
     "about": ["about", "introduce", "yourself", "who is preet", "background", "bio", "who are you"],
-    "portfolio": ["portfolio"],
     "greetings": ["hello", "hi", "hey", "what are you", "intro", "greet"]
   },
   "config": {

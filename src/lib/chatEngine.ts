@@ -83,11 +83,18 @@ export function processChatInput(input: string): string {
     const similarity = calculateSimilarity(inputWords, keywords as string[]);
     score += similarity * 5; // give weight to similarity
 
-    // Strict override for priority boosting
     if (score > 0) {
-      const intentKeys = Object.keys(intents);
-      const priorityBoost = (intentKeys.length - intentKeys.indexOf(intentName)) * 0.1;
-      score += priorityBoost;
+      // Base score is already incremented by match logic.
+      // Now apply explicit priority weights based on intent rules
+      if (intentName === "certification") {
+        score += 5; // Certification intent has high priority
+      } else if (intentName === "projects") {
+        score += 2; // Projects has a moderate priority
+      } else {
+        const intentKeys = Object.keys(intents);
+        const priorityBoost = (intentKeys.length - intentKeys.indexOf(intentName)) * 0.1;
+        score += priorityBoost;
+      }
     }
 
     if (score > highestScore) {
@@ -133,7 +140,6 @@ export function processChatInput(input: string): string {
       });
       return certList;
     case "projects":
-    case "portfolio":
       return formatProjects(portfolioProjects);
     default:
       return fallbackMessage;
