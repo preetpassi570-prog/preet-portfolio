@@ -1,9 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
-import ProjectsSection from '../components/ProjectsSection';
-import CertificatesSection from '../components/CertificatesSection';
-import AboutSection from '../components/AboutSection';
-import ContactSection from '../components/ContactSection';
+import dynamic from 'next/dynamic';
+
+const ProjectsSection = dynamic(() => import('../components/ProjectsSection'));
+const CertificatesSection = dynamic(() => import('../components/CertificatesSection'));
+const AboutSection = dynamic(() => import('../components/AboutSection'));
+const ContactSection = dynamic(() => import('../components/ContactSection'));
 
 export default function Home() {
   return (
