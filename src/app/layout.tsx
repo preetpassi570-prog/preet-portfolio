@@ -146,6 +146,8 @@ export default function RootLayout({
           <footer style={{ textAlign: 'center', padding: '2rem 0', color: 'rgba(255, 255, 255, 0.5)', fontSize: '0.9rem', borderTop: '1px solid rgba(255, 255, 255, 0.05)', marginTop: '4rem', zIndex: 10, position: 'relative' }}>
             <p>&copy; {new Date().getFullYear()} Designed & Developed by Preet Passi. All rights reserved.</p>
           </footer>
+        </div>
+        <div id="chatbot-wrapper" style={{ position: 'fixed', zIndex: 9999, opacity: 0, pointerEvents: 'none' }}>
           <Chatbot />
         </div>
         

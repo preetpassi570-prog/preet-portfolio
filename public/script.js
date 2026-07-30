@@ -404,10 +404,15 @@ function initLoader() {
         
         document.body.classList.remove("loading-active");
         
-        // Reveal app container
+        // Reveal app container and chatbot
         if (appContainer) {
           appContainer.style.opacity = 1;
           appContainer.style.pointerEvents = 'auto';
+        }
+        const chatbotWrapper = document.getElementById("chatbot-wrapper");
+        if (chatbotWrapper) {
+          chatbotWrapper.style.opacity = 1;
+          chatbotWrapper.style.pointerEvents = 'auto';
         }
       }
     } catch (e) {
@@ -538,6 +543,14 @@ function initLoader() {
 
     // 2. Main App Container Activation (Smooth fade-in)
     gsap.set(appContainer, { pointerEvents: "auto" });
+    const chatbotWrapper = document.getElementById("chatbot-wrapper");
+    if (chatbotWrapper) {
+      gsap.set(chatbotWrapper, { pointerEvents: "auto" });
+      gsap.fromTo(chatbotWrapper, 
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: "power2.inOut" }
+      );
+    }
     gsap.fromTo(appContainer, 
       { opacity: 0, scale: 0.98 }, 
       { opacity: 1, scale: 1, duration: 1.2, ease: "power3.out" }
