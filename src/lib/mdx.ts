@@ -41,7 +41,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | undefined>
       },
       content,
     };
-  } catch (error) {
+  } catch {
     return undefined;
   }
 }

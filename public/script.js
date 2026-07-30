@@ -26,11 +26,6 @@ function runInit() {
   initContactForm();
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', runInit);
-} else {
-  runInit();
-}
 
 // Initialize Voices for Speech Synthesis
 function loadVoices() {
@@ -62,7 +57,7 @@ function selectOptimalVoices(voices) {
    ========================================================================= */
 
 // Web Audio API Synth helpers
-let audioCtx = null;
+var audioCtx = null;
 function initAudio() {
   if (audioCtx) return;
   audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -129,164 +124,99 @@ function playStartupSound() {
 }
 
 // Background Grid and Particle Engine
+// Background Grid and Particle Engine (Masterpiece High Performance)
+var particleAnimationFrameId;
 function startBgAnimation() {
-  const bgCanvas = document.getElementById("loader-bg-canvas");
-  if (!bgCanvas) return { stop: () => {} };
-  const ctx = bgCanvas.getContext("2d");
-  if (!ctx) return { stop: () => {} };
+  const canvas = document.getElementById('particles-canvas');
+  if (!canvas) return { stop: () => {} };
+  const ctx = canvas.getContext('2d', { alpha: false });
+  let particlesArray = [];
   
-  let width = bgCanvas.width = window.innerWidth;
-  let height = bgCanvas.height = window.innerHeight;
-  
-  const resizeHandler = () => {
-    width = bgCanvas.width = window.innerWidth;
-    height = bgCanvas.height = window.innerHeight;
-  };
-  window.addEventListener("resize", resizeHandler);
-  
-  // Particles
-  const particles = [];
-  const particleCount = window.innerWidth < 768 ? 20 : 60;
-  for (let i = 0; i < particleCount; i++) {
-    particles.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      size: Math.random() * 2.2 + 0.4,
-      speedY: -(Math.random() * 0.4 + 0.1),
-      speedX: (Math.random() * 0.15 - 0.075),
-      alpha: Math.random() * 0.5 + 0.1
-    });
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
   }
   
-  // Mouse trail history
-  const trail = [];
-  const maxTrail = window.innerWidth < 768 ? 0 : 15;
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
   
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 1.2 + 0.3;
+      this.speedX = Math.random() * 0.4 - 0.2;
+      this.speedY = Math.random() * 0.4 - 0.2;
+      this.color = Math.random() > 0.9 ? 'rgba(217, 20, 20, 0.25)' : 'rgba(255, 255, 255, 0.15)';
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      
+      if (this.x > canvas.width) this.x = 0;
+      if (this.x < 0) this.x = canvas.width;
+      if (this.y > canvas.height) this.y = 0;
+      if (this.y < 0) this.y = canvas.height;
+    }
+    draw() {
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+  
+  function initParticles() {
+    particlesArray = [];
+    const numberOfParticles = Math.floor((canvas.width * canvas.height) / 18000); 
+    for (let i = 0; i < numberOfParticles; i++) {
+      particlesArray.push(new Particle());
+    }
+  }
+  
+  function animateParticles() {
+    ctx.fillStyle = '#050505';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    for (let i = 0; i < particlesArray.length; i++) {
+      particlesArray[i].update();
+      particlesArray[i].draw();
+    }
+    particleAnimationFrameId = requestAnimationFrame(animateParticles);
+  }
+  
+  initParticles();
+  animateParticles();
+
+  // Mouse Glow logic attached here for simplicity
+  const glow = document.getElementById('mouse-glow');
   const mouseMoveHandler = (e) => {
-    if (maxTrail === 0) return;
-    trail.push({ x: e.clientX, y: e.clientY, alpha: 0.6 });
-    if (trail.length > maxTrail) {
-      trail.shift();
+    if (glow) {
+      if (glow.style.opacity === '0' || glow.style.opacity === '') {
+          glow.style.opacity = '1';
+      }
+      glow.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
     }
   };
-  window.addEventListener("mousemove", mouseMoveHandler);
-  
-  let gridOffset = 0;
-  let scanlineY = 0;
-  let animId;
-  
-  function draw() {
-    animId = requestAnimationFrame(draw);
-    
-    // Clear screen
-    ctx.fillStyle = "#050505";
-    ctx.fillRect(0, 0, width, height);
-    
-    // Ambient Glow Spots (Vision Pro Fog Effect)
-    const glowGradient = ctx.createRadialGradient(width / 2, height / 2, 50, width / 2, height / 2, Math.max(width, height) * 0.85);
-    glowGradient.addColorStop(0, "rgba(255, 0, 60, 0.11)");
-    glowGradient.addColorStop(0.5, "rgba(255, 0, 60, 0.035)");
-    glowGradient.addColorStop(1, "rgba(0, 0, 0, 0)");
-    ctx.fillStyle = glowGradient;
-    ctx.fillRect(0, 0, width, height);
-
-    const leftFog = ctx.createRadialGradient(0, height / 2, 10, 0, height / 2, width * 0.45);
-    leftFog.addColorStop(0, "rgba(255, 0, 60, 0.08)");
-    leftFog.addColorStop(1, "rgba(0, 0, 0, 0)");
-    ctx.fillStyle = leftFog;
-    ctx.fillRect(0, 0, width, height);
-
-    const rightFog = ctx.createRadialGradient(width, height / 2, 10, width, height / 2, width * 0.45);
-    rightFog.addColorStop(0, "rgba(255, 0, 60, 0.08)");
-    rightFog.addColorStop(1, "rgba(0, 0, 0, 0)");
-    ctx.fillStyle = rightFog;
-    ctx.fillRect(0, 0, width, height);
-    
-    // Receding perspective grid
-    ctx.strokeStyle = "rgba(255, 0, 60, 0.03)";
-    ctx.lineWidth = 1;
-    
-    const horizon = height * 0.35;
-    gridOffset = (gridOffset + 0.45) % 40;
-    
-    // Horizontal lines receding to horizon
-    for (let i = 0; i < 20; i++) {
-      const ratio = i / 19;
-      const y = horizon + (height - horizon) * Math.pow(ratio, 2.2);
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(width, y);
-      ctx.stroke();
-    }
-    
-    // Vertical perspective lines meeting at horizon center
-    const verticalLinesCount = window.innerWidth < 768 ? 12 : 30;
-    const centerHorizonX = width / 2;
-    for (let i = 0; i <= verticalLinesCount; i++) {
-      const targetRatio = i / verticalLinesCount;
-      const targetX = targetRatio * width;
-      ctx.beginPath();
-      ctx.moveTo(centerHorizonX, horizon);
-      ctx.lineTo(targetX, height);
-      ctx.stroke();
-    }
-
-    // Laser scanline sweep
-    scanlineY += 1.5;
-    if (scanlineY > height) {
-      scanlineY = 0;
-    }
-    ctx.fillStyle = "rgba(255, 0, 60, 0.02)";
-    ctx.fillRect(0, scanlineY, width, 2);
-    
-    // Particles
-    particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 0, 60, ${p.alpha})`;
-      ctx.shadowBlur = p.size * 2;
-      ctx.shadowColor = "rgba(255, 0, 60, 0.5)";
-      ctx.fill();
-      ctx.shadowBlur = 0;
-      
-      p.x += p.speedX;
-      p.y += p.speedY;
-      
-      if (p.y < -10) {
-        p.y = height + 10;
-        p.x = Math.random() * width;
-      }
-    });
-    
-    // Mouse trail
-    trail.forEach((t, index) => {
-      ctx.beginPath();
-      const radius = (index / trail.length) * 5 + 1.5;
-      const tAlpha = (index / trail.length) * t.alpha;
-      ctx.arc(t.x, t.y, radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 0, 60, ${tAlpha})`;
-      ctx.shadowBlur = 12;
-      ctx.shadowColor = "rgba(255, 0, 60, 0.9)";
-      ctx.fill();
-      ctx.shadowBlur = 0;
-    });
-  }
-  
-  draw();
+  window.addEventListener('mousemove', mouseMoveHandler);
   
   return {
     stop: () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("resize", resizeHandler);
-      window.removeEventListener("mousemove", mouseMoveHandler);
+      cancelAnimationFrame(particleAnimationFrameId);
+      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('mousemove', mouseMoveHandler);
+      if (glow) {
+        glow.style.opacity = '0';
+      }
     }
   };
 }
 
-let isIntroSoundPlaying = false;
-let audioPlayedOnce = false;
-let introSoundBlobUrl = null;
-let introSoundPlaybackRequested = false;
+
+var isIntroSoundPlaying = false;
+var audioPlayedOnce = false;
+var introSoundBlobUrl = null;
+var introSoundPlaybackRequested = false;
 
 function createIntroSoundBlobUrl() {
   if (introSoundBlobUrl) return introSoundBlobUrl;
@@ -2057,4 +1987,11 @@ function initContactForm() {
       toast.classList.remove("toast-show");
     }, 4500);
   }
+}
+
+// Ensure all variables and functions are parsed before executing
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', runInit);
+} else {
+  runInit();
 }

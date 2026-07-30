@@ -1,17 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Image from "next/image";
 
 export const viewport: Viewport = {
   themeColor: "#000000",
@@ -49,6 +39,7 @@ export const metadata: Metadata = {
 import StructuredData from "../components/seo/StructuredData";
 import Navbar from "../components/Navbar";
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function RootLayout({
   children,
@@ -67,33 +58,56 @@ export default function RootLayout({
       <body className="dark-theme" suppressHydrationWarning>
         <canvas id="webgl-bg"></canvas>
         
-        <div id="loader-overlay" className="premium-loader">
-          <div className="premium-loader-card">
-            <div className="premium-loader-content">
-              <div className="premium-loader-pfp-container">
-                <div className="premium-loader-pfp-glow"></div>
-                <img src="/icon.png" alt="Preet Passi" className="premium-loader-pfp" />
+        <div id="mouse-glow" className="mouse-glow"></div>
+
+        <div id="loader-overlay" className="loader-wrapper">
+          <div className="bg-gradient-mesh"></div>
+          <div className="bg-noise"></div>
+          <div className="bg-grid"></div>
+          <div className="bg-dots"></div>
+          
+          <svg className="bg-graph-lines" width="100%" height="100%" preserveAspectRatio="none" aria-hidden="true">
+            <path className="graph-line line-1" d="M -10 80 Q 25 20, 50 60 T 110 40" fill="none" />
+            <path className="graph-line line-2" d="M -10 60 Q 30 90, 60 30 T 110 70" fill="none" />
+          </svg>
+
+          <canvas id="particles-canvas" className="particles-canvas"></canvas>
+
+          <main className="loader-content">
+            <div className="logo-container">
+              <svg className="analytics-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle className="ring-outer" cx="50" cy="50" r="46" fill="none" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" />
+                <circle className="ring-inner" cx="50" cy="50" r="38" fill="none" stroke="rgba(217, 20, 20, 0.2)" strokeWidth="1" strokeDasharray="2 6"/>
+                <g className="bar-chart">
+                  <rect className="bar bar-1" x="32" y="60" width="3" height="12" rx="1.5" fill="#ffffff" opacity="0.3"/>
+                  <rect className="bar bar-2" x="42" y="50" width="3" height="22" rx="1.5" fill="#ffffff" opacity="0.5"/>
+                  <rect className="bar bar-3" x="52" y="55" width="3" height="17" rx="1.5" fill="#ffffff" opacity="0.7"/>
+                  <rect className="bar bar-4" x="62" y="38" width="3" height="34" rx="1.5" fill="var(--accent-red)" />
+                </g>
+                <path className="trend-line" d="M28 62 C 38 62, 45 42, 52 48 C 58 52, 65 30, 72 26" fill="none" stroke="var(--accent-red)" strokeWidth="2" strokeLinecap="round"/>
+                <circle className="trend-dot" cx="72" cy="26" r="2.5" fill="#ffffff"/>
+              </svg>
+            </div>
+
+            <h1 className="loader-title">DATA<span className="text-accent">ANALYTICS</span></h1>
+            <h2 className="loader-subtitle">Turning Data Into Decisions</h2>
+            
+            <div className="glowing-divider">
+              <div className="divider-shine"></div>
+            </div>
+
+            <div className="loading-module">
+              <div className="loading-text" id="loader-status">LOADING...</div>
+              
+              <div className="loading-bar-wrapper glass-effect">
+                <div id="progress-fill" className="loading-bar-fill">
+                  <div className="fill-shine"></div>
+                </div>
               </div>
               
-              <div className="premium-loader-text">
-                <div className="premium-loader-welcome">WELCOME</div>
-                <h1 className="premium-loader-name">PREET PASSI</h1>
-                <div className="premium-loader-subtitle">Data Analyst • AI Automation • Business Intelligence</div>
-              </div>
-
-              <div className="premium-loader-progress-section">
-                <div className="premium-loader-bar-wrapper">
-                  <div className="premium-loader-bar-container">
-                    <div className="premium-loader-bar-fill" id="progress-fill"></div>
-                  </div>
-                  <div className="premium-loader-percentage" id="loader-perc">0%</div>
-                </div>
-                <div className="premium-loader-status-container">
-                  <span className="loader-status" id="loader-status">Preparing Dashboard...</span>
-                </div>
-              </div>
+              <div id="loader-perc" className="loading-percentage">0%</div>
             </div>
-          </div>
+          </main>
         </div>
 
         <div id="app-container" style={{ opacity: 0, pointerEvents: 'none' }}>
@@ -106,19 +120,20 @@ export default function RootLayout({
           </footer>
         </div>
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" strategy="beforeInteractive" />
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" strategy="beforeInteractive" />
         <div id="contact-toast" className="toast-hidden">
           <div className="toast-content">
             <span className="toast-icon" id="toast-icon"></span>
             <div className="toast-details">
               <h4 className="toast-title" id="toast-title">Message Sent Successfully!</h4>
-              <p className="toast-desc" id="toast-desc">Thank you for contacting me. I'll reply as soon as possible.</p>
+              <p className="toast-desc" id="toast-desc">Thank you for contacting me. I&apos;ll reply as soon as possible.</p>
             </div>
           </div>
         </div>
-        <script src="/script.js"></script>
+        <Script src="/script.js" strategy="lazyOnload" />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

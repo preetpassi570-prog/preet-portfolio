@@ -76,7 +76,7 @@ export default function AboutSection() {
         </div>
         
         <div className="about-expertise-section">
-          <h3 className="about-sub-section-title">// CORE EXPERTISE</h3>
+          <h3 className="about-sub-section-title">{"// CORE EXPERTISE"}</h3>
           
           <div className="about-skills-grid">
             <div className="about-skill-card">
@@ -154,7 +154,7 @@ export default function AboutSection() {
         </div>
         
         <div className="about-journey-section">
-          <h3 className="about-sub-section-title">// MY JOURNEY</h3>
+          <h3 className="about-sub-section-title">{"// MY JOURNEY"}</h3>
           
           <div className="journey-timeline">
             <div className="timeline-line"></div>
@@ -220,7 +220,7 @@ export default function AboutSection() {
     <section id="seo-summary" className="section seo-summary-section">
       <div className="seo-container-wrapper">
         <div className="section-header">
-          <h2 className="section-title"><span className="neon-text-red">//</span> PROFESSIONAL SUMMARY</h2>
+          <h2 className="section-title"><span className="neon-text-red">{"//"}</span> PROFESSIONAL SUMMARY</h2>
           <p className="section-subtitle">Deep dive into the methodology, expertise, and analytics philosophy driving my work.</p>
         </div>
         
@@ -228,7 +228,7 @@ export default function AboutSection() {
           <div className="card-glow"></div>
           <h3 className="seo-heading">The Data Analytics Journey of Preet Passi</h3>
           <p className="seo-text">
-            Welcome to the official <strong>Preet Passi Portfolio</strong>, a comprehensive digital showcase of a passionate data professional dedicated to turning complex datasets into clear, actionable business strategies. In today's rapidly evolving corporate landscape, data is no longer just a byproduct of operations; it is the core engine that drives strategic decision-making, operational efficiency, and revenue growth. As an emerging <strong>Preet Passi Data Analyst</strong>, my mission is to bridge the critical gap between raw, unstructured data streams and intuitive, high-impact business insights. Whether you are exploring a <strong>Data Analyst Portfolio India</strong> for inspiration, or actively seeking a dedicated analytics engineer to elevate your organization's data maturity, you will find a robust display of technical proficiency and business acumen right here.
+            Welcome to the official <strong>Preet Passi Portfolio</strong>, a comprehensive digital showcase of a passionate data professional dedicated to turning complex datasets into clear, actionable business strategies. In today&apos;s rapidly evolving corporate landscape, data is no longer just a byproduct of operations; it is the core engine that drives strategic decision-making, operational efficiency, and revenue growth. As an emerging <strong>Preet Passi Data Analyst</strong>, my mission is to bridge the critical gap between raw, unstructured data streams and intuitive, high-impact business insights. Whether you are exploring a <strong>Data Analyst Portfolio India</strong> for inspiration, or actively seeking a dedicated analytics engineer to elevate your organization&apos;s data maturity, you will find a robust display of technical proficiency and business acumen right here.
           </p>
 
           <h3 className="seo-heading">A Robust SQL Portfolio for Data Engineering</h3>
@@ -253,7 +253,7 @@ export default function AboutSection() {
 
           <h3 className="seo-heading">The Analytics Philosophy Driving the Preet Passi Portfolio</h3>
           <p className="seo-text">
-            The core philosophy underlying the <strong>Preet Passi Portfolio</strong> is simple yet profound: Data without context is merely noise. Every single dataset holds a unique narrative waiting to be uncovered, but it requires a curious, analytical mind to ask the right questions. Being a top-tier analyst isn't just about writing code or building charts; it's about deeply understanding the underlying business domain, identifying critical KPIs, and communicating findings in a way that resonates with non-technical stakeholders. As you browse through this <strong>Data Analyst Portfolio India</strong>, you will notice a consistent focus on ROI-driven results. From optimizing e-commerce customer retention databases to engineering interactive cloud-deployed financial dashboards, every project is aligned with solving tangible business challenges. I am continuously expanding my skill set, staying abreast of the latest AI trends, cloud computing architectures, and data engineering frameworks to ensure that my analytical solutions remain cutting-edge, scalable, and highly impactful.
+            The core philosophy underlying the <strong>Preet Passi Portfolio</strong> is simple yet profound: Data without context is merely noise. Every single dataset holds a unique narrative waiting to be uncovered, but it requires a curious, analytical mind to ask the right questions. Being a top-tier analyst isn&apos;t just about writing code or building charts; it&apos;s about deeply understanding the underlying business domain, identifying critical KPIs, and communicating findings in a way that resonates with non-technical stakeholders. As you browse through this <strong>Data Analyst Portfolio India</strong>, you will notice a consistent focus on ROI-driven results. From optimizing e-commerce customer retention databases to engineering interactive cloud-deployed financial dashboards, every project is aligned with solving tangible business challenges. I am continuously expanding my skill set, staying abreast of the latest AI trends, cloud computing architectures, and data engineering frameworks to ensure that my analytical solutions remain cutting-edge, scalable, and highly impactful.
           </p>
         </div>
       </div>

@@ -25,12 +25,12 @@ export default function NotFound() {
           <div className="error-divider"></div>
           
           <p className="error-desc">
-            The data you're looking for seems to be missing from the table.
+            The data you&apos;re looking for seems to be missing from the table.
           </p>
           
           <div className="error-action-text">
             <i className="fa-solid fa-chart-line" style={{ color: '#E11D48', fontSize: '1.2rem' }}></i>
-            <span>Let's get you back to explore insights that exist.</span>
+            <span>Let&apos;s get you back to explore insights that exist.</span>
           </div>
 
           <Link href="/" className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginTop: '1rem' }}>
