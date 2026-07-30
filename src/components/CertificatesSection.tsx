@@ -1,45 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-
-const certificatesData = [
-  {
-    id: 'cert-da',
-    course: 'DATA ANALYTICS',
-    title: 'Data Analytics',
-    issuer: 'TuteDude Certified',
-    description: 'Covers advanced statistical computation, Python libraries (Pandas, Numpy), database design with SQL, and data visualization strategies.',
-    pdf: 'images/Data Analytics Certificate.pdf',
-    icon: 'fa-solid fa-award'
-  },
-  {
-    id: 'cert-excel',
-    course: 'ADVANCED EXCEL WITH AI',
-    title: 'Advanced Excel with AI',
-    issuer: 'TuteDude Certified',
-    description: 'Focuses on complex data modeling, automation with VBA, nested logic operations, dynamic charts, and integration of AI modeling in spreadsheets.',
-    pdf: 'images/Advanced Excel Certificate.pdf',
-    icon: 'fa-solid fa-calculator'
-  },
-  {
-    id: 'cert-dm',
-    course: 'DIGITAL MARKETING',
-    title: 'Digital Marketing',
-    issuer: 'TuteDude Certified',
-    description: 'Explores search engine optimization (SEO), data-driven campaign analytics, conversion rate optimization (CRO), and digital branding strategies.',
-    pdf: 'images/Digital Marketing Certificate.pdf',
-    icon: 'fa-solid fa-bullseye'
-  },
-  {
-    id: 'cert-fmv',
-    course: 'FINANCIAL MODELING AND VALUATION (FMV)',
-    title: 'Financial Modeling & Valuation (FMV)',
-    issuer: 'TuteDude Certified',
-    description: 'Covers corporate valuation models, discounted cash flow (DCF) analysis, financial projections, sensitivity tables, and investment evaluation.',
-    pdf: 'images/Financial Modeling And Valuatoin Certificate.pdf',
-    icon: 'fa-solid fa-chart-column'
-  }
-];
+import { portfolioData } from '../lib/portfolioData';
 
 export default function CertificatesSection() {
   const [selectedCert, setSelectedCert] = useState<any>(null);
@@ -74,7 +36,7 @@ export default function CertificatesSection() {
       </div>
 
       <div className="certificates-grid">
-        {certificatesData.map((cert) => (
+        {portfolioData.certifications.map((cert) => (
           <div 
             key={cert.id}
             className="cert-card tilt-card" 

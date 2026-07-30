@@ -1,25 +1,9 @@
-import knowledgeData from "./knowledge.json";
+import knowledgeConfig from "./knowledge.json";
+import { portfolioData } from "./portfolioData";
+import { projects as portfolioProjects } from "./projects";
 
-// Intent definitions with keywords and synonyms
-// Priority order: Contact, Resume, Certification, Projects, Skills, Experience, Education, About, Portfolio (last), Greeting
-const intents = {
-  contact: ["contact", "email", "reach", "linkedin", "github", "connect", "message"],
-  resume: ["resume", "cv", "download", "document", "hire"],
-  certification: ["certificate", "certificates", "certification", "certifications", "certified", "credential", "credentials", "badges", "licenses"],
-  projects: ["projects", "work", "show", "built", "dashboard", "dashboards"],
-  skills: ["skills", "technologies", "tools", "stack", "know", "technical", "tech"],
-  experience: ["experience", "work", "job", "career", "history"],
-  education: ["education", "degree", "college", "university", "study", "studied"],
-  about: ["about", "introduce", "yourself", "who is preet", "background", "bio", "who are you"],
-  portfolio: ["portfolio"],
-  greetings: ["hello", "hi", "hey", "what are you", "intro", "greet"]
-};
-
-// Common tech keywords to search within projects specifically
-const techKeywords = [
-  "sql", "python", "power bi", "excel", "pandas", "numpy", 
-  "dashboard", "machine learning", "data cleaning", "visualization", "analysis"
-];
+const { intents, config } = knowledgeConfig;
+const { techKeywords, fallbackMessage, countingPhrases } = config;
 
 // Helper: Calculate Jaccard similarity between two arrays of words
 function calculateSimilarity(words1: string[], words2: string[]): number {
@@ -36,14 +20,15 @@ function tokenize(text: string): string[] {
 }
 
 // Format projects into a readable string
-function formatProjects(projects: any[]): string {
-  if (projects.length === 0) return "I couldn't find any projects matching that criteria.";
+function formatProjects(projectsToFormat: any[]): string {
+  if (projectsToFormat.length === 0) return "I couldn't find any projects matching that criteria.";
   let result = "Here are the relevant projects:\n\n";
-  projects.forEach(p => {
+  projectsToFormat.forEach(p => {
+    // Some projects have a `liveUrl`, some have `githubUrl`, or we can just point to the portfolio slug
     result += `• **${p.title}** (${p.category})\n`;
     result += `  Technologies: ${p.technologies.join(", ")}\n`;
-    result += `  ${p.description}\n`;
-    result += `  [View Project](${p.link})\n\n`;
+    result += `  ${p.shortDescription || p.description}\n`;
+    result += `  [View Project](/projects/${p.slug})\n\n`;
   });
   return result;
 }
@@ -62,14 +47,10 @@ export function processChatInput(input: string): string {
     }
   }
 
-  // Only run project tech search if the user actually asked about projects or just typed a tech name
-  // To avoid conflicting with skills intent, we only trigger tech search if there's no strong intent match yet,
-  // or if we decide tech search takes precedence. Based on requirements, "User: SQL -> Show SQL projects"
-  // implies tech search takes high precedence if a tech word is detected.
   if (searchedTech) {
-    const matchedProjects = knowledgeData.projects.filter((p: any) => {
+    const matchedProjects = portfolioProjects.filter((p: any) => {
       const textToSearch = [
-        p.title, p.category, p.description, ...p.technologies
+        p.title, p.category, p.fullDescription, ...p.technologies, p.tag
       ].join(" ").toLowerCase();
       return textToSearch.includes(searchedTech);
     });
@@ -88,25 +69,21 @@ export function processChatInput(input: string): string {
     
     // Exact word match
     for (const word of inputWords) {
-      if (keywords.includes(word)) score += 1;
+      if ((keywords as string[]).includes(word)) score += 1;
     }
 
     // Partial string match (e.g. "who are you" inside the sentence)
-    for (const keyword of keywords) {
+    for (const keyword of (keywords as string[])) {
       if (keyword.includes(" ") && lowerInput.includes(keyword)) {
         score += 2; // multi-word phrases carry more weight
       }
     }
 
     // Fuzzy Similarity
-    const similarity = calculateSimilarity(inputWords, keywords);
+    const similarity = calculateSimilarity(inputWords, keywords as string[]);
     score += similarity * 5; // give weight to similarity
 
-    // Strict override for portfolio keyword inside a larger sentence
-    // If we already have a high score, portfolio shouldn't override it just because it's mentioned.
-    
-    // Prioritization trick: If score > 0, we add a priority boost based on object key order
-    // Object.entries preserves insertion order, so we can use index as a tie-breaker/priority modifier
+    // Strict override for priority boosting
     if (score > 0) {
       const intentKeys = Object.keys(intents);
       const priorityBoost = (intentKeys.length - intentKeys.indexOf(intentName)) * 0.1;
@@ -121,29 +98,29 @@ export function processChatInput(input: string): string {
 
   // Threshold for intent match
   if (highestScore < 0.5) {
-    return "Sorry, I'm designed only to answer questions related to Preet Passi's portfolio, projects, skills, experience, resume, certifications, education, and contact information.";
+    return fallbackMessage;
   }
 
   // 3. Return Knowledge Base Data
   switch (bestIntent) {
     case "greetings":
-      return knowledgeData.about;
+      return portfolioData.about;
     case "about":
-      return knowledgeData.about;
+      return portfolioData.about;
     case "skills":
-      return `Preet's technical skills include: ${knowledgeData.skills.join(", ")}.`;
+      return `Preet's technical skills include: ${portfolioData.skills.join(", ")}.`;
     case "experience":
-      return knowledgeData.experience;
+      return portfolioData.experience;
     case "education":
-      return knowledgeData.education;
+      return portfolioData.education;
     case "resume":
-      return knowledgeData.resume;
+      return portfolioData.resume;
     case "contact":
-      return `${knowledgeData.contact}\nLinkedIn: ${knowledgeData.socials.linkedin}\nGitHub: ${knowledgeData.socials.github}`;
+      return `${portfolioData.contact}\nLinkedIn: ${portfolioData.socials.linkedin}\nGitHub: ${portfolioData.socials.github}`;
     case "certification":
       // Count logic
-      const isCounting = ["how many", "total", "number of", "count"].some(phrase => lowerInput.includes(phrase));
-      const certCount = knowledgeData.certifications.length;
+      const isCounting = countingPhrases.some(phrase => lowerInput.includes(phrase));
+      const certCount = portfolioData.certifications.length;
       
       if (isCounting) {
         return `I currently have ${certCount} certifications in my portfolio.`;
@@ -151,14 +128,14 @@ export function processChatInput(input: string): string {
       
       // Display list
       let certList = "Here are Preet's certifications:\n\n";
-      knowledgeData.certifications.forEach(cert => {
+      portfolioData.certifications.forEach(cert => {
         certList += `• **${cert.title}** (${cert.issuer})\n`;
       });
       return certList;
     case "projects":
     case "portfolio":
-      return formatProjects(knowledgeData.projects);
+      return formatProjects(portfolioProjects);
     default:
-      return "Sorry, I'm designed only to answer questions related to Preet Passi's portfolio, projects, skills, experience, resume, certifications, education, and contact information.";
+      return fallbackMessage;
   }
 }
