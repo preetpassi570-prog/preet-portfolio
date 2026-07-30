@@ -64,6 +64,7 @@ export const metadata: Metadata = {
 
 import StructuredData from "../components/seo/StructuredData";
 import Navbar from "../components/Navbar";
+import Chatbot from "../components/Chatbot";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from '@next/third-parties/google';
@@ -145,6 +146,7 @@ export default function RootLayout({
           <footer style={{ textAlign: 'center', padding: '2rem 0', color: 'rgba(255, 255, 255, 0.5)', fontSize: '0.9rem', borderTop: '1px solid rgba(255, 255, 255, 0.05)', marginTop: '4rem', zIndex: 10, position: 'relative' }}>
             <p>&copy; {new Date().getFullYear()} Designed & Developed by Preet Passi. All rights reserved.</p>
           </footer>
+          <Chatbot />
         </div>
         
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" strategy="afterInteractive" />

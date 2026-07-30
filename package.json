@@ -9,9 +9,13 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ai-sdk/google": "^4.0.28",
+    "@ai-sdk/react": "^4.0.45",
+    "@google/generative-ai": "^0.24.1",
     "@next/third-parties": "^16.2.12",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
+    "ai": "^7.0.42",
     "next": "16.2.12",
     "next-mdx-remote": "^6.0.0",
     "react": "19.2.4",
