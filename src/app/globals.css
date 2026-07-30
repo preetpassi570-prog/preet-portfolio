@@ -3337,7 +3337,7 @@ a.info-card-value:hover {
 }
 
 .project-modal-body li::before {
-  content: "»";
+  content: "Â»";
   position: absolute;
   left: 0;
   color: var(--accent-red);
@@ -4772,4 +4772,24 @@ a.info-card-value:hover {
     gap: 1rem;
   }
 }
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  .loader-title {
+    font-size: 1.8rem !important;
+    white-space: nowrap !important;
+  }
+  .loader-subtitle {
+    font-size: 0.65rem !important;
+    letter-spacing: 3px !important;
+  }
+}
+@media (max-width: 400px) {
+  .loader-title {
+    font-size: 1.5rem !important;
+  }
+}
+
 
