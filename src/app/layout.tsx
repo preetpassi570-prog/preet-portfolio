@@ -1,7 +1,22 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Orbitron } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import Image from "next/image";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: ["400", "600", "800", "900"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   themeColor: "#000000",
@@ -77,13 +92,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;800;900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
         <StructuredData />
       </head>
-      <body className="dark-theme" suppressHydrationWarning>
+      <body className={`dark-theme ${inter.variable} ${orbitron.variable}`} suppressHydrationWarning>
         <canvas id="webgl-bg"></canvas>
         
         <div id="mouse-glow" className="mouse-glow"></div>

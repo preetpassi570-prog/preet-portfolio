@@ -16,8 +16,8 @@
   --text-secondary: #a0a0ba;
   --text-muted: #62627a;
   
-  --font-display: 'Orbitron', sans-serif;
-  --font-sans: 'Inter', sans-serif;
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
   
   --neon-glow: 0 0 15px rgba(255, 0, 60, 0.4);
   --neon-glow-strong: 0 0 25px rgba(255, 0, 60, 0.7);
