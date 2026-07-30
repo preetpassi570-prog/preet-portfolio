@@ -80,6 +80,7 @@ export const metadata: Metadata = {
 import StructuredData from "../components/seo/StructuredData";
 import Navbar from "../components/Navbar";
 import Chatbot from "../components/Chatbot";
+import ThreeJsLoader from "../components/ThreeJsLoader";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from '@next/third-parties/google';
@@ -164,7 +165,7 @@ export default function RootLayout({
         </div>
         
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" strategy="afterInteractive" />
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" strategy="afterInteractive" />
+        <ThreeJsLoader />
         <div id="contact-toast" className="toast-hidden">
           <div className="toast-content">
             <span className="toast-icon" id="toast-icon"></span>

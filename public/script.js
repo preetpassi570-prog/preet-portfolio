@@ -689,6 +689,14 @@ function initHeroVisualCanvas() {
    2. 3D INTERACTIVE PARTICLE CONSTELLATION BACKGROUND
    ========================================================================= */
 function initBackground3D() {
+  if (window.innerWidth <= 768) return;
+  
+  if (typeof THREE === "undefined") {
+    // Retry in 100ms if ThreeJsLoader hasn't finished downloading the script yet
+    setTimeout(initBackground3D, 100);
+    return;
+  }
+  
   const canvasBg = document.getElementById("webgl-bg");
   if (!canvasBg) return;
 
