@@ -5,7 +5,7 @@ export const portfolioData = {
     "Data Visualization", "Business Analytics", "Pandas", "NumPy", "DAX", "Power Query"
   ],
   experience: "I have hands-on experience building enterprise-grade data solutions, optimizing SQL databases, developing interactive Power BI dashboards, and performing deep exploratory data analysis (EDA) using Python.",
-  education: "I have a strong educational background in Data Science and Analytics, continuously upskilling in modern data engineering tools and business intelligence frameworks.",
+  education: "I have completed my 12th grade in Commerce from CBSE and am currently pursuing my second year of B.Com. Alongside my formal education, I am continuously upskilling in modern data engineering tools, data science, and business intelligence frameworks.",
   personal: {
     age: 18,
     dob: "7/8/2008" // format: DD/MM/YYYY or D/M/YYYY
