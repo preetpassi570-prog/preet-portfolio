@@ -8,6 +8,7 @@
     "experience": ["experience", "work", "job", "career", "history"],
     "education": ["education", "degree", "college", "university", "study", "studied"],
     "about": ["about", "introduce", "yourself", "who is preet", "background", "bio", "who are you"],
+    "personal": ["age", "old", "dob", "born", "birthday", "birth", "date of birth"],
     "greetings": ["hello", "hi", "hey", "what are you", "intro", "greet"]
   },
   "config": {

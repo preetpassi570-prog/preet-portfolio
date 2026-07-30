@@ -6,6 +6,10 @@ export const portfolioData = {
   ],
   experience: "I have hands-on experience building enterprise-grade data solutions, optimizing SQL databases, developing interactive Power BI dashboards, and performing deep exploratory data analysis (EDA) using Python.",
   education: "I have a strong educational background in Data Science and Analytics, continuously upskilling in modern data engineering tools and business intelligence frameworks.",
+  personal: {
+    age: 18,
+    dob: "7/8/2008" // format: DD/MM/YYYY or D/M/YYYY
+  },
   resume: "You can download my resume by clicking the 'Download Resume' button in the Hero section of the homepage, or by navigating to the About Me section.",
   contact: "You can contact me directly via the contact form at the bottom of the page, or reach out through LinkedIn and GitHub.",
   socials: {

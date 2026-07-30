@@ -120,6 +120,8 @@ export function processChatInput(input: string): string {
       return portfolioData.experience;
     case "education":
       return portfolioData.education;
+    case "personal":
+      return `I am ${portfolioData.personal.age} years old. My date of birth is ${portfolioData.personal.dob}.`;
     case "resume":
       return portfolioData.resume;
     case "contact":
