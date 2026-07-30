@@ -12,7 +12,7 @@ export default function AboutSection() {
             
             <div className="about-desc-container">
               <p>
-                I am an Entry Level Data Analyst passionate about transforming raw data into meaningful insights. I have completed multiple hands-on projects using Python, SQL, Excel, and Power BI. I enjoy cleaning, analyzing, and visualizing data to solve real-world business problems.
+                I am a passionate Data Analyst specializing in transforming complex raw data into meaningful, actionable business insights. I have completed multiple hands-on projects using Python, SQL, Excel, and Power BI. I excel at cleaning, analyzing, and visualizing data to solve real-world business problems.
               </p>
               <p>
                 My technical skills include Python with NumPy, Pandas, Matplotlib, and Seaborn for data analysis and visualization, SQL for database management, Excel for data processing, and Power BI for creating interactive dashboards. I am continuously improving my analytical and problem-solving skills by building practical projects.
@@ -26,12 +26,12 @@ export default function AboutSection() {
               
               <div className="profile-card-header">
                 <div className="profile-avatar-circle">
-                  <i className="fa-solid fa-user-astronaut"></i>
+                  <i className="fa-solid fa-user-astronaut" aria-hidden="true"></i>
                 </div>
                 <div className="profile-meta">
                   <h3 className="profile-name">Preet Passi</h3>
                   <p className="profile-role">Data Analytics Engineer</p>
-                  <p className="profile-loc" style={{ color: "var(--text-secondary)", fontSize: "0.78rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "5px" }}>🚀 Entry Level Data Analyst</p>
+                  <p className="profile-loc" style={{ color: "var(--text-secondary)", fontSize: "0.78rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "5px" }}>🚀 Data Analytics Engineer</p>
                   <p className="profile-loc" style={{ marginBottom: "5px" }}><i className="fa-solid fa-location-dot"></i> India</p>
                   <p className="profile-loc" style={{ color: "var(--accent-red)", fontSize: "0.78rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "3px" }}>🟢 Open to Work</p>
                   <p className="profile-loc" style={{ color: "var(--text-muted)", fontSize: "0.75rem" }}>📚 Continuous Learning</p>
@@ -40,15 +40,15 @@ export default function AboutSection() {
               
               <div className="profile-stats-list">
                 <div className="profile-stat-item">
-                  <div className="stat-item-icon"><i className="fa-solid fa-briefcase"></i></div>
+                  <div className="stat-item-icon"><i className="fa-solid fa-briefcase" aria-hidden="true"></i></div>
                   <div className="stat-item-details">
-                    <span className="stat-item-value">🚀 Entry Level</span>
-                    <span className="stat-item-label">Career Level</span>
+                    <span className="stat-item-value">🚀 Data Analyst</span>
+                    <span className="stat-item-label">Specialization</span>
                   </div>
                 </div>
                 
                 <div className="profile-stat-item">
-                  <div className="stat-item-icon"><i className="fa-solid fa-diagram-project"></i></div>
+                  <div className="stat-item-icon"><i className="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
                   <div className="stat-item-details">
                     <span className="stat-item-value">8+</span>
                     <span className="stat-item-label">Projects Completed</span>
@@ -56,7 +56,7 @@ export default function AboutSection() {
                 </div>
                 
                 <div className="profile-stat-item">
-                  <div className="stat-item-icon"><i className="fa-solid fa-award"></i></div>
+                  <div className="stat-item-icon"><i className="fa-solid fa-award" aria-hidden="true"></i></div>
                   <div className="stat-item-details">
                     <span className="stat-item-value">4+</span>
                     <span className="stat-item-label">Certificates Earned</span>
@@ -64,7 +64,7 @@ export default function AboutSection() {
                 </div>
                 
                 <div className="profile-stat-item">
-                  <div className="stat-item-icon"><i className="fa-solid fa-heart-pulse"></i></div>
+                  <div className="stat-item-icon"><i className="fa-solid fa-heart-pulse" aria-hidden="true"></i></div>
                   <div className="stat-item-details">
                     <span className="stat-item-value">100%</span>
                     <span className="stat-item-label">Dedication</span>
@@ -81,37 +81,37 @@ export default function AboutSection() {
           <div className="about-skills-grid">
             <div className="about-skill-card">
               <div className="skill-card-glow"></div>
-              <i className="fa-brands fa-python about-skill-icon"></i>
+              <i className="fa-brands fa-python about-skill-icon" aria-hidden="true"></i>
               <h4 className="about-skill-title">Python</h4>
             </div>
             
             <div className="about-skill-card">
               <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-database about-skill-icon"></i>
+              <i className="fa-solid fa-database about-skill-icon" aria-hidden="true"></i>
               <h4 className="about-skill-title">SQL</h4>
             </div>
             
             <div className="about-skill-card">
               <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-file-excel about-skill-icon"></i>
+              <i className="fa-solid fa-file-excel about-skill-icon" aria-hidden="true"></i>
               <h4 className="about-skill-title">Microsoft Excel</h4>
             </div>
             
             <div className="about-skill-card">
               <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-chart-simple about-skill-icon"></i>
+              <i className="fa-solid fa-chart-simple about-skill-icon" aria-hidden="true"></i>
               <h4 className="about-skill-title">Power BI</h4>
             </div>
             
             <div className="about-skill-card">
               <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-table about-skill-icon"></i>
+              <i className="fa-solid fa-table about-skill-icon" aria-hidden="true"></i>
               <h4 className="about-skill-title">Pandas</h4>
             </div>
             
             <div className="about-skill-card">
               <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-calculator about-skill-icon"></i>
+              <i className="fa-solid fa-calculator about-skill-icon" aria-hidden="true"></i>
               <h4 className="about-skill-title">NumPy</h4>
             </div>
             

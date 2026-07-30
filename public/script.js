@@ -457,7 +457,7 @@ function initLoader() {
   });
   setTimeout(() => {
     actualLoaded = true;
-  }, 1500);
+  }, 400);
   // Beeps playing control
   let lastBeepP = 0;
 
@@ -465,10 +465,10 @@ function initLoader() {
   const loaderTimer = setInterval(() => {
     // If assets are not loaded yet, cap target progress at 85%
     if (!actualLoaded) {
-      targetProgress = Math.min(targetProgress + (Math.random() * 2 + 1), 85);
+      targetProgress = Math.min(targetProgress + (Math.random() * 6 + 4), 85);
     } else {
       // If loaded, let it rush smoothly to 100%
-      targetProgress = Math.min(targetProgress + (Math.random() * 6 + 3), 100);
+      targetProgress = Math.min(targetProgress + (Math.random() * 15 + 10), 100);
     }
 
     // Smoothly interpolate currentProgress to targetProgress

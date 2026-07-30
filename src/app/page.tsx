@@ -24,29 +24,29 @@ export default function Home() {
           </p>
 
           <div className="hero-skills-container">
-            <span className="skill-badge"><i className="fa-brands fa-python"></i> Python</span>
-            <span className="skill-badge"><i className="fa-solid fa-database"></i> SQL</span>
-            <span className="skill-badge"><i className="fa-solid fa-chart-simple"></i> Power BI</span>
-            <span className="skill-badge"><i className="fa-solid fa-file-excel"></i> Excel</span>
-            <span className="skill-badge"><i className="fa-solid fa-table"></i> Pandas & NumPy</span>
-            <span className="skill-badge"><i className="fa-solid fa-broom"></i> Data Cleaning</span>
-            <span className="skill-badge"><i className="fa-solid fa-chart-pie"></i> Data Visualization</span>
+            <span className="skill-badge"><i className="fa-brands fa-python" aria-hidden="true"></i> Python</span>
+            <span className="skill-badge"><i className="fa-solid fa-database" aria-hidden="true"></i> SQL</span>
+            <span className="skill-badge"><i className="fa-solid fa-chart-simple" aria-hidden="true"></i> Power BI</span>
+            <span className="skill-badge"><i className="fa-solid fa-file-excel" aria-hidden="true"></i> Excel</span>
+            <span className="skill-badge"><i className="fa-solid fa-table" aria-hidden="true"></i> Pandas & NumPy</span>
+            <span className="skill-badge"><i className="fa-solid fa-broom" aria-hidden="true"></i> Data Cleaning</span>
+            <span className="skill-badge"><i className="fa-solid fa-chart-pie" aria-hidden="true"></i> Data Visualization</span>
           </div>
           
           <div className="hero-buttons">
-            <a href="#projects" className="btn btn-primary">
+            <a href="#projects" className="btn btn-primary" aria-label="View my projects">
               <span>View Projects</span>
               <div className="btn-shine"></div>
             </a>
-            <a href="/images/Resume.pdf" download className="btn btn-secondary btn-download">
-              <i className="fa-solid fa-download"></i> <span>Download Resume</span>
+            <a href="/images/Resume.pdf" download className="btn btn-secondary btn-download" aria-label="Download my resume">
+              <i className="fa-solid fa-download" aria-hidden="true"></i> <span>Download Resume</span>
             </a>
           </div>
 
           
           <div className="hero-stats-grid">
             <div className="hero-stat-card">
-              <div className="stat-card-value" style={{ fontSize: "1.15rem" }}>🚀 Entry Level</div>
+              <div className="stat-card-value" style={{ fontSize: "1.15rem" }}>🚀 Hireable</div>
               <div className="stat-card-label">Data Analyst</div>
             </div>
             <div className="hero-stat-card">

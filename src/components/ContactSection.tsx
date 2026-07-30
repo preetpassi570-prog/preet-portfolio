@@ -17,7 +17,7 @@ export default function ContactSection() {
             <div className="contact-info-cards">
               <div className="contact-info-card">
                 <div className="info-card-glow"></div>
-                <div className="info-card-icon"><i className="fa-solid fa-envelope"></i></div>
+                <div className="info-card-icon"><i className="fa-solid fa-envelope" aria-hidden="true"></i></div>
                 <div className="info-card-details">
                   <span className="info-card-label">Email</span>
                   <a href="mailto:preetpassi570@gmail.com" className="info-card-value">preetpassi570@gmail.com</a>
@@ -26,7 +26,7 @@ export default function ContactSection() {
 
               <div className="contact-info-card">
                 <div className="info-card-glow"></div>
-                <div className="info-card-icon"><i className="fa-solid fa-briefcase"></i></div>
+                <div className="info-card-icon"><i className="fa-solid fa-briefcase" aria-hidden="true"></i></div>
                 <div className="info-card-details">
                   <span className="info-card-label">Status</span>
                   <span className="info-card-value status-value">
@@ -38,7 +38,7 @@ export default function ContactSection() {
               <a href="https://www.google.com/maps?q=28.730778,77.174722" target="_blank" rel="noopener noreferrer" className="contact-info-card-link" aria-label="Open Delhi, India location on Google Maps">
                 <div className="contact-info-card">
                   <div className="info-card-glow"></div>
-                  <div className="info-card-icon"><i className="fa-solid fa-location-dot"></i></div>
+                  <div className="info-card-icon"><i className="fa-solid fa-location-dot" aria-hidden="true"></i></div>
                   <div className="info-card-details">
                     <span className="info-card-label">Location</span>
                     <span className="info-card-value">Delhi, India</span>
@@ -52,11 +52,11 @@ export default function ContactSection() {
             </p>
 
             <div className="contact-social-icons">
-              <a href="https://github.com/preetpassi570-prog" target="_blank" title="GitHub" aria-label="Connect on GitHub"><i className="fa-brands fa-github"></i></a>
-              <a href="https://linkedin.com/in/preet-passi-a72049321" target="_blank" title="LinkedIn" aria-label="Connect on LinkedIn"><i className="fa-brands fa-linkedin"></i></a>
-              <a href="https://www.instagram.com/preet_passii/?hl=en" target="_blank" title="Instagram" aria-label="Connect on Instagram"><i className="fa-brands fa-instagram"></i></a>
-              <a href="https://wa.me/919315971839" target="_blank" title="WhatsApp" aria-label="Chat on WhatsApp"><i className="fa-brands fa-whatsapp"></i></a>
-              <a href="https://in.pinterest.com/preet_passii/" target="_blank" title="Pinterest" aria-label="Connect on Pinterest"><i className="fa-brands fa-pinterest"></i></a>
+              <a href="https://github.com/preetpassi570-prog" target="_blank" title="GitHub" aria-label="Connect on GitHub"><i className="fa-brands fa-github" aria-hidden="true"></i></a>
+              <a href="https://linkedin.com/in/preet-passi-a72049321" target="_blank" title="LinkedIn" aria-label="Connect on LinkedIn"><i className="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+              <a href="https://www.instagram.com/preet_passii/?hl=en" target="_blank" title="Instagram" aria-label="Connect on Instagram"><i className="fa-brands fa-instagram" aria-hidden="true"></i></a>
+              <a href="https://wa.me/919315971839" target="_blank" title="WhatsApp" aria-label="Chat on WhatsApp"><i className="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+              <a href="https://in.pinterest.com/preet_passii/" target="_blank" title="Pinterest" aria-label="Connect on Pinterest"><i className="fa-brands fa-pinterest" aria-hidden="true"></i></a>
             </div>
           </div>
 

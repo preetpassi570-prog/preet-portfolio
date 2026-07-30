@@ -51,12 +51,12 @@ export default function Navbar() {
             <Link href="/#about" onClick={closeMobileMenu} className={activeSection === 'about' ? 'active' : ''}>ABOUT ME</Link>
             <Link href="/#contact" onClick={closeMobileMenu} className={activeSection === 'contact' ? 'active' : ''}>CONTACT</Link>
             <a href="/images/Resume.pdf" download className="nav-cta-btn mobile-cta" onClick={closeMobileMenu}>
-              <i className="fa-solid fa-download"></i> <span>Download Resume</span>
+              <i className="fa-solid fa-download" aria-hidden="true"></i> <span>Download Resume</span>
             </a>
           </nav>
           <div className="nav-buttons desktop-cta">
             <a href="/images/Resume.pdf" download className="nav-cta-btn">
-              <i className="fa-solid fa-download"></i> <span>Download Resume</span>
+              <i className="fa-solid fa-download" aria-hidden="true"></i> <span>Download Resume</span>
             </a>
           </div>
           <button 
@@ -64,7 +64,7 @@ export default function Navbar() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle navigation menu"
           >
-            <i className={`fa-solid ${isMobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
+            <i className={`fa-solid ${isMobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`} aria-hidden="true"></i>
           </button>
         </>
       )}

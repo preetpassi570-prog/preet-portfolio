@@ -19,10 +19,10 @@ export default function ProjectsSection() {
 
       <div className="tabs-container project-filters">
         <button className={`tab-btn filter-btn ${activeTab === 'all' ? 'active' : ''}`} onClick={() => setActiveTab('all')}>All Projects</button>
-        <button className={`tab-btn filter-btn ${activeTab === 'excel' ? 'active' : ''}`} onClick={() => setActiveTab('excel')}><i className="fa-regular fa-file-excel"></i> Excel</button>
-        <button className={`tab-btn filter-btn ${activeTab === 'sql' ? 'active' : ''}`} onClick={() => setActiveTab('sql')}><i className="fa-solid fa-server"></i> SQL</button>
-        <button className={`tab-btn filter-btn ${activeTab === 'python' ? 'active' : ''}`} onClick={() => setActiveTab('python')}><i className="fa-brands fa-python"></i> Python</button>
-        <button className={`tab-btn filter-btn ${activeTab === 'powerbi' ? 'active' : ''}`} onClick={() => setActiveTab('powerbi')}><i className="fa-solid fa-chart-pie"></i> Power BI</button>
+        <button className={`tab-btn filter-btn ${activeTab === 'excel' ? 'active' : ''}`} onClick={() => setActiveTab('excel')}><i className="fa-regular fa-file-excel" aria-hidden="true"></i> Excel</button>
+        <button className={`tab-btn filter-btn ${activeTab === 'sql' ? 'active' : ''}`} onClick={() => setActiveTab('sql')}><i className="fa-solid fa-server" aria-hidden="true"></i> SQL</button>
+        <button className={`tab-btn filter-btn ${activeTab === 'python' ? 'active' : ''}`} onClick={() => setActiveTab('python')}><i className="fa-brands fa-python" aria-hidden="true"></i> Python</button>
+        <button className={`tab-btn filter-btn ${activeTab === 'powerbi' ? 'active' : ''}`} onClick={() => setActiveTab('powerbi')}><i className="fa-solid fa-chart-pie" aria-hidden="true"></i> Power BI</button>
       </div>
 
       <div className="projects-grid" id="projects-grid">
@@ -33,7 +33,7 @@ export default function ProjectsSection() {
           >
             <div className="card-glow"></div>
             <div className="project-header">
-              <span className="project-icon"><i className={project.icon}></i></span>
+              <span className="project-icon"><i className={project.icon} aria-hidden="true"></i></span>
               <span className="project-tag">{project.tag}</span>
             </div>
             <h3 className="project-title">{project.title}</h3>

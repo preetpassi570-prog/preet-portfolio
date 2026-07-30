@@ -3600,7 +3600,7 @@ a.info-card-value:hover {
 }
 
 .text-accent {
-  color: #d91414;
+  color: #ff3333;
 }
 
 .loader-subtitle {
@@ -3649,8 +3649,8 @@ a.info-card-value:hover {
 }
 
 .loading-text {
-  color: #d91414;
-  font-size: 0.7rem;
+  color: #ff3333;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 8px;
   margin-bottom: 1.5rem;
