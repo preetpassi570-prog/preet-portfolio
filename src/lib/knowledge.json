@@ -1,6 +1,6 @@
 {
   "intents": {
-    "contact": ["contact", "email", "reach", "linkedin", "github", "connect", "message"],
+    "contact": ["contact", "email", "reach", "linkedin", "github", "connect", "message", "instagram", "insta", "id", "pinterest", "phone", "number", "whatsapp", "call"],
     "resume": ["resume", "cv", "download", "document", "hire"],
     "certification": ["certificate", "certificates", "certification", "certifications", "certified", "credential", "credentials", "badge", "badges", "license", "licenses"],
     "projects": ["project", "projects", "work", "case study", "dashboard", "dashboards", "analysis", "application", "app", "built", "created", "developed"],
