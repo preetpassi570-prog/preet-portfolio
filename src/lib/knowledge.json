@@ -80,5 +80,23 @@
       "description": "Designed and developed an interactive HR Analytics dashboard in Power BI to monitor employee performance, recruitment pipelines, and workforce distribution.",
       "link": "/projects/powerbi-hr-analytics"
     }
+  ],
+  "certifications": [
+    {
+      "title": "Google Data Analytics Professional Certificate",
+      "issuer": "Coursera"
+    },
+    {
+      "title": "Microsoft Certified: Power BI Data Analyst Associate",
+      "issuer": "Microsoft"
+    },
+    {
+      "title": "Advanced SQL for Data Scientists",
+      "issuer": "LinkedIn Learning"
+    },
+    {
+      "title": "Python for Data Science and Machine Learning",
+      "issuer": "Udemy"
+    }
   ]
 }
