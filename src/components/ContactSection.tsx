@@ -53,7 +53,7 @@ export default function ContactSection() {
 
             <div className="contact-social-icons">
               <a href="https://github.com/preetpassi570-prog" target="_blank" title="GitHub" aria-label="Connect on GitHub"><i className="fa-brands fa-github" aria-hidden="true"></i></a>
-              <a href="https://linkedin.com/in/preet-passi-a72049321" target="_blank" title="LinkedIn" aria-label="Connect on LinkedIn"><i className="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+              <a href="https://www.linkedin.com/in/preet-passi-567b25426/" target="_blank" title="LinkedIn" aria-label="Connect on LinkedIn"><i className="fa-brands fa-linkedin" aria-hidden="true"></i></a>
               <a href="https://www.instagram.com/preet_passii/?hl=en" target="_blank" title="Instagram" aria-label="Connect on Instagram"><i className="fa-brands fa-instagram" aria-hidden="true"></i></a>
               <a href="https://wa.me/919315971839" target="_blank" title="WhatsApp" aria-label="Chat on WhatsApp"><i className="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
               <a href="https://in.pinterest.com/preet_passii/" target="_blank" title="Pinterest" aria-label="Connect on Pinterest"><i className="fa-brands fa-pinterest" aria-hidden="true"></i></a>

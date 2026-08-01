@@ -13,7 +13,7 @@ export const portfolioData = {
   resume: "You can download my resume by clicking the 'Download Resume' button in the Hero section of the homepage, or by navigating to the About Me section.",
   contact: "You can contact me directly via phone, email, or through my social media channels.",
   socials: {
-    linkedin: "https://www.linkedin.com/in/preet-passi/",
+    linkedin: "https://www.linkedin.com/in/preet-passi-567b25426/",
     github: "https://github.com/preetpassi570-prog",
     email: "preetpassi570@gmail.com",
     phone: "+91 93159 71839",
