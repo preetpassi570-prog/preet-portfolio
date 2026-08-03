@@ -15,13 +15,13 @@ export default function Navbar() {
     if (isProjectPage) return; // No scroll spy on project pages
     
     const handleScroll = () => {
-      const sections = ['home', 'projects', 'certificates', 'about', 'contact'];
+      const sections = ['home', 'projects', 'hire-me', 'certificates', 'about', 'contact'];
       let current = '';
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
+          if (rect.top <= window.innerHeight / 3) {
             current = section;
           }
         }
@@ -47,6 +47,7 @@ export default function Navbar() {
           <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
             <Link href="/#home" onClick={closeMobileMenu} className={activeSection === 'home' ? 'active' : ''}>HOME</Link>
             <Link href="/#projects" onClick={closeMobileMenu} className={activeSection === 'projects' ? 'active' : ''}>PROJECTS</Link>
+            <Link href="/#hire-me" onClick={closeMobileMenu} className={activeSection === 'hire-me' ? 'active' : ''}>HIRE ME</Link>
             <Link href="/#certificates" onClick={closeMobileMenu} className={activeSection === 'certificates' ? 'active' : ''}>CERTIFICATES</Link>
             <Link href="/#about" onClick={closeMobileMenu} className={activeSection === 'about' ? 'active' : ''}>ABOUT ME</Link>
             <Link href="/#contact" onClick={closeMobileMenu} className={activeSection === 'contact' ? 'active' : ''}>CONTACT</Link>

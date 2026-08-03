@@ -3,6 +3,7 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 const ProjectsSection = dynamic(() => import('../components/ProjectsSection'));
+const HireMeSection = dynamic(() => import('../components/HireMeSection'));
 const CertificatesSection = dynamic(() => import('../components/CertificatesSection'));
 const AboutSection = dynamic(() => import('../components/AboutSection'));
 const ContactSection = dynamic(() => import('../components/ContactSection'));
@@ -67,6 +68,7 @@ export default function Home() {
               <span>View Projects</span>
               <div className="btn-shine"></div>
             </a>
+
             <a href="/images/Resume.pdf" download className="btn btn-secondary btn-download" aria-label="Download my resume">
               <i className="fa-solid fa-download" aria-hidden="true"></i> <span>Download Resume</span>
             </a>
@@ -110,6 +112,7 @@ export default function Home() {
       </section>
 
       <ProjectsSection />
+      <HireMeSection />
       <CertificatesSection />
       <AboutSection />
       <ContactSection />
