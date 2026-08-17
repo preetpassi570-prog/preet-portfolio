@@ -68,12 +68,17 @@ export const metadata: Metadata = {
       }
     ],
   },
-  twitter: {
+    twitter: {
     card: "summary_large_image",
     title: "Preet Passi | Data Analyst Portfolio",
     description: "Explore the Data Analytics Portfolio of Preet Passi, an Analytics Engineer specializing in Python, SQL, and Power BI Dashboards.",
     creator: "@preetpassi",
     images: ["/icon.png"],
+  },
+  verification: {
+    other: {
+      "p:domain_verify": "f869c9029cf8c7d4b47caab138ec9903",
+    },
   },
 };
 
@@ -94,7 +99,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-        <meta name="p:domain_verify" content="f869c9029cf8c7d4b47caab138ec9903" />
         <StructuredData />
       </head>
       <body className={`dark-theme ${inter.variable} ${orbitron.variable}`} suppressHydrationWarning>
