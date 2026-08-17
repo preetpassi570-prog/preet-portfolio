@@ -94,6 +94,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <meta name="p:domain_verify" content="f869c9029cf8c7d4b47caab138ec9903" />
         <StructuredData />
       </head>
       <body className={`dark-theme ${inter.variable} ${orbitron.variable}`} suppressHydrationWarning>
