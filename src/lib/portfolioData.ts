@@ -18,7 +18,8 @@ export const portfolioData = {
     email: "preetpassi570@gmail.com",
     phone: "+91 93159 71839",
     instagram: "https://www.instagram.com/preet_passii/?hl=en",
-    pinterest: "https://in.pinterest.com/preet_passii/"
+    pinterest: "https://in.pinterest.com/preet_passii/",
+    address: "Jahangir Puri E-block E-902 ED main road Delhi 110033"
   },
   certifications: [
     {
@@ -58,4 +59,12 @@ export const portfolioData = {
       icon: 'fa-solid fa-chart-column'
     }
   ]
+};
+
+export const portfolioDataHinglish = {
+  about: "Main ek Analytics Engineer aur Data Analyst hoon. Main complex raw data ko samajh kar usko kaam aane wale Business Analytics mein badalta hoon. Data cleaning, analysis, aur visualization karke real-world business problems solve karna mera passion hai.",
+  experience: "Mujhe data solutions banane, SQL databases optimize karne, interactive Power BI dashboards develop karne, aur Python se data analysis karne ka kaafi experience hai.",
+  education: "Maine CBSE se Commerce mein 12th ki hai aur abhi B.Com second year mein hoon. Padhai ke sath-sath, main latest data engineering aur business intelligence tools bhi seekh raha hoon.",
+  resume: "Aap mera resume homepage ke Hero section ya About Me section mein 'Download Resume' button pe click karke download kar sakte hain.",
+  contact: "Aap mujhe phone, email, ya mere social media platforms ke zariye direct contact kar sakte hain."
 };

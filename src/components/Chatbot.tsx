@@ -28,6 +28,7 @@ export default function Chatbot() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [language, setLanguage] = useState<"english" | "hinglish" | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Auto scroll to bottom
@@ -37,9 +38,22 @@ export default function Chatbot() {
     }
   }, [messages, isOpen, isLoading]);
 
+  const handleLanguageSelect = (lang: "english" | "hinglish") => {
+    setLanguage(lang);
+    setMessages([
+      {
+        id: Date.now().toString(),
+        role: "assistant",
+        content: lang === "english" 
+          ? "Great! Ask me anything about Preet's skills, projects, or resume." 
+          : "Badhiya! Mujhse Preet ke skills, projects ya resume ke baare mein kuch bhi puchiye."
+      }
+    ]);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim() || isLoading) return;
+    if (!input.trim() || isLoading || !language) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -53,7 +67,7 @@ export default function Chatbot() {
 
     // Simulate AI thinking delay for a more natural feel
     setTimeout(() => {
-      const responseContent = processChatInput(userMessage.content);
+      const responseContent = processChatInput(userMessage.content, language);
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
@@ -94,7 +108,39 @@ export default function Chatbot() {
           <div className="chatbot-messages">
             {messages.length === 0 ? (
               <div className="chatbot-welcome">
-                Hi! I'm Preet Passi's Portfolio Assistant. I can answer questions about his skills, projects, resume, certifications, education, and contact information.
+                <p style={{ marginBottom: '15px' }}>Hi! I'm Preet Passi's Portfolio Assistant. Please select your preferred language / Kripya apni bhasha chunein:</p>
+                <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                  <button 
+                    onClick={() => handleLanguageSelect('english')}
+                    className="lang-btn"
+                    style={{
+                      padding: '6px 12px',
+                      borderRadius: '15px',
+                      border: '1px solid var(--accent-red)',
+                      background: 'transparent',
+                      color: 'var(--accent-red)',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    English
+                  </button>
+                  <button 
+                    onClick={() => handleLanguageSelect('hinglish')}
+                    className="lang-btn"
+                    style={{
+                      padding: '6px 12px',
+                      borderRadius: '15px',
+                      border: '1px solid var(--accent-red)',
+                      background: 'transparent',
+                      color: 'var(--accent-red)',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    Hinglish
+                  </button>
+                </div>
               </div>
             ) : (
               messages.map((m) => (
@@ -126,13 +172,13 @@ export default function Chatbot() {
               className="chatbot-input"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask me anything..."
-              disabled={isLoading}
+              placeholder={language === 'hinglish' ? "Kuch bhi puchiye..." : (language === 'english' ? "Ask me anything..." : "Select language first...")}
+              disabled={isLoading || !language}
             />
             <button
               type="submit"
               className="chatbot-send-btn"
-              disabled={isLoading || !input.trim()}
+              disabled={isLoading || !input.trim() || !language}
             >
               <i className="fa-solid fa-paper-plane"></i>
             </button>

@@ -1,15 +1,16 @@
 {
   "intents": {
-    "contact": ["contact", "email", "reach", "linkedin", "github", "connect", "message", "instagram", "insta", "id", "pinterest", "phone", "number", "whatsapp", "call"],
+    "contact": ["contact", "email", "reach", "linkedin", "linkdin", "linked in", "github", "git hub", "git", "connect", "message", "instagram", "insta", "id", "pinterest", "phone", "number", "whatsapp", "call", "address", "location", "city", "where", "kahan rehta", "rehte", "pata", "ghar", "kaha rehta", "kahan"],
     "resume": ["resume", "cv", "download", "document", "hire"],
     "certification": ["certificate", "certificates", "certification", "certifications", "certified", "credential", "credentials", "badge", "badges", "license", "licenses"],
     "projects": ["project", "projects", "work", "case study", "dashboard", "dashboards", "analysis", "application", "app", "built", "created", "developed"],
     "skills": ["skills", "technologies", "tools", "stack", "know", "technical", "tech"],
     "experience": ["experience", "work", "job", "career", "history"],
-    "education": ["education", "degree", "college", "university", "study", "studied"],
-    "about": ["about", "introduce", "yourself", "who is preet", "background", "bio", "who are you"],
-    "personal": ["age", "old", "dob", "born", "birthday", "birth", "date of birth"],
-    "greetings": ["hello", "hi", "hey", "what are you", "intro", "greet"]
+    "education": ["education", "degree", "college", "university", "study", "studied", "padhai", "kitna padha", "college"],
+    "about": ["about", "introduce", "yourself", "who is preet", "background", "bio", "who are you", "preet kon hai", "kya karta hai"],
+    "personal": ["age", "old", "dob", "born", "birthday", "birth", "date of birth", "kitne saal", "kitne sal", "umar", "age kya hai", "saal ka", "sal ka", "date of birth kya hai"],
+    "greetings": ["hello", "hi", "hey", "what are you", "intro", "greet", "namaste", "kaise ho", "kya haal"],
+    "favorites": ["favorite color", "favourite color", "color", "colour", "favourite pet", "favorite pet", "pet", "animal", "favourite", "favorite", "pasandida rang", "rang", "pasandida janwar", "janwar", "pet konsa hai", "colour konsa pasand", "color konsa"]
   },
   "config": {
     "techKeywords": [
@@ -17,7 +18,7 @@
       "dashboard", "machine learning", "data cleaning", "visualization", "analysis"
     ],
     "countingPhrases": [
-      "how many", "total", "number of", "count"
+      "how many", "total", "number of", "count", "kitne", "kitna"
     ],
     "fallbackMessage": "Sorry, I'm designed only to answer questions related to Preet Passi's portfolio, projects, skills, experience, resume, certifications, education, and contact information."
   }

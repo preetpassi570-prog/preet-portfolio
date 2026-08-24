@@ -3941,8 +3941,8 @@ a.info-card-value:hover {
     padding: 60px 5%;
   }
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   .project-card {
     width: 100%;
@@ -3973,8 +3973,8 @@ a.info-card-value:hover {
     padding: 60px 5%;
   }
   .certificates-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   .certificate-card {
     padding: 1.2rem;
