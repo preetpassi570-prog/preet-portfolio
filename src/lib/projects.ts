@@ -254,115 +254,86 @@ export const projects: Project[] = [
     futureImprovements: "Future improvements include building an interactive dashboard using Plotly or Streamlit, automating report generation, integrating SQL databases, and expanding the analysis with additional customer metrics."
   },
   {
-    slug: "powerbi-executive-revenue",
-    title: "Enterprise Financial Performance Dashboard",
-    shortDescription: "An executive dashboard featuring sales analytics, regional performance tracking, and profit margin analysis with full interactive drill-down reports.",
-    fullDescription: "Designed and developed an executive-level Power BI dashboard to monitor revenue, sales performance, regional growth, and profitability. The dashboard combines multiple business KPIs into a single interactive report, enabling stakeholders to analyze performance through drill-down reports, slicers, and dynamic visualizations for faster business decision-making.",
-    featuredImage: "/icon.png",
-    technologies: ["Power BI", "DAX", "Power Query", "Data Modeling", "KPI Cards", "Interactive Filters"],
+    slug: "amazon-sales-powerbi-dashboard",
+    title: "Amazon Global Sales & Customer Insights Power BI Dashboard",
+    shortDescription: "An end-to-end Power BI dashboard analyzing $24.9M in Amazon sales, 56K orders, and 17.4K customers with interactive geographic maps, product target gauges, and executive insights.",
+    fullDescription: "An enterprise-grade Power BI dashboard application designed to analyze the end-to-end sales performance, customer demographics, and product trends for an Amazon retail dataset (specializing in bikes, sporting clothing, and outdoor accessories). The dashboard transforms raw Amazon sales transactions into actionable strategic intelligence, enabling leadership to monitor core KPIs, uncover regional shipping trends, evaluate product performance against targets, and optimize customer lifetime value.",
+    featuredImage: "/images/Amazon_PowerBI_Executive_Dashboard.png",
+    technologies: ["Power BI", "DAX", "Power Query", "Data Modeling", "Geospatial Maps", "KPI Gauges", "Time Intelligence"],
     category: "powerbi",
     publishedDate: "2024-01-01T00:00:00Z",
-    updatedDate: "12/5/2026",
-    githubUrl: "https://github.com/preetpassi570-prog/powerbi-financial-performance-dashboard.git",
+    updatedDate: "Updated October 2026",
+    githubUrl: "https://github.com/preetpassi570-prog/Amazon-Sales-PowerBI-Dashboard",
     
-    seoTitle: "Enterprise Financial Performance Dashboard | Power BI Portfolio Project",
-    seoDescription: "An executive KPI Dashboard project built with Power BI for monitoring revenue, sales, and regional growth. A key Business Intelligence Portfolio piece.",
-    keywords: ["Power BI Portfolio", "KPI Dashboard", "Business Intelligence Portfolio", "DAX", "Power Query", "Dashboard Developer"],
+    seoTitle: "Amazon Global Sales & Customer Insights Dashboard | Power BI Project | Preet Passi",
+    seoDescription: "Explore an end-to-end Amazon Sales Power BI Dashboard project featuring $24.9M revenue analysis, DAX measures, geospatial mapping, and customer segmentation.",
+    keywords: ["Amazon Sales Power BI Dashboard", "Power BI Portfolio", "DAX", "Power Query", "Data Modeling", "Geospatial Mapping", "E-Commerce Analytics", "Preet Passi"],
     schemaType: "CreativeWork",
     icon: "fa-solid fa-chart-line",
     tag: "Power BI",
-    duration: "4 Days",
-    status: "Completed",
-    problem: "Business managers relied on multiple Excel reports that were difficult to consolidate and analyze. Generating monthly revenue reports was time-consuming, and there was limited visibility into sales trends, regional performance, and product profitability.",
-    solution: "Built an interactive Power BI dashboard using Power Query for data transformation, DAX for KPI calculations, and a structured data model for efficient reporting. Implemented dynamic slicers, drill-through pages, KPI cards, trend analysis, and regional performance reports to provide real-time business insights.",
-    keyInsights: [
-      "The West region generated the highest total revenue, while the South region showed the fastest year-over-year sales growth.",
-      "A small group of premium products contributed the majority of overall business revenue, highlighting high-value product categories.",
-      "Interactive filtering revealed seasonal sales peaks during the fourth quarter, supporting inventory and marketing planning."
-    ],
-    businessImpact: "The dashboard reduced manual reporting time, improved visibility into business performance, enabled faster executive decision-making, and provided stakeholders with a centralized view of revenue, sales trends, and profitability.",
-    gallery: [
-      { url: "/images/Power BI Project 1 image 1(Financial_Dashboard).png", caption: "Financial Dashboard", description: "Executive Dashboard" },
-      { url: "/images/Power BI Project 1 image 2(Payment_Method_Analysis).png", caption: "Payment Method Analysis", description: "Payment Method Analysis" },
-      { url: "/images/Power BI Project 1 image 3(Regional_Revenue).png", caption: "Regional Revenue", description: "Regional Performance Analysis" }
-    ],
-    challenges: "• Cleaning data using Power Query\n• Building an optimized data model\n• Writing complex DAX measures\n• Designing executive KPI dashboards\n• Optimizing report performance",
-    learnings: "• Power BI\n• Power Query\n• DAX\n• Data Modeling\n• Interactive Dashboards\n• KPI Design\n• Business Intelligence\n• Data Visualization",
-    futureImprovements: "Future enhancements include integrating live SQL databases, adding forecasting visuals, implementing row-level security (RLS), publishing reports to the Power BI Service, and creating automated email subscriptions for stakeholders."
-  },
-  {
-    slug: "powerbi-supply-chain",
-    title: "Customer Intelligence Dashboard",
-    shortDescription: "Designed an interactive Power BI dashboard to monitor end-to-end supply chain performance, including warehouse operations, delivery timelines, and logistics efficiency.",
-    fullDescription: "Designed an interactive Power BI dashboard to monitor end-to-end supply chain performance, including warehouse operations, delivery timelines, shipping costs, inventory movement, and logistics efficiency. The dashboard enables managers to identify operational bottlenecks, monitor KPIs in real time, and improve supply chain decision-making through interactive visualizations.",
-    featuredImage: "/icon.png",
-    technologies: ["Power BI", "DAX", "Power Query", "Data Modeling", "Time Intelligence", "Geographic Maps", "KPI Cards"],
-    category: "powerbi",
-    publishedDate: "2024-01-01T00:00:00Z",
-    updatedDate: "Updated July 2026",
-    githubUrl: "https://github.com/preetpassi570-prog/powerbi-customer-insights-dashboard.git",
-    
-    seoTitle: "Customer Intelligence Dashboard | Power BI Data Analytics Project | Preet Passi",
-    seoDescription: "A Power BI Data Analytics project featuring an interactive dashboard to monitor supply chain performance, logistics efficiency, and warehouse operations.",
-    keywords: ["Power BI", "Supply Chain", "Logistics", "Data Analytics", "Dashboard", "DAX", "Power Query"],
-    schemaType: "CreativeWork",
-    icon: "fa-solid fa-truck-ramp-box",
-    tag: "Power BI",
     duration: "3 Weeks",
     status: "Completed",
-    problem: "The logistics team relied on multiple spreadsheets to monitor deliveries, warehouse performance, and transportation costs. This resulted in delayed reporting, limited visibility into operational bottlenecks, and difficulty tracking supply chain performance across different regions.",
-    solution: "Developed a centralized Power BI dashboard using Power Query for data transformation, DAX for KPI calculations, and an optimized data model. Implemented interactive filters, geographic maps, warehouse performance dashboards, shipment tracking, and operational KPIs to provide real-time visibility across the supply chain.",
+    dataset: "Dataset Source:\nAmazon Global Retail Sales & Customer Transactions Dataset\n\nDataset Details:\n• 56,000+ Orders & Transactions\n• 17,400+ Unique Customers Across Global Markets\n• Product Catalog: Bikes, Sporting Clothing & Outdoor Accessories\n• Financial Metrics: Total Revenue ($24.9M), Profit ($10.5M), Return Rate (2.2%)\n• Customer Demographics: Income Levels (High, Average, Low) & Occupations\n• Geographical Coverage: Global Amazon Marketplaces (Europe, North America, Pacific)\n• Historical Timeline: January 2020 – January 2023\n\nThe data was extracted, cleaned, and transformed using Power Query before building the relational star-schema model and interactive DAX measures.",
+    problem: "E-commerce businesses managing high-volume global sales often face fragmented data scattered across sales registers, customer demographics, and product return logs. Decision-makers lacked a centralized, real-time analytics platform to monitor executive business health, assess monthly sales against performance targets, understand geographic shipping hotspots, and pinpoint products with high return rates.",
+    solution: "Engineered an interactive 4-page Power BI dashboard featuring Executive Health, Geospatial Sales Mapping, Product Target Analysis, and Customer Demographics. Utilized Power Query for automated data transformation, structured an optimized star schema with dimension and fact tables, and developed robust DAX measures for dynamic target variance, return percentages, and time-intelligence trends.",
+    keyFeatures: [
+      "Multi-Page Executive Suite: 4 dedicated dashboards (Executive View, Global Map View, Product View, and Customer Insights View)",
+      "Executive Health KPIs: Real-time tracking of Total Revenue ($24.9M), Orders (56K), Profit ($10.5M), and Return Rate (2.2%)",
+      "Geospatial Global Mapping: Interactive country-level mapping across Europe, North America, and the Pacific with regional drill-throughs",
+      "Product Target Gauges: Product-level performance tracking comparing monthly orders, revenue, and profit against targets",
+      "Customer Demographic Analysis: Customer segmentation across income brackets, occupations, and Top 100 high-value spenders ($1,431 avg revenue per customer)",
+      "Time Intelligence Trends: Dynamic monthly revenue and profit trend tracking spanning Jan 2020 through Jan 2023"
+    ],
+    skillsDemonstrated: [
+      "Power BI Desktop & Service",
+      "DAX (Data Analysis Expressions)",
+      "Power Query & ETL Automation",
+      "Star Schema Data Modeling",
+      "Interactive Geospatial Mapping",
+      "E-Commerce KPI Architecture",
+      "Customer Segmentation & Cohorts",
+      "Dashboard UX/UI Design"
+    ],
+    projectWorkflow: [
+      "1. Requirement Gathering & KPI Architecture Definition",
+      "2. Data Ingestion & Cleansing via Power Query",
+      "3. Star Schema Data Modeling & Relationship Optimization",
+      "4. Advanced DAX Formulation (KPIs, Targets, Return Rates)",
+      "5. Interactive UI/UX Design Across 4 Dashboard Views",
+      "6. QA Validation, Performance Tuning & GitHub Documentation"
+    ],
     keyInsights: [
-      "Delivery performance exceeded 95% in major regions, while a few locations experienced consistent shipping delays.",
-      "Warehouse operating costs were significantly higher in specific distribution centers, highlighting optimization opportunities.",
-      "Interactive reports identified seasonal spikes in shipment volume, allowing better inventory planning and resource allocation."
+      "Top Volume & Revenue Drivers: 'Water Bottle - 30 oz.' and 'Sport-100 Helmets' generated the highest order volume, while high-value Bikes generated the greatest proportion of total revenue ($24.9M).",
+      "Customer Demographics: Over 70% of Amazon orders were placed by customers in the 'Average' income tier working in Professional or Skilled Manual roles, representing the prime audience for loyalty promotions.",
+      "Quality & Return Alerts: Tires and Tubes recorded the highest return rate (2.2% overall portfolio return), highlighting the need for enhanced supplier quality control and updated product descriptions on Amazon listings.",
+      "Geographic Distribution: North American and European markets accounted for the largest concentration of orders, identifying key regions for fulfillment optimization and localized stock allocation."
     ],
-    businessImpact: "The dashboard improved operational visibility, reduced manual reporting effort, helped identify logistics bottlenecks, supported faster decision-making, and contributed to an estimated 12% improvement in overall operational efficiency.",
+    businessImpact: "The automated Amazon Global Sales Power BI dashboard centralized enterprise sales metrics, slashing manual multi-spreadsheet reporting time by over 75%. It gave leadership immediate clarity into product profit margins, enabled rapid response to return rate anomalies across 56K orders, and empowered marketing teams to target high-lifetime-value customer segments.",
     gallery: [
-      { url: "/images/Power BI Project 2 image 1(Customer_Dashboard).png", caption: "Customer Dashboard", description: "Operations Dashboard" },
-      { url: "/images/Power BI Proejct 2 image 2(Gender_Distribution).png", caption: "Gender Distribution", description: "Logistics Performance" },
-      { url: "/images/Power BI Project 2 image 3(Education_Analysis).png", caption: "Education Analysis", description: "Regional Operations" }
+      { 
+        url: "/images/Amazon_PowerBI_Executive_Dashboard.png", 
+        caption: "Executive Dashboard", 
+        description: "High-level executive overview tracking $24.9M revenue, 56K orders, $10.5M profit, return rates, monthly trends, and Top 10 products." 
+      },
+      { 
+        url: "/images/Amazon_PowerBI_Map_Dashboard.png", 
+        caption: "Geographic Map Dashboard", 
+        description: "Interactive geospatial sales distribution across Europe, North America, and Pacific territories with regional drill-downs." 
+      },
+      { 
+        url: "/images/Amazon_PowerBI_Product_Dashboard.png", 
+        caption: "Product Performance & Target Dashboard", 
+        description: "Granular product-level analysis with gauge visuals comparing monthly orders, revenue, and profit against targets." 
+      },
+      { 
+        url: "/images/Amazon_PowerBI_Customer_Dashboard.png", 
+        caption: "Customer Demographics & Insights Dashboard", 
+        description: "Customer intelligence view breaking down 17.4K unique buyers by income brackets, occupations, and top spender rankings." 
+      }
     ],
-    challenges: "• Cleaning logistics data using Power Query\n• Building relationships between multiple operational tables\n• Writing advanced DAX measures\n• Designing executive KPI dashboards\n• Optimizing report performance",
-    learnings: "• Power BI\n• Power Query\n• DAX\n• Data Modeling\n• Supply Chain Analytics\n• KPI Dashboard Design\n• Interactive Reporting\n• Geographic Map Visualizations",
-    futureImprovements: "Future enhancements include integrating live ERP and SQL databases, implementing predictive delivery forecasting, adding supplier performance analytics, enabling Row-Level Security (RLS), and publishing the dashboard to Power BI Service with automated refresh schedules."
-  },
-  {
-    slug: "powerbi-hr-analytics",
-    title: "Enterprise Sales Analytics Dashboard",
-    shortDescription: "Designed and developed an interactive HR Analytics dashboard in Power BI to monitor employee performance, recruitment pipelines, and workforce distribution.",
-    fullDescription: "Designed and developed an interactive HR Analytics dashboard in Power BI to monitor employee performance, recruitment pipelines, workforce distribution, employee retention, department-wise performance, and hiring trends. The dashboard provides HR managers with real-time workforce insights through dynamic KPIs, drill-through reports, and interactive visualizations.",
-    featuredImage: "/icon.png",
-    technologies: ["Power BI", "DAX", "Power Query", "Data Modeling", "Drill-Through Reports", "Row-Level Security (RLS)", "KPI Cards"],
-    category: "powerbi",
-    publishedDate: "2024-01-01T00:00:00Z",
-    updatedDate: "Updated July 2026",
-    githubUrl: "https://github.com/preetpassi570-prog/powerbi-sales-customer-analytics-dashboard.git",
-    
-    seoTitle: "Enterprise Sales Analytics Dashboard | Power BI Data Analytics Project | Preet Passi",
-    seoDescription: "A Power BI Data Analytics project featuring an interactive HR dashboard for talent acquisition, retention, and performance analytics.",
-    keywords: ["Power BI", "HR Analytics", "Data Analytics", "Dashboard", "DAX", "Power Query"],
-    schemaType: "CreativeWork",
-    icon: "fa-solid fa-users-gear",
-    tag: "Power BI",
-    duration: "3 Weeks",
-    status: "Completed",
-    problem: "The HR department relied on multiple spreadsheets to monitor employee records, recruitment progress, attrition rates, and performance reviews. This manual reporting process was time-consuming, inconsistent, and lacked a centralized view for strategic workforce planning.",
-    solution: "Built a centralized Power BI dashboard using Power Query for data transformation, DAX for advanced HR KPIs, and a structured data model. Created interactive recruitment dashboards, employee performance reports, attrition analysis, department-wise KPIs, hiring trends, and workforce visualizations to support faster HR decision-making.",
-    keyInsights: [
-      "The Sales department recorded the highest employee turnover, while the IT department maintained the strongest retention rate.",
-      "Most successful hires originated from employee referral programs, resulting in better long-term retention.",
-      "Performance ratings showed a positive relationship with employee tenure, highlighting the value of long-term employee development."
-    ],
-    businessImpact: "The HR dashboard reduced manual reporting time, improved workforce visibility, supported data-driven hiring decisions, optimized employee retention strategies, and enabled HR leadership to monitor key workforce KPIs from a single interactive dashboard.",
-    gallery: [
-      { url: "/images/Power BI Project 3 image 1(Executive_Dashboard).png", caption: "Executive Dashboard", description: "HR Executive Dashboard" },
-      { url: "/images/Power BI Project 3 image 2(Region_Wise_Sales).png", caption: "Region Wise Sales", description: "Recruitment Analytics" },
-      { url: "/images/Power BI Project 3 image 3(Monthly_Sales_Trend).png", caption: "Monthly Sales Trend", description: "Employee Performance Dashboard" }
-    ],
-    challenges: "• Cleaning HR data using Power Query\n• Building relationships between multiple HR datasets\n• Writing advanced DAX measures\n• Designing executive HR dashboards\n• Implementing Row-Level Security (RLS)",
-    learnings: "• Power BI\n• DAX\n• Power Query\n• Data Modeling\n• HR Analytics\n• Employee Performance Analysis\n• Recruitment Analytics\n• Interactive Dashboard Design",
-    futureImprovements: "Future enhancements include integrating live HRMS databases, adding predictive employee attrition analysis, implementing AI-powered workforce forecasting, publishing reports to Power BI Service, and enabling automated HR reporting with scheduled refreshes."
+    challenges: "• Designing an optimized star-schema data model across transactional, product, customer, and territory tables without circular dependencies\n• Writing advanced DAX measures for dynamic target variance, return rate calculations, and monthly trend comparisons\n• Designing clean, intuitive visual hierarchies across 4 distinct report pages for rapid executive decision-making\n• Ensuring fast visual filtering and slicing performance across 56,000+ transactional records",
+    learnings: "• Advanced Power BI & DAX (CALCULATE, FILTER, RELATED, Time Intelligence)\n• Star Schema Relational Data Modeling\n• Interactive Geospatial Visualizations & Map Filtering\n• E-Commerce KPI Design & Target Tracking\n• Customer Demographic Segmentation & Lifetime Value Analysis\n• End-to-End BI Workflow from ETL to Executive Presentation",
+    futureImprovements: "Future enhancements include live cloud database connections (Snowflake/BigQuery), Power BI Service automated scheduled refreshes, Row-Level Security (RLS) for localized regional sales managers, and predictive sales forecasting models built with Python."
   }
 ];
 
