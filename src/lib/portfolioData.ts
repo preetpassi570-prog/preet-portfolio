@@ -41,6 +41,15 @@ export const portfolioData = {
       icon: 'fa-solid fa-calculator'
     },
     {
+      id: 'cert-powerbi',
+      course: 'POWER BI',
+      title: 'Power BI',
+      issuer: 'TuteDude Certified',
+      description: 'Focuses on end-to-end business intelligence, interactive dashboard design, advanced DAX measures, Power Query data transformation, and data modeling.',
+      pdf: 'images/Power BI Certificate.pdf',
+      icon: 'fa-solid fa-chart-pie'
+    },
+    {
       id: 'cert-dm',
       course: 'DIGITAL MARKETING',
       title: 'Digital Marketing',
