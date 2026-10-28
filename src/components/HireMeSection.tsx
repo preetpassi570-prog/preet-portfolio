@@ -108,9 +108,23 @@ export default function HireMeSection() {
             </a>
           </div>
         </div>
-
-
-
+        <div className="fade-up" style={{ textAlign: 'center', marginTop: '1rem', marginBottom: '2rem', opacity: 0, transform: 'translateY(30px)', transition: 'all 0.6s ease-out' }}>
+          <p style={{ color: 'var(--text-secondary)', marginBottom: '1.25rem', fontSize: '1rem' }}>
+            Looking for a complete overview of my qualifications, technical skills, and experience?
+          </p>
+          <a 
+            href="/images/Resume.pdf" 
+            download="Preet_Passi_Resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn btn-secondary btn-download"
+            style={{ display: 'inline-flex', padding: '0.75rem 1.8rem', fontSize: '0.95rem' }}
+            aria-label="Download Preet Passi Resume"
+          >
+            <i className="fa-solid fa-file-arrow-down" style={{ marginRight: '8px' }}></i>
+            <span>Download Official Resume</span>
+          </a>
+        </div>
       </div>
       <style>{`
         .fade-up.visible {

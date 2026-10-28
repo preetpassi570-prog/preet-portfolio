@@ -10,7 +10,7 @@ export const portfolioData = {
     age: 18,
     dob: "7/8/2008" // format: DD/MM/YYYY or D/M/YYYY
   },
-  resume: "You can download my resume by clicking the 'Download Resume' button in the Hero section of the homepage, or by navigating to the About Me section.",
+  resume: "You can download my official resume directly [here from Resume PDF](/images/Resume.pdf), or by clicking the 'Download Resume' button in the navigation bar and Hero section.",
   contact: "You can contact me directly via phone, email, or through my social media channels.",
   socials: {
     linkedin: "https://www.linkedin.com/in/preet-passi-567b25426/",
@@ -74,6 +74,6 @@ export const portfolioDataHinglish = {
   about: "Main ek Analytics Engineer aur Data Analyst hoon. Main complex raw data ko samajh kar usko kaam aane wale Business Analytics mein badalta hoon. Data cleaning, analysis, aur visualization karke real-world business problems solve karna mera passion hai.",
   experience: "Mujhe data solutions banane, SQL databases optimize karne, interactive Power BI dashboards develop karne, aur Python se data analysis karne ka kaafi experience hai.",
   education: "Maine CBSE se Commerce mein 12th ki hai aur abhi B.Com second year mein hoon. Padhai ke sath-sath, main latest data engineering aur business intelligence tools bhi seekh raha hoon.",
-  resume: "Aap mera resume homepage ke Hero section ya About Me section mein 'Download Resume' button pe click karke download kar sakte hain.",
+  resume: "Aap mera official resume direct [yahan click karke download](/images/Resume.pdf) kar sakte hain, ya homepage ke header aur Hero section mein diye gaye 'Download Resume' button par click kar sakte hain.",
   contact: "Aap mujhe phone, email, ya mere social media platforms ke zariye direct contact kar sakte hain."
 };

@@ -69,7 +69,14 @@ export default function Home() {
               <div className="btn-shine"></div>
             </a>
 
-            <a href="/images/Resume.pdf" download className="btn btn-secondary btn-download" aria-label="Download my resume">
+            <a 
+              href="/images/Resume.pdf" 
+              download="Preet_Passi_Resume.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-secondary btn-download" 
+              aria-label="Download Preet Passi Resume"
+            >
               <i className="fa-solid fa-download" aria-hidden="true"></i> <span>Download Resume</span>
             </a>
           </div>

@@ -51,12 +51,27 @@ export default function Navbar() {
             <Link href="/#certificates" onClick={closeMobileMenu} className={activeSection === 'certificates' ? 'active' : ''}>CERTIFICATES</Link>
             <Link href="/#about" onClick={closeMobileMenu} className={activeSection === 'about' ? 'active' : ''}>ABOUT ME</Link>
             <Link href="/#contact" onClick={closeMobileMenu} className={activeSection === 'contact' ? 'active' : ''}>CONTACT</Link>
-            <a href="/images/Resume.pdf" download className="nav-cta-btn mobile-cta" onClick={closeMobileMenu}>
+            <a 
+              href="/images/Resume.pdf" 
+              download="Preet_Passi_Resume.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="nav-cta-btn mobile-cta" 
+              onClick={closeMobileMenu}
+              aria-label="Download Preet Passi Resume"
+            >
               <i className="fa-solid fa-download" aria-hidden="true"></i> <span>Download Resume</span>
             </a>
           </nav>
           <div className="nav-buttons desktop-cta">
-            <a href="/images/Resume.pdf" download className="nav-cta-btn">
+            <a 
+              href="/images/Resume.pdf" 
+              download="Preet_Passi_Resume.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="nav-cta-btn"
+              aria-label="Download Preet Passi Resume"
+            >
               <i className="fa-solid fa-download" aria-hidden="true"></i> <span>Download Resume</span>
             </a>
           </div>

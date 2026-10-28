@@ -18,6 +18,27 @@ export default function AboutSection() {
                 My technical skills include Python with NumPy, Pandas, Matplotlib, and Seaborn for comprehensive <strong>Data Reporting</strong> and data analysis. I leverage SQL for database management, Excel for advanced data processing, and Power BI for creating interactive dashboards. I am continuously improving my analytical and problem-solving skills to build a robust <strong>Data Visualization Portfolio</strong>.
               </p>
             </div>
+
+            <div style={{ marginTop: '1.75rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <a 
+                href="/images/Resume.pdf" 
+                download="Preet_Passi_Resume.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-secondary btn-download" 
+                aria-label="Download Preet Passi Resume"
+              >
+                <i className="fa-solid fa-download" aria-hidden="true"></i> <span>Download Resume</span>
+              </a>
+              <a 
+                href="#contact" 
+                className="btn btn-primary" 
+                aria-label="Contact Preet Passi"
+              >
+                <span>Get In Touch</span>
+                <div className="btn-shine"></div>
+              </a>
+            </div>
           </div>
           
           <div className="about-right-col">
