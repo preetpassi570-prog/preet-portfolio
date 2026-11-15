@@ -73,20 +73,6 @@ export default function Navbar() {
             </nav>
 
             <div className="nav-buttons desktop-cta">
-              <button
-                className="replay-intro-pill"
-                onClick={() => {
-                  playPop(850);
-                  if (typeof window !== "undefined") {
-                    window.dispatchEvent(new CustomEvent("replay-cartoon-intro"));
-                  }
-                }}
-                title="Watch Cartoon Boxing Battle Again"
-              >
-                <i className="fa-solid fa-film"></i>
-                <span>Cartoon Intro</span>
-              </button>
-
               <a 
                 href="#contact" 
                 className="btn-nav-primary"
