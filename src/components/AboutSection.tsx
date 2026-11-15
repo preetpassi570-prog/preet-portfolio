@@ -1,284 +1,280 @@
+"use client";
 import React from 'react';
+import { playPop } from '@/lib/soundFx';
+
+interface SkillItem {
+  name: string;
+  category: string;
+  level: string;
+  icon: string;
+  theme: 'purple' | 'yellow';
+}
+
+const skills: SkillItem[] = [
+  { name: 'Python', category: 'PROGRAMMING', level: 'Core Stack', icon: 'fa-brands fa-python', theme: 'purple' },
+  { name: 'SQL', category: 'DATABASE', level: 'Optimized CTEs', icon: 'fa-solid fa-database', theme: 'yellow' },
+  { name: 'Microsoft Excel', category: 'SPREADSHEET', level: 'Advanced VBA & AI', icon: 'fa-regular fa-file-excel', theme: 'purple' },
+  { name: 'Power BI', category: 'BI DASHBOARDS', level: 'DAX & Modeling', icon: 'fa-solid fa-chart-pie', theme: 'yellow' },
+  { name: 'Pandas', category: 'DATA WRANGLING', level: 'ETL Pipelines', icon: 'fa-solid fa-table', theme: 'purple' },
+  { name: 'NumPy', category: 'NUMERICAL ML', level: 'Vectorized Arrays', icon: 'fa-solid fa-calculator', theme: 'yellow' },
+  { name: 'Matplotlib', category: 'STATISTICAL PLOTS', level: 'Custom Charts', icon: 'fa-solid fa-chart-line', theme: 'purple' },
+  { name: 'Seaborn', category: 'DISTRIBUTION VIZ', level: 'Heatmaps & Density', icon: 'fa-solid fa-chart-area', theme: 'yellow' },
+  { name: 'Data Cleaning', category: 'ETL PIPELINE', level: 'Audit-Proof Marts', icon: 'fa-solid fa-wand-magic-sparkles', theme: 'purple' },
+  { name: 'Data Analysis', category: 'EXPLORATORY EDA', level: 'Business Insights', icon: 'fa-solid fa-magnifying-glass-chart', theme: 'yellow' },
+  { name: 'Data Visualization', category: 'STORYTELLING', level: 'C-Suite Clarity', icon: 'fa-solid fa-chart-column', theme: 'purple' },
+  { name: 'Business Intelligence', category: 'KPI STRATEGY', level: 'Executive Metrics', icon: 'fa-solid fa-lightbulb', theme: 'yellow' },
+];
+
+const timelinePhases = [
+  { phase: 'Phase 1', title: 'Data Analytics Foundations', desc: 'Acquired strong statistical principles, data modeling, probability, and exploratory metrics.' },
+  { phase: 'Phase 2', title: 'Python Programming & ETL', desc: 'Mastered Pandas, NumPy, Matplotlib, and scripting protocols to build automated pipelines.' },
+  { phase: 'Phase 3', title: 'Relational SQL Architecture', desc: 'Engineered complex CTEs, window functions, stored procedures, and schema normalization.' },
+  { phase: 'Phase 4', title: 'Executive Dashboards', desc: 'Created high-fidelity Power BI and Excel dashboards with dynamic tracking and KPI scorecards.' },
+  { phase: 'Phase 5', title: 'Data Cleaning & Transformation', desc: 'Automated data wrangling, anomaly detection, null handling, and audit-ready data prep.' },
+  { phase: 'Phase 6', title: 'Production Portfolio Deployments', desc: 'Built and published 6+ end-to-end commercial analytics case studies across retail, finance, and health.' },
+];
 
 export default function AboutSection() {
   return (
     <>
-    <section id="about" className="section about-section">
-      <div className="about-container-wrapper">
-        <div className="about-main-grid">
-          <div className="about-left-col">
-            <div className="about-welcome-tag">ABOUT ME</div>
-            <h2 className="about-main-title">Turning Data<br />Into Decisions</h2>
-            
-            <div className="about-desc-container">
-              <p>
-                I am a passionate <strong>Analytics Engineer</strong> and Data Analyst specializing in transforming complex raw data into meaningful, actionable <strong>Business Analytics</strong>. I have completed multiple hands-on projects for my <strong>Data Science Portfolio</strong> using Python, SQL, Excel, and Power BI. I excel at <strong>Data Cleaning</strong>, analyzing, and visualizing data to solve real-world business problems.
-              </p>
-              <p>
-                My technical skills include Python with NumPy, Pandas, Matplotlib, and Seaborn for comprehensive <strong>Data Reporting</strong> and data analysis. I leverage SQL for database management, Excel for advanced data processing, and Power BI for creating interactive dashboards. I am continuously improving my analytical and problem-solving skills to build a robust <strong>Data Visualization Portfolio</strong>.
-              </p>
-            </div>
-
-            <div style={{ marginTop: '1.75rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <a 
-                href="/images/Resume.pdf" 
-                download="Preet_Passi_Resume.pdf" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn btn-secondary btn-download" 
-                aria-label="Download Preet Passi Resume"
-              >
-                <i className="fa-solid fa-download" aria-hidden="true"></i> <span>Download Resume</span>
-              </a>
-              <a 
-                href="#contact" 
-                className="btn btn-primary" 
-                aria-label="Contact Preet Passi"
-              >
-                <span>Get In Touch</span>
-                <div className="btn-shine"></div>
-              </a>
-            </div>
-          </div>
-          
-          <div className="about-right-col">
-            <div className="about-profile-card">
-              <div className="profile-card-glow"></div>
+      <section id="about" className="section about-section">
+        <div className="about-container-wrapper">
+          <div className="about-main-grid">
+            {/* Left Column: Narrative */}
+            <div className="about-left-col">
+              <div className="section-badge-pill">
+                <i className="fa-solid fa-user-astronaut"></i>
+                <span>ABOUT PREET PASSI</span>
+              </div>
+              <h2 className="section-heading-large">
+                Turning Complex Data<br />Into Profitable Decisions
+              </h2>
               
-              <div className="profile-card-header">
-                <div className="profile-avatar-circle">
-                  <i className="fa-solid fa-user-astronaut" aria-hidden="true"></i>
-                </div>
-                <div className="profile-meta">
-                  <h3 className="profile-name">Preet Passi</h3>
-                  <p className="profile-role">Data Analytics Engineer</p>
-                  <p className="profile-loc" style={{ color: "var(--text-secondary)", fontSize: "0.78rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "5px" }}>🚀 Data Analytics Engineer</p>
-                  <p className="profile-loc" style={{ marginBottom: "5px" }}><i className="fa-solid fa-location-dot"></i> India</p>
-                  <p className="profile-loc" style={{ color: "var(--accent-red)", fontSize: "0.78rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "3px" }}>🟢 Open to Work</p>
-                  <p className="profile-loc" style={{ color: "var(--text-muted)", fontSize: "0.75rem" }}>📚 Continuous Learning</p>
-                </div>
+              <div className="about-desc-container">
+                <p>
+                  I am a passionate <strong>Data Analytics Engineer</strong> specializing in translating messy, raw databases into measurable, actionable <strong>commercial business clarity</strong>. I have completed production-ready case studies using <strong>Python, SQL, Power BI, and Advanced Excel</strong>.
+                </p>
+                <p>
+                  From engineering recursive SQL CTEs to building automated machine learning churn predictors and C-suite KPI dashboards, I bridge the gap between technical data engineering and strategic executive decisions.
+                </p>
               </div>
-              
-              <div className="profile-stats-list">
-                <div className="profile-stat-item">
-                  <div className="stat-item-icon"><i className="fa-solid fa-briefcase" aria-hidden="true"></i></div>
-                  <div className="stat-item-details">
-                    <span className="stat-item-value">🚀 Data Analyst</span>
-                    <span className="stat-item-label">Specialization</span>
+
+              <div className="about-cta-row">
+                <a 
+                  href="/images/Resume.pdf" 
+                  download="Preet_Passi_Resume.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-neo-secondary" 
+                  onClick={() => playPop(650)}
+                  aria-label="Download Preet Passi Resume"
+                >
+                  <i className="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+                  <span>Download Resume</span>
+                </a>
+                <a 
+                  href="#contact" 
+                  className="btn-neo-primary" 
+                  onClick={() => playPop(750)}
+                  aria-label="Contact Preet Passi"
+                >
+                  <span>Get In Touch</span>
+                  <i className="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+            
+            {/* Right Column: 2D Neo-Brutalist Developer ID Card */}
+            <div className="about-right-col">
+              <div className="bespoke-profile-card">
+                {/* Card Top Window / Ribbon */}
+                <div className="profile-card-top-bar">
+                  <span className="profile-id-tag">ID: #PP-DATA-2026</span>
+                  <span className="profile-status-pill">
+                    <span className="service-status-dot"></span>
+                    <span>OPEN TO WORK</span>
+                  </span>
+                </div>
+
+                {/* Profile Header Block */}
+                <div className="profile-header-block">
+                  <div className="profile-avatar-emblem">
+                    <i className="fa-solid fa-user-astronaut"></i>
+                  </div>
+                  <div className="profile-header-info">
+                    <h3 className="profile-user-name">Preet Passi</h3>
+                    <span className="profile-user-badge">DATA ANALYTICS ENGINEER</span>
+                    <div className="profile-meta-chips">
+                      <span className="profile-micro-pill"><i className="fa-solid fa-location-dot"></i> Delhi, India</span>
+                      <span className="profile-micro-pill"><i className="fa-solid fa-bolt"></i> Immediate Joiner</span>
+                      <span className="profile-micro-pill"><i className="fa-solid fa-briefcase"></i> Full-Time / Freelance</span>
+                    </div>
                   </div>
                 </div>
-                
-                <div className="profile-stat-item">
-                  <div className="stat-item-icon"><i className="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
-                  <div className="stat-item-details">
-                    <span className="stat-item-value">8+</span>
-                    <span className="stat-item-label">Projects Completed</span>
+
+                {/* 2x2 Stats Matrix Tiles */}
+                <div className="profile-stat-grid">
+                  <div className="profile-stat-tile">
+                    <div className="stat-tile-icon theme-yellow">
+                      <i className="fa-solid fa-chart-column"></i>
+                    </div>
+                    <div className="stat-tile-details">
+                      <span className="stat-tile-label">CORE DOMAIN</span>
+                      <span className="stat-tile-value">Data Analytics & BI</span>
+                    </div>
+                  </div>
+
+                  <div className="profile-stat-tile">
+                    <div className="stat-tile-icon theme-purple">
+                      <i className="fa-solid fa-diagram-project"></i>
+                    </div>
+                    <div className="stat-tile-details">
+                      <span className="stat-tile-label">PROJECTS DELIVERED</span>
+                      <span className="stat-tile-value">8+ Case Studies</span>
+                    </div>
+                  </div>
+
+                  <div className="profile-stat-tile">
+                    <div className="stat-tile-icon theme-yellow">
+                      <i className="fa-solid fa-award"></i>
+                    </div>
+                    <div className="stat-tile-details">
+                      <span className="stat-tile-label">ACCREDITATIONS</span>
+                      <span className="stat-tile-value">5+ Certifications</span>
+                    </div>
+                  </div>
+
+                  <div className="profile-stat-tile">
+                    <div className="stat-tile-icon theme-purple">
+                      <i className="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div className="stat-tile-details">
+                      <span className="stat-tile-label">WORK DEDICATION</span>
+                      <span className="stat-tile-value">100% Commitment</span>
+                    </div>
                   </div>
                 </div>
-                
-                <div className="profile-stat-item">
-                  <div className="stat-item-icon"><i className="fa-solid fa-award" aria-hidden="true"></i></div>
-                  <div className="stat-item-details">
-                    <span className="stat-item-value">4+</span>
-                    <span className="stat-item-label">Certificates Earned</span>
-                  </div>
-                </div>
-                
-                <div className="profile-stat-item">
-                  <div className="stat-item-icon"><i className="fa-solid fa-heart-pulse" aria-hidden="true"></i></div>
-                  <div className="stat-item-details">
-                    <span className="stat-item-value">100%</span>
-                    <span className="stat-item-label">Dedication</span>
-                  </div>
+
+                {/* Card Bottom Verification Ribbon */}
+                <div className="profile-card-footer-ribbon">
+                  <i className="fa-solid fa-circle-check"></i>
+                  <span>TUTEDUDE CERTIFIED • PYTHON & SQL PIPELINES • POWER BI SPECIALIST</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        <div className="about-expertise-section">
-          <h3 className="about-sub-section-title">{"// CORE EXPERTISE"}</h3>
           
-          <div className="about-skills-grid">
-            <div className="about-skill-card">
-              <div className="skill-card-glow"></div>
-              <i className="fa-brands fa-python about-skill-icon" aria-hidden="true"></i>
-              <h4 className="about-skill-title">Python</h4>
+          {/* ========================================================
+             CORE EXPERTISE (12 SKILLS 2D NEO-BRUTALIST GRID)
+             ======================================================== */}
+          <div className="about-expertise-section">
+            <div className="section-header-centered" style={{ marginBottom: '25px' }}>
+              <div className="section-badge-pill">
+                <i className="fa-solid fa-layer-group"></i>
+                <span>TECHNICAL TOOLKIT</span>
+              </div>
+              <h3 className="section-heading-large">
+                Core Technical Expertise
+              </h3>
+              <p className="section-subtext">
+                Production-tested programming languages, relational database management systems, and business intelligence suites.
+              </p>
             </div>
             
-            <div className="about-skill-card">
-              <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-database about-skill-icon" aria-hidden="true"></i>
-              <h4 className="about-skill-title">SQL</h4>
-            </div>
-            
-            <div className="about-skill-card">
-              <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-file-excel about-skill-icon" aria-hidden="true"></i>
-              <h4 className="about-skill-title">Microsoft Excel</h4>
-            </div>
-            
-            <div className="about-skill-card">
-              <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-chart-simple about-skill-icon" aria-hidden="true"></i>
-              <h4 className="about-skill-title">Power BI</h4>
-            </div>
-            
-            <div className="about-skill-card">
-              <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-table about-skill-icon" aria-hidden="true"></i>
-              <h4 className="about-skill-title">Pandas</h4>
-            </div>
-            
-            <div className="about-skill-card">
-              <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-calculator about-skill-icon" aria-hidden="true"></i>
-              <h4 className="about-skill-title">NumPy</h4>
-            </div>
-            
-            <div className="about-skill-card">
-              <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-chart-line about-skill-icon"></i>
-              <h4 className="about-skill-title">Matplotlib</h4>
-            </div>
-            
-            <div className="about-skill-card">
-              <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-chart-area about-skill-icon"></i>
-              <h4 className="about-skill-title">Seaborn</h4>
-            </div>
-
-            <div className="about-skill-card">
-              <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-broom about-skill-icon"></i>
-              <h4 className="about-skill-title">Data Cleaning</h4>
-            </div>
-
-            <div className="about-skill-card">
-              <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-magnifying-glass-chart about-skill-icon"></i>
-              <h4 className="about-skill-title">Data Analysis</h4>
-            </div>
-
-            <div className="about-skill-card">
-              <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-eye about-skill-icon"></i>
-              <h4 className="about-skill-title">Data Visualization</h4>
-            </div>
-
-            <div className="about-skill-card">
-              <div className="skill-card-glow"></div>
-              <i className="fa-solid fa-lightbulb about-skill-icon"></i>
-              <h4 className="about-skill-title">Business Intelligence</h4>
+            <div className="bespoke-skills-grid">
+              {skills.map((skill, index) => (
+                <div 
+                  key={index} 
+                  className="bespoke-skill-card"
+                  onMouseEnter={() => playPop(700 + index * 20)}
+                >
+                  <div className="skill-card-top-tag">
+                    <span>{skill.category}</span>
+                  </div>
+                  
+                  <div className={`skill-icon-emblem theme-${skill.theme}`}>
+                    <i className={skill.icon} aria-hidden="true"></i>
+                  </div>
+                  
+                  <h4 className="bespoke-skill-title">{skill.name}</h4>
+                  
+                  <div className="skill-badge-level">
+                    <i className="fa-solid fa-circle-check"></i>
+                    <span>{skill.level}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-        
-        <div className="about-journey-section">
-          <h3 className="about-sub-section-title">{"// MY JOURNEY"}</h3>
           
-          <div className="journey-timeline">
-            <div className="timeline-line"></div>
-            
-            <div className="timeline-item">
-              <div className="timeline-circle"></div>
-              <div className="timeline-content">
-                <span className="timeline-date">Phase 1</span>
-                <h4 className="timeline-title">Started Learning Data Analytics</h4>
-                <p className="timeline-desc">Acquired foundational understanding of statistical principles, data structuring, and visualization analytics systems.</p>
+          {/* ========================================================
+             MY JOURNEY (2D NEO-BRUTALIST TIMELINE)
+             ======================================================== */}
+          <div className="about-journey-section">
+            <div className="section-header-centered" style={{ marginBottom: '30px' }}>
+              <div className="section-badge-pill">
+                <i className="fa-solid fa-road"></i>
+                <span>CAREER ROADMAP</span>
               </div>
+              <h3 className="section-heading-large">
+                My Analytics Journey
+              </h3>
             </div>
             
-            <div className="timeline-item">
-              <div className="timeline-circle"></div>
-              <div className="timeline-content">
-                <span className="timeline-date">Phase 2</span>
-                <h4 className="timeline-title">Learned Python</h4>
-                <p className="timeline-desc">Mastered OOP, Pandas, Numpy, Matplotlib, and scripting protocols to build automated pipelines and models.</p>
-              </div>
-            </div>
-            
-            <div className="timeline-item">
-              <div className="timeline-circle"></div>
-              <div className="timeline-content">
-                <span className="timeline-date">Phase 3</span>
-                <h4 className="timeline-title">Mastered SQL</h4>
-                <p className="timeline-desc">Developed proficiency in writing optimized relational queries, triggers, aggregates, and database design structures.</p>
-              </div>
-            </div>
-            
-            <div className="timeline-item">
-              <div className="timeline-circle"></div>
-              <div className="timeline-content">
-                <span className="timeline-date">Phase 4</span>
-                <h4 className="timeline-title">Created Dashboards</h4>
-                <p className="timeline-desc">Designed interactive, high-fidelity Power BI and Excel dashboards with dynamic tracking visualizations and KPI cards.</p>
-              </div>
-            </div>
-            
-            <div className="timeline-item">
-              <div className="timeline-circle"></div>
-              <div className="timeline-content">
-                <span className="timeline-date">Phase 5</span>
-                <h4 className="timeline-title">Data Cleaning & Manipulation</h4>
-                <p className="timeline-desc">Applied Pandas and NumPy methodologies to clean, filter, and structure complex messy datasets for reporting.</p>
-              </div>
-            </div>
-            
-            <div className="timeline-item">
-              <div className="timeline-circle"></div>
-              <div className="timeline-content">
-                <span className="timeline-date">Phase 6</span>
-                <h4 className="timeline-title">Portfolio Projects</h4>
-                <p className="timeline-desc">Built and deployed professional, end-to-end data analytics and automation projects showcase.</p>
-              </div>
+            <div className="bespoke-journey-grid">
+              {timelinePhases.map((phase, idx) => (
+                <div key={idx} className="bespoke-journey-card">
+                  <div className="journey-card-top">
+                    <span className="journey-phase-tag">{phase.phase}</span>
+                    <span className="journey-step-num">0{idx + 1}</span>
+                  </div>
+                  <h4 className="journey-card-title">{phase.title}</h4>
+                  <p className="journey-card-desc">{phase.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="seo-summary" className="section seo-summary-section">
-      <div className="seo-container-wrapper">
-        <div className="section-header">
-          <h2 className="section-title"><span className="neon-text-red">{"//"}</span> PROFESSIONAL SUMMARY</h2>
-          <p className="section-subtitle">Deep dive into the methodology, expertise, and analytics philosophy driving my work.</p>
+      {/* ========================================================
+         PROFESSIONAL SUMMARY (SEO COMPONENT)
+         ======================================================== */}
+      <section id="seo-summary" className="section seo-summary-section">
+        <div className="seo-container-wrapper">
+          <div className="section-header-centered" style={{ marginBottom: '30px' }}>
+            <div className="section-badge-pill">
+              <i className="fa-solid fa-book-open"></i>
+              <span>PROFESSIONAL SUMMARY</span>
+            </div>
+            <h2 className="section-heading-large">
+              Methodology & Analytics Philosophy
+            </h2>
+          </div>
+          
+          <div className="bespoke-summary-card">
+            <h3 className="seo-heading">The Data Analytics Journey of Preet Passi</h3>
+            <p className="seo-text">
+              Welcome to the official <strong>Preet Passi Portfolio</strong>, a comprehensive digital showcase of a passionate data professional dedicated to turning complex datasets into clear, actionable business strategies. As an emerging <strong>Preet Passi Data Analyst</strong>, my mission is to bridge the critical gap between raw, unstructured data streams and intuitive, high-impact business insights.
+            </p>
+
+            <h3 className="seo-heading">A Robust SQL Portfolio for Data Engineering</h3>
+            <p className="seo-text">
+              Data extraction, manipulation, and secure storage are foundational. My <strong>SQL Portfolio</strong> demonstrates a profound, practical understanding of relational database management systems, including MySQL, PostgreSQL, and Microsoft SQL Server. I have engineered complex queries, CTEs, and schema optimizations that ensure performance and reliability.
+            </p>
+
+            <h3 className="seo-heading">An Advanced Power BI Portfolio for Visual Storytelling</h3>
+            <p className="seo-text">
+              Within my <strong>Power BI Portfolio</strong>, I have meticulously designed executive-level dashboards that transform complex, multi-dimensional metrics into intuitive, interactive visual narratives. They incorporate advanced DAX calculations, interactive drill-downs, and clean responsive layouts.
+            </p>
+
+            <h3 className="seo-heading">Leveraging Python for Predictive Analytics</h3>
+            <p className="seo-text">
+              Utilizing industry-standard libraries such as Pandas, NumPy, Scikit-Learn, Matplotlib, and Seaborn, I have developed machine learning churn predictors, automated data scrapers, and predictive forecasting pipelines.
+            </p>
+          </div>
         </div>
-        
-        <div className="seo-article-content tilt-card glass-panel">
-          <div className="card-glow"></div>
-          <h3 className="seo-heading">The Data Analytics Journey of Preet Passi</h3>
-          <p className="seo-text">
-            Welcome to the official <strong>Preet Passi Portfolio</strong>, a comprehensive digital showcase of a passionate data professional dedicated to turning complex datasets into clear, actionable business strategies. In today&apos;s rapidly evolving corporate landscape, data is no longer just a byproduct of operations; it is the core engine that drives strategic decision-making, operational efficiency, and revenue growth. As an emerging <strong>Preet Passi Data Analyst</strong>, my mission is to bridge the critical gap between raw, unstructured data streams and intuitive, high-impact business insights. Whether you are exploring a <strong>Data Analyst Portfolio India</strong> for inspiration, or actively seeking a dedicated analytics engineer to elevate your organization&apos;s data maturity, you will find a robust display of technical proficiency and business acumen right here.
-          </p>
-
-          <h3 className="seo-heading">A Robust SQL Portfolio for Data Engineering</h3>
-          <p className="seo-text">
-            Data extraction, manipulation, and secure storage are the foundational pillars of any successful analytics pipeline. My extensive <strong>SQL Portfolio</strong> demonstrates a profound, practical understanding of relational database management systems, including MySQL, PostgreSQL, and Microsoft SQL Server. Through a series of rigorous, real-world projects, I have engineered complex queries, utilized advanced window functions to track moving averages, designed Common Table Expressions (CTEs) for recursive data processing, and optimized database schemas to handle massive, multi-table datasets efficiently. I believe that writing clean, performant SQL is an art form—one that ensures data integrity and drastically reduces query execution times, laying the perfect groundwork for subsequent analysis and reporting phases.
-          </p>
-
-          <h3 className="seo-heading">An Advanced Power BI Portfolio for Visual Storytelling</h3>
-          <p className="seo-text">
-            Extracting data is only the first step; visualizing it effectively is where the true business value is unlocked. Within my <strong>Power BI Portfolio</strong>, I have meticulously designed executive-level dashboards that transform complex, multi-dimensional metrics into intuitive, interactive visual narratives. From financial performance tracking and sales forecasting to supply chain logistics and human resources talent acquisition, my Power BI data models are built for scale and usability. They incorporate advanced Data Analysis Expressions (DAX) for complex calculations, Row-Level Security (RLS) for enterprise-grade access control, and sophisticated time-intelligence functions to monitor year-over-year growth trends. By prioritizing user experience (UX) in dashboard design, I ensure that stakeholders at all technical levels can easily slice, filter, and interpret the data they need to make rapid, informed decisions.
-          </p>
-
-          <h3 className="seo-heading">Leveraging Python for Predictive Analytics</h3>
-          <p className="seo-text">
-            Beyond descriptive and diagnostic analytics, my technical repertoire extends deeply into the realm of predictive modeling and machine learning using Python. While SQL tells us what happened and Power BI helps us understand why it happened, Python allows us to forecast what will happen next. Utilizing industry-standard libraries such as Pandas, NumPy, Scikit-Learn, Matplotlib, and Seaborn, I have developed end-to-end machine learning pipelines. For instance, my customer churn prediction engines use classification algorithms to identify at-risk accounts before they leave, allowing businesses to proactively deploy retention strategies. Additionally, my Python expertise covers automated data scraping, API integrations, and complex data cleaning operations—ensuring that even the messiest datasets are transformed into pristine analytical assets.
-          </p>
-
-          <h3 className="seo-heading">Advanced Excel Modeling</h3>
-          <p className="seo-text">
-            Despite the rise of modern business intelligence tools, Microsoft Excel remains an indispensable powerhouse in the corporate financial sector. My portfolio features advanced financial modeling, automated VBA macro scripts, and dynamic pivot-table reports that push the boundaries of traditional spreadsheet capabilities. By integrating AI-powered forecasting modules and complex nested logic formulas, I have streamlined manual reporting workflows that previously took hours, reducing them to automated processes that execute in seconds.
-          </p>
-
-          <h3 className="seo-heading">The Analytics Philosophy Driving the Preet Passi Portfolio</h3>
-          <p className="seo-text">
-            The core philosophy underlying the <strong>Preet Passi Portfolio</strong> is simple yet profound: Data without context is merely noise. Every single dataset holds a unique narrative waiting to be uncovered, but it requires a curious, analytical mind to ask the right questions. Being a top-tier analyst isn&apos;t just about writing code or building charts; it&apos;s about deeply understanding the underlying business domain, identifying critical KPIs, and communicating findings in a way that resonates with non-technical stakeholders. As you browse through this <strong>Data Analyst Portfolio India</strong>, you will notice a consistent focus on ROI-driven results. From optimizing e-commerce customer retention databases to engineering interactive cloud-deployed financial dashboards, every project is aligned with solving tangible business challenges. I am continuously expanding my skill set, staying abreast of the latest AI trends, cloud computing architectures, and data engineering frameworks to ensure that my analytical solutions remain cutting-edge, scalable, and highly impactful.
-          </p>
-        </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 }
