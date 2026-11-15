@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { portfolioData } from '../lib/portfolioData';
+import { playPop } from '@/lib/soundFx';
 
 export default function CertificatesSection() {
   const [selectedCert, setSelectedCert] = useState<any>(null);
@@ -28,39 +29,88 @@ export default function CertificatesSection() {
     return () => { document.body.style.overflow = 'auto'; };
   }, [selectedCert]);
 
+  const openCertModal = (cert: any) => {
+    playPop(850);
+    setSelectedCert(cert);
+  };
+
   return (
     <section id="certificates" className="section certificates-section">
-      <div className="section-header">
-        <h2 className="section-title"><span className="neon-text-red">//</span> PROFESSIONAL CREDENTIALS</h2>
-        <p className="section-subtitle">Industry-recognized certifications validated by TuteDude.</p>
+      <div className="section-header-centered">
+        <div className="section-badge-pill">
+          <i className="fa-solid fa-award"></i>
+          <span>ACCREDITED EXPERTISE</span>
+        </div>
+        <h2 className="section-heading-large">
+          Professional Certifications
+        </h2>
+        <p className="section-subtext">
+          Industry-validated credentials in <strong>Data Analytics</strong>, <strong>Advanced Excel with AI</strong>, <strong>Power BI Intelligence</strong>, and <strong>Financial Modeling</strong>.
+        </p>
       </div>
 
-      <div className="certificates-grid">
+      <div className="bespoke-cert-grid">
         {portfolioData.certifications.map((cert) => (
           <div 
             key={cert.id}
-            className="cert-card tilt-card" 
+            className="bespoke-cert-card" 
             data-course={cert.course}
-            onClick={() => setSelectedCert(cert)}
+            onClick={() => openCertModal(cert)}
           >
-            <div className="card-glow"></div>
-            <div className="cert-badge"><i className={cert.icon}></i></div>
-            <h3 className="cert-title">{cert.title}</h3>
-            
-            {/* Hide these on mobile */}
-            <p className="cert-issuer mobile-hide">{cert.issuer}</p>
-            <p className="cert-desc mobile-hide">{cert.description}</p>
-            
-            <div className="cert-footer" style={{ marginTop: 'auto', paddingTop: '1rem' }}>
-              <button className="btn btn-secondary" style={{ width: "100%", justifyContent: "center", padding: "0.6rem", fontSize: "0.85rem" }}>
-                <i className="fa-solid fa-file-pdf"></i> View Details
+            {/* Top Verification Ribbon Header */}
+            <div className="cert-card-top-bar">
+              <span className="cert-verified-pill">
+                <i className="fa-solid fa-circle-check"></i>
+                <span>VERIFIED CREDENTIAL</span>
+              </span>
+              <span className="cert-issuer-code">TUTEDUDE CERTIFIED</span>
+            </div>
+
+            {/* Cert Main Info */}
+            <div className="cert-card-main">
+              <div className="cert-icon-emblem">
+                <i className={cert.icon}></i>
+              </div>
+              
+              <div className="cert-title-group">
+                <span className="cert-category-tag">{cert.course}</span>
+                <h3 className="bespoke-cert-title">{cert.title}</h3>
+              </div>
+            </div>
+
+            {/* Description */}
+            <p className="bespoke-cert-desc">{cert.description}</p>
+
+            {/* Skills & Competencies Chips */}
+            {cert.skills && (
+              <div className="cert-skills-wrap">
+                {cert.skills.map((skill: string, idx: number) => (
+                  <span key={idx} className="cert-skill-chip">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* Card Action Footer */}
+            <div className="cert-card-footer">
+              <button 
+                className="btn-cert-view" 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openCertModal(cert);
+                }}
+              >
+                <i className="fa-solid fa-file-pdf"></i>
+                <span>View Certificate</span>
+                <i className="fa-solid fa-arrow-up-right-from-square"></i>
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Modal Overlay via Portal */}
+      {/* Modern 2D Neo-Brutalist Modal Overlay via Portal */}
       {isMounted && typeof document !== 'undefined' && createPortal(
         <div 
           className={`modal-overlay ${selectedCert ? 'open' : ''}`}
@@ -69,22 +119,54 @@ export default function CertificatesSection() {
           }}
         >
           {selectedCert && (
-            <div className="modal-content">
-              <button className="modal-close-btn" onClick={() => setSelectedCert(null)}>
+            <div className="bespoke-cert-modal">
+              <button className="modal-close-btn" onClick={() => setSelectedCert(null)} title="Close">
                 <i className="fa-solid fa-xmark"></i>
               </button>
               
-              <div className="modal-header">
-                <i className={`${selectedCert.icon} modal-icon`}></i>
-                <h3 className="modal-title">{selectedCert.title}</h3>
-                <span className="modal-badge">{selectedCert.issuer}</span>
+              <div className="modal-diploma-ribbon">
+                <i className="fa-solid fa-award"></i>
+                <span>OFFICIAL VERIFICATION OF COMPLETION</span>
+                <i className="fa-solid fa-award"></i>
+              </div>
+
+              <div className="modal-cert-header">
+                <div className="modal-icon-badge">
+                  <i className={`${selectedCert.icon}`}></i>
+                </div>
+                <div>
+                  <h3 className="modal-cert-title">{selectedCert.title}</h3>
+                  <span className="modal-issuer-pill">{selectedCert.issuer} • Course ID: {selectedCert.course}</span>
+                </div>
               </div>
               
-              <p className="modal-desc">{selectedCert.description}</p>
+              <p className="modal-cert-desc">{selectedCert.description}</p>
+
+              {/* Skills breakdown in modal */}
+              {selectedCert.skills && (
+                <div className="modal-skills-box">
+                  <span className="modal-skills-label">VERIFIED CORE COMPETENCIES:</span>
+                  <div className="modal-skills-list">
+                    {selectedCert.skills.map((s: string, i: number) => (
+                      <span key={i} className="modal-skill-tag">
+                        <i className="fa-solid fa-check"></i> {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
               
-              <div className="modal-actions">
-                <a href={selectedCert.pdf} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ width: "100%", justifyContent: "center" }}>
-                  <i className="fa-solid fa-file-pdf"></i> View Official Certificate
+              <div className="modal-cert-actions">
+                <a 
+                  href={selectedCert.pdf} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="modal-open-pdf-btn"
+                  onClick={() => playPop(900)}
+                >
+                  <i className="fa-solid fa-file-pdf"></i>
+                  <span>Open Official PDF in New Tab</span>
+                  <i className="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
               </div>
             </div>

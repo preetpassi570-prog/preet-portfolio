@@ -147,7 +147,7 @@ function startBgAnimation() {
       this.size = Math.random() * 1.2 + 0.3;
       this.speedX = Math.random() * 0.4 - 0.2;
       this.speedY = Math.random() * 0.4 - 0.2;
-      this.color = Math.random() > 0.9 ? 'rgba(217, 20, 20, 0.25)' : 'rgba(255, 255, 255, 0.15)';
+      this.color = Math.random() > 0.9 ? 'rgba(37, 99, 235, 0.35)' : 'rgba(255, 255, 255, 0.15)';
     }
     update() {
       this.x += this.speedX;
@@ -175,7 +175,7 @@ function startBgAnimation() {
   }
   
   function animateParticles() {
-    ctx.fillStyle = '#050505';
+    ctx.fillStyle = '#FAF9F5';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     for (let i = 0; i < particlesArray.length; i++) {
@@ -382,6 +382,7 @@ function playIntroSound(onReadyCallback) {
 
 function initLoader() {
   const loaderOverlay = document.getElementById("loader-overlay");
+  if (!loaderOverlay) { state.loaderComplete = true; document.body.classList.remove("loading-active"); return; }
   const progressFill = document.getElementById("progress-fill");
   const loaderPerc = document.getElementById("loader-perc");
   const appContainer = document.getElementById("app-container");
@@ -654,7 +655,7 @@ function initHeroVisualCanvas() {
     waves.forEach((w, index) => {
       ctx.beginPath();
       ctx.arc(centerX, centerY, w.radius, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(255, 0, 60, ${w.alpha})`;
+      ctx.strokeStyle = `rgba(37, 99, 235, ${w.alpha})`;
       ctx.lineWidth = 1;
       ctx.stroke();
 
@@ -674,9 +675,9 @@ function initHeroVisualCanvas() {
 
       ctx.beginPath();
       ctx.arc(x, y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 0, 60, ${p.alpha})`;
+      ctx.fillStyle = `rgba(37, 99, 235, ${p.alpha})`;
       ctx.shadowBlur = 4;
-      ctx.shadowColor = "rgba(255, 0, 60, 0.8)";
+      ctx.shadowColor = "rgba(37, 99, 235, 0.8)";
       ctx.fill();
       ctx.shadowBlur = 0;
     });
@@ -734,7 +735,7 @@ function initBackground3D() {
 
   // Particle Material (Glowing Red dots)
   const material = new THREE.PointsMaterial({
-    color: 0xff003c,
+    color: 0x2563eb,
     size: window.innerWidth < 768 ? 0.35 : 0.45,
     transparent: true,
     opacity: 0.6,
@@ -746,7 +747,7 @@ function initBackground3D() {
 
   // Line connections between particles helper mesh
   const linesMaterial = new THREE.LineBasicMaterial({
-    color: 0xff003c,
+    color: 0x2563eb,
     transparent: true,
     opacity: 0.08,
     blending: THREE.AdditiveBlending
@@ -1124,7 +1125,7 @@ function formatMarkdown(text) {
   // Bold: **text** -> <strong>text</strong>
   formatted = formatted.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   // Links: [label](url) -> <a href="url"...>label</a>
-  formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: #ff003c; text-decoration: underline; font-weight: 600;">$1</a>');
+  formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: #2563eb; text-decoration: underline; font-weight: 600;">$1</a>');
   return formatted;
 }
 

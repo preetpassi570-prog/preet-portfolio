@@ -2,20 +2,20 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { playPop } from '@/lib/soundFx';
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   
-  // Check if we are on a project detail page
   const isProjectPage = pathname?.startsWith('/projects/');
 
   useEffect(() => {
-    if (isProjectPage) return; // No scroll spy on project pages
+    if (isProjectPage) return;
     
     const handleScroll = () => {
-      const sections = ['home', 'projects', 'hire-me', 'certificates', 'about', 'contact'];
+      const sections = ['home', 'vibe-check', 'data-lab', 'projects', 'hire-me', 'certificates', 'about', 'contact'];
       let current = '';
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -35,55 +35,78 @@ export default function Navbar() {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <header className="navbar">
-      <div className="nav-logo">
-        <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <span className="neon-text-red">DATA</span>ANALYST<span className="dot">.</span>
-        </Link>
-      </div>
-      
-      {!isProjectPage && (
-        <>
-          <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-            <Link href="/#home" onClick={closeMobileMenu} className={activeSection === 'home' ? 'active' : ''}>HOME</Link>
-            <Link href="/#projects" onClick={closeMobileMenu} className={activeSection === 'projects' ? 'active' : ''}>PROJECTS</Link>
-            <Link href="/#hire-me" onClick={closeMobileMenu} className={activeSection === 'hire-me' ? 'active' : ''}>HIRE ME</Link>
-            <Link href="/#certificates" onClick={closeMobileMenu} className={activeSection === 'certificates' ? 'active' : ''}>CERTIFICATES</Link>
-            <Link href="/#about" onClick={closeMobileMenu} className={activeSection === 'about' ? 'active' : ''}>ABOUT ME</Link>
-            <Link href="/#contact" onClick={closeMobileMenu} className={activeSection === 'contact' ? 'active' : ''}>CONTACT</Link>
-            <a 
-              href="/images/Resume.pdf" 
-              download="Preet_Passi_Resume.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="nav-cta-btn mobile-cta" 
-              onClick={closeMobileMenu}
-              aria-label="Download Preet Passi Resume"
+    <>
+      <header className="navbar bespoke-nav">
+        <div className="nav-logo">
+          <Link href="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => playPop(700)}>
+            <div className="logo-badge-icon">
+              <i className="fa-solid fa-chart-line"></i>
+            </div>
+            <span className="logo-name">Preet Passi</span>
+            <span className="logo-role-tag">ANALYTICS</span>
+          </Link>
+        </div>
+        
+        {!isProjectPage && (
+          <>
+            <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+              <Link href="/#home" onClick={() => { playPop(); closeMobileMenu(); }} className={activeSection === 'home' ? 'active' : ''}>Overview</Link>
+              <Link href="/#vibe-check" onClick={() => { playPop(); closeMobileMenu(); }} className={activeSection === 'vibe-check' ? 'active' : ''}>Bento Stack</Link>
+              <Link href="/#data-lab" onClick={() => { playPop(); closeMobileMenu(); }} className={`nav-featured-link ${activeSection === 'data-lab' ? 'active' : ''}`}>
+                Live Data Lab <span className="live-dot-tag">LIVE</span>
+              </Link>
+              <Link href="/#projects" onClick={() => { playPop(); closeMobileMenu(); }} className={activeSection === 'projects' ? 'active' : ''}>Projects</Link>
+              <Link href="/#certificates" onClick={() => { playPop(); closeMobileMenu(); }} className={activeSection === 'certificates' ? 'active' : ''}>Credentials</Link>
+              <Link href="/#contact" onClick={() => { playPop(); closeMobileMenu(); }} className={activeSection === 'contact' ? 'active' : ''}>Contact</Link>
+              
+              <a 
+                href="/images/Resume.pdf" 
+                download="Preet_Passi_Resume.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="nav-cta-btn mobile-cta" 
+                onClick={() => { playPop(); closeMobileMenu(); }}
+                aria-label="Download Preet Passi Resume"
+              >
+                <span>Download Resume</span>
+              </a>
+            </nav>
+
+            <div className="nav-buttons desktop-cta">
+              <button
+                className="replay-intro-pill"
+                onClick={() => {
+                  playPop(850);
+                  if (typeof window !== "undefined") {
+                    window.dispatchEvent(new CustomEvent("replay-cartoon-intro"));
+                  }
+                }}
+                title="Watch Cartoon Boxing Battle Again"
+              >
+                <i className="fa-solid fa-film"></i>
+                <span>Cartoon Intro</span>
+              </button>
+
+              <a 
+                href="#contact" 
+                className="btn-nav-primary"
+                onClick={() => playPop(900)}
+                aria-label="Hire Preet Passi"
+              >
+                <span>Hire Me</span>
+              </a>
+            </div>
+
+            <button 
+              className="mobile-menu-toggle" 
+              onClick={() => { playPop(); setIsMobileMenuOpen(!isMobileMenuOpen); }}
+              aria-label="Toggle navigation menu"
             >
-              <i className="fa-solid fa-download" aria-hidden="true"></i> <span>Download Resume</span>
-            </a>
-          </nav>
-          <div className="nav-buttons desktop-cta">
-            <a 
-              href="/images/Resume.pdf" 
-              download="Preet_Passi_Resume.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="nav-cta-btn"
-              aria-label="Download Preet Passi Resume"
-            >
-              <i className="fa-solid fa-download" aria-hidden="true"></i> <span>Download Resume</span>
-            </a>
-          </div>
-          <button 
-            className="mobile-menu-toggle" 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-          >
-            <i className={`fa-solid ${isMobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`} aria-hidden="true"></i>
-          </button>
-        </>
-      )}
-    </header>
+              <i className={`fa-solid ${isMobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`} aria-hidden="true"></i>
+            </button>
+          </>
+        )}
+      </header>
+    </>
   );
 }

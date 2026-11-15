@@ -28,8 +28,9 @@ export const portfolioData = {
       title: 'Data Analytics',
       issuer: 'TuteDude Certified',
       description: 'Covers advanced statistical computation, Python libraries (Pandas, Numpy), database design with SQL, and data visualization strategies.',
-      pdf: 'images/Data Analytics Certificate.pdf',
-      icon: 'fa-solid fa-award'
+      pdf: '/images/Data Analytics Certificate.pdf',
+      icon: 'fa-solid fa-award',
+      skills: ['Python & Pandas', 'SQL Queries', 'Data Cleaning', 'Statistics']
     },
     {
       id: 'cert-excel',
@@ -37,8 +38,9 @@ export const portfolioData = {
       title: 'Advanced Excel with AI',
       issuer: 'TuteDude Certified',
       description: 'Focuses on complex data modeling, automation with VBA, nested logic operations, dynamic charts, and integration of AI modeling in spreadsheets.',
-      pdf: 'images/Advanced Excel Certificate.pdf',
-      icon: 'fa-solid fa-calculator'
+      pdf: '/images/Advanced Excel Certificate.pdf',
+      icon: 'fa-regular fa-file-excel',
+      skills: ['Power Query', 'Pivot Tables', 'VBA / Macros', 'AI Forecasting']
     },
     {
       id: 'cert-powerbi',
@@ -46,8 +48,9 @@ export const portfolioData = {
       title: 'Power BI',
       issuer: 'TuteDude Certified',
       description: 'Focuses on end-to-end business intelligence, interactive dashboard design, advanced DAX measures, Power Query data transformation, and data modeling.',
-      pdf: 'images/Power BI Certificate.pdf',
-      icon: 'fa-solid fa-chart-pie'
+      pdf: '/images/Power BI Certificate.pdf',
+      icon: 'fa-solid fa-chart-pie',
+      skills: ['DAX Measures', 'Star Schema', 'ETL Modeling', 'Executive BI']
     },
     {
       id: 'cert-dm',
@@ -55,8 +58,9 @@ export const portfolioData = {
       title: 'Digital Marketing',
       issuer: 'TuteDude Certified',
       description: 'Explores search engine optimization (SEO), data-driven campaign analytics, conversion rate optimization (CRO), and digital branding strategies.',
-      pdf: 'images/Digital Marketing Certificate.pdf',
-      icon: 'fa-solid fa-bullseye'
+      pdf: '/images/Digital Marketing Certificate.pdf',
+      icon: 'fa-solid fa-bullseye',
+      skills: ['Campaign Analytics', 'SEO & SEM', 'Conversion CRO', 'Brand Strategy']
     },
     {
       id: 'cert-fmv',
@@ -64,8 +68,9 @@ export const portfolioData = {
       title: 'Financial Modeling & Valuation (FMV)',
       issuer: 'TuteDude Certified',
       description: 'Covers corporate valuation models, discounted cash flow (DCF) analysis, financial projections, sensitivity tables, and investment evaluation.',
-      pdf: 'images/Financial Modeling And Valuatoin Certificate.pdf',
-      icon: 'fa-solid fa-chart-column'
+      pdf: '/images/Financial Modeling And Valuatoin Certificate.pdf',
+      icon: 'fa-solid fa-chart-column',
+      skills: ['DCF Modeling', 'Sensitivity Tables', 'Financial Statements', 'Valuation']
     }
   ]
 };
